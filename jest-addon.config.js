@@ -9,8 +9,8 @@ module.exports = {
     '@plone/volto/babel': '<rootDir>/node_modules/@plone/volto/babel',
     '@plone/volto/(.*)$': '<rootDir>/node_modules/@plone/volto/src/$1',
     '@package/(.*)$': '<rootDir>/src/$1',
-    '@kitconcept/volto-blocks/(.*)$':
-      '<rootDir>/src/addons/volto-blocks/src/$1',
+    '@kitconcept/volto-blocks-grid/(.*)$':
+      '<rootDir>/src/addons/volto-blocks-grid/src/$1',
     '~/(.*)$': '<rootDir>/src/$1',
     'load-volto-addons':
       '<rootDir>/node_modules/@plone/volto/jest-addons-loader.js',
@@ -23,13 +23,5 @@ module.exports = {
     '^.+\\.(png)$': 'jest-file',
     '^.+\\.(jpg)$': 'jest-file',
     '^.+\\.(svg)$': './node_modules/@plone/volto/jest-svgsystem-transform.js',
-  },
-  coverageThreshold: {
-    global: {
-      branches: 5,
-      functions: 5,
-      lines: 5,
-      statements: 5,
-    },
   },
 };
