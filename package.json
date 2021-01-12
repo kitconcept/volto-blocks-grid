@@ -1,0 +1,19 @@
+{
+  "name": "@kitconcept/volto-blocks-grid",
+  "version": "1.0.0",
+  "description": "kitconcept's Volto Grids add-on - Unidimensional grids FTW",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/kitconcept/volto-blocks-grid.git"
+  },
+  "author": "kitconcept, GmbH",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kitconcept/volto-blocks-grid/issues"
+  },
+  "homepage": "https://github.com/kitconcept/volto-blocks-grid#readme"
+}
