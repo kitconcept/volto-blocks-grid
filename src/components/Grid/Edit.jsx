@@ -12,15 +12,11 @@ import { Icon, SidebarPortal } from '@plone/volto/components';
 import addSVG from '@plone/volto/icons/add.svg';
 import clearSVG from '@plone/volto/icons/clear.svg';
 
-import BlockRenderer from '@kitconcept/volto-blocks/components/BlockRenderer/BlockRenderer';
-import TemplateChooser from '@kitconcept/volto-blocks/components/TemplateChooser/TemplateChooser';
+import { BlockRenderer, TemplateChooser } from '../../components';
 import NewBlockAddButton from './NewBlockAddButton';
-import GridData from './Data';
+// import GridData from './Data';
 
-import {
-  reorderArray,
-  replaceItemOfArray,
-} from '@kitconcept/volto-blocks/helpers';
+import { reorderArray, replaceItemOfArray } from '../../helpers';
 
 import { getAllowedBlocks } from '../utils';
 import templates from './templates';

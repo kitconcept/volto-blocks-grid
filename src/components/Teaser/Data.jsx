@@ -1,6 +1,6 @@
 import React from 'react';
 import { useIntl } from 'react-intl';
-import { SchemaRenderer } from '@kitconcept/volto-blocks/components';
+import { SchemaRenderer } from '../../components';
 import { TeaserSchema } from './schema';
 import { blocks } from '~/config';
 

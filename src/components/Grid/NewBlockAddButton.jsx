@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'semantic-ui-react';
 import { BlockChooser, Icon } from '@plone/volto/components';
-import useOutsideClick from '@kitconcept/volto-blocks/helpers/useOutsideClick/useOutsideClick';
+import useOutsideClick from '../../helpers/useOutsideClick/useOutsideClick';
 import addSVG from '@plone/volto/icons/add.svg';
 
 const NewBlockAddButton = (props) => {

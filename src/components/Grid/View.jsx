@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Grid } from 'semantic-ui-react';
 import cx from 'classnames';
-import BlockRenderer from '@kitconcept/volto-blocks/components/BlockRenderer/BlockRenderer';
+import { BlockRenderer } from '../../components/BlockRenderer/BlockRenderer';
 
 const ViewGrid = ({ data, render, path }) => {
   return (
