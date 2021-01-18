@@ -25,7 +25,6 @@ const customBlocks = {
       view: [],
     },
     gridAllowedBlocks: ['teaser', 'image', 'listing', 'text'],
-    blockHasOwnFocusManagement: true,
   },
   teaserGrid: {
     id: 'teaserGrid',

@@ -230,6 +230,11 @@ class EditGrid extends Component {
                 <Icon name={addSVG} size="24px" />
               </Button>
             </Button.Group>
+            <Button.Group>
+              <Button icon basic onClick={(e) => this.setState({ asd: true })}>
+                <Icon name={addSVG} size="24px" />
+              </Button>
+            </Button.Group>
           </div>
         )}
         <div
