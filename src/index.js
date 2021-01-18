@@ -24,6 +24,8 @@ const customBlocks = {
       addPermission: [],
       view: [],
     },
+    gridAllowedBlocks: ['teaser', 'image', 'listing', 'text'],
+    blockHasOwnFocusManagement: true,
   },
   teaserGrid: {
     id: 'teaserGrid',

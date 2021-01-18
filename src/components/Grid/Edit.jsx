@@ -49,10 +49,6 @@ class EditGrid extends Component {
     onFocusPreviousBlock: PropTypes.func.isRequired,
     onFocusNextBlock: PropTypes.func.isRequired,
     handleKeyDown: PropTypes.func.isRequired,
-    createContent: PropTypes.func.isRequired,
-    gridType: PropTypes.string,
-    templates: PropTypes.func.isRequired,
-    sidebarData: PropTypes.func.isRequired,
   };
 
   state = {
@@ -333,6 +329,9 @@ class EditGrid extends Component {
                                           onChangeGridItem={
                                             this.onChangeGridItem
                                           }
+                                          allowedBlocks={getAllowedBlocks(
+                                            this.props.data['@type'],
+                                          )}
                                         />
                                       </div>
                                     )}
