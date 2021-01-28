@@ -8,7 +8,7 @@ import { getContent } from '@plone/volto/actions';
 import imageBlockSVG from '@plone/volto/components/manage/Blocks/Image/block-image.svg';
 import { flattenToAppURL } from '@plone/volto/helpers';
 import { getTeaserImageURL } from './utils';
-import { MaybeWrap } from '@kitconcept/volto-blocks/components';
+import { MaybeWrap } from '../../components';
 
 const messages = defineMessages({
   PleaseChooseContent: {

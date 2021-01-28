@@ -24,6 +24,7 @@ const customBlocks = {
       addPermission: [],
       view: [],
     },
+    gridAllowedBlocks: ['teaser', 'image', 'listing', 'text'],
   },
   teaserGrid: {
     id: 'teaserGrid',

@@ -11,16 +11,13 @@ import { Icon, SidebarPortal } from '@plone/volto/components';
 
 import addSVG from '@plone/volto/icons/add.svg';
 import clearSVG from '@plone/volto/icons/clear.svg';
+import configSVG from '@plone/volto/icons/configuration.svg';
 
-import BlockRenderer from '@kitconcept/volto-blocks/components/BlockRenderer/BlockRenderer';
-import TemplateChooser from '@kitconcept/volto-blocks/components/TemplateChooser/TemplateChooser';
+import { BlockRenderer, TemplateChooser } from '../../components';
 import NewBlockAddButton from './NewBlockAddButton';
 import GridData from './Data';
 
-import {
-  reorderArray,
-  replaceItemOfArray,
-} from '@kitconcept/volto-blocks/helpers';
+import { reorderArray, replaceItemOfArray } from '../../helpers';
 
 import { getAllowedBlocks } from '../utils';
 import templates from './templates';
@@ -53,10 +50,6 @@ class EditGrid extends Component {
     onFocusPreviousBlock: PropTypes.func.isRequired,
     onFocusNextBlock: PropTypes.func.isRequired,
     handleKeyDown: PropTypes.func.isRequired,
-    createContent: PropTypes.func.isRequired,
-    gridType: PropTypes.string,
-    templates: PropTypes.func.isRequired,
-    sidebarData: PropTypes.func.isRequired,
   };
 
   state = {
@@ -238,6 +231,18 @@ class EditGrid extends Component {
                 <Icon name={addSVG} size="24px" />
               </Button>
             </Button.Group>
+            <Button.Group>
+              <Button
+                icon
+                basic
+                onClick={(e) => {
+                  e.stopPropagation();
+                  this.setState({ selectedColumnIndex: null });
+                }}
+              >
+                <Icon name={configSVG} size="24px" />
+              </Button>
+            </Button.Group>
           </div>
         )}
         <div
@@ -337,6 +342,9 @@ class EditGrid extends Component {
                                           onChangeGridItem={
                                             this.onChangeGridItem
                                           }
+                                          allowedBlocks={getAllowedBlocks(
+                                            this.props.data['@type'],
+                                          )}
                                         />
                                       </div>
                                     )}
@@ -361,7 +369,9 @@ class EditGrid extends Component {
               )}
             </Droppable>
           </DragDropContext>
-          <SidebarPortal selected={this.props.selected}>HELLO</SidebarPortal>
+          <SidebarPortal selected={this.props.selected}>
+            <GridData {...this.props}></GridData>
+          </SidebarPortal>
         </div>
       </>
     );

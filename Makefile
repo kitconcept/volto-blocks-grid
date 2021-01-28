@@ -9,7 +9,7 @@ GREEN=`tput setaf 2`
 RESET=`tput sgr0`
 YELLOW=`tput setaf 3`
 
-GIT_NAME = volto-blocks
+GIT_NAME = volto-blocks-grid
 NAMESPACE = @kitconcept
 RAZZLE_JEST_CONFIG = jest-addon.config.js
 
