@@ -318,6 +318,8 @@ class EditGrid extends Component {
                                           this.onChangeGridItem(index, data);
                                         }}
                                         data={this.props.data.columns[index]}
+                                        variation={this.props.data.variation}
+                                        parentBlock={this.props.data['@type']}
                                       />
                                     ) : (
                                       <div className="uber-grid-default-item">
@@ -348,14 +350,6 @@ class EditGrid extends Component {
                                         />
                                       </div>
                                     )}
-
-                                    {/* {this.props.render({
-                                    item,
-                                    index,
-                                    path: getBaseUrl(this.props.pathname),
-                                    onChangeGridItem: this.onChangeGridItem,
-                                    columns: data.columns,
-                                  })} */}
                                   </div>
                                 </Grid.Column>
                               </Ref>

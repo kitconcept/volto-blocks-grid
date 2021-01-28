@@ -1,13 +1,18 @@
 import React from 'react';
 import { useIntl } from 'react-intl';
 import { SchemaRenderer } from '../../components';
-import { applySchemaEnhancer } from '../utils';
+import { addVariationsFieldToSchema, applySchemaEnhancer } from '../utils';
 import { GridSchema } from './schema';
 
 const GridData = (props) => {
   const { block, data, onChangeBlock } = props;
   const intl = useIntl();
-  const schema = GridSchema({ ...props, intl });
+  const schema = addVariationsFieldToSchema(
+    data['@type'],
+    GridSchema({ ...props, intl }),
+    data.variation,
+    intl,
+  );
 
   return (
     <SchemaRenderer
