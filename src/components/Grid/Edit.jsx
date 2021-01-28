@@ -11,10 +11,11 @@ import { Icon, SidebarPortal } from '@plone/volto/components';
 
 import addSVG from '@plone/volto/icons/add.svg';
 import clearSVG from '@plone/volto/icons/clear.svg';
+import configSVG from '@plone/volto/icons/configuration.svg';
 
 import { BlockRenderer, TemplateChooser } from '../../components';
 import NewBlockAddButton from './NewBlockAddButton';
-// import GridData from './Data';
+import GridData from './Data';
 
 import { reorderArray, replaceItemOfArray } from '../../helpers';
 
@@ -231,8 +232,15 @@ class EditGrid extends Component {
               </Button>
             </Button.Group>
             <Button.Group>
-              <Button icon basic onClick={(e) => this.setState({ asd: true })}>
-                <Icon name={addSVG} size="24px" />
+              <Button
+                icon
+                basic
+                onClick={(e) => {
+                  e.stopPropagation();
+                  this.setState({ selectedColumnIndex: null });
+                }}
+              >
+                <Icon name={configSVG} size="24px" />
               </Button>
             </Button.Group>
           </div>
@@ -361,7 +369,9 @@ class EditGrid extends Component {
               )}
             </Droppable>
           </DragDropContext>
-          <SidebarPortal selected={this.props.selected}>HELLO</SidebarPortal>
+          <SidebarPortal selected={this.props.selected}>
+            <GridData {...this.props}></GridData>
+          </SidebarPortal>
         </div>
       </>
     );
