@@ -50,7 +50,7 @@ export const addVariationsFieldToSchema = (
         }),
       ]),
       value: currentVariation,
-      removeNoValue: true,
+      noValueOption: false,
     };
   }
 
