@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Message } from 'semantic-ui-react';
 import { defineMessages, useIntl } from 'react-intl';
-import { useDispatch } from 'react-redux';
-import { getContent } from '@plone/volto/actions';
 import imageBlockSVG from '@plone/volto/components/manage/Blocks/Image/block-image.svg';
 import { flattenToAppURL } from '@plone/volto/helpers';
 import { getTeaserImageURL } from './utils';
@@ -28,27 +26,6 @@ const TeaserDefaultTemplate = ({
   const intl = useIntl();
   const href = data.href?.[0];
   const image = data.preview_image?.[0];
-  const dispatch = useDispatch();
-
-  React.useEffect(() => {
-    if (href && !data.title && !data.description) {
-      dispatch(getContent(href['@id'], null, block)).then((resp) => {
-        onChangeBlock(block, {
-          ...data,
-          ...(!data.title && { title: resp.title }),
-          ...(!data.description && { description: resp.description }),
-        });
-      });
-    }
-    if (!href) {
-      onChangeBlock(block, {
-        ...data,
-        title: '',
-        description: '',
-      });
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [href]);
 
   return (
     <>
