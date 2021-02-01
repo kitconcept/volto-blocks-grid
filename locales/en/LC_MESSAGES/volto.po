@@ -1,0 +1,64 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language: \n"
+"Language-Team: \n"
+"Content-Type: \n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#: components/SchemaRenderer/SchemaRenderer
+msgid "Edit values"
+msgstr ""
+
+#: components/SchemaRenderer/SchemaRenderer
+msgid "Error"
+msgstr ""
+
+#: components/Grid/GridSidebar
+msgid "Grid"
+msgstr ""
+
+#: components/Grid/GridSidebar
+msgid "Grid Element"
+msgstr ""
+
+#: components/Grid/GridSidebar
+msgid "Grid Image"
+msgstr ""
+
+#: components/Grid/GridSidebar
+msgid "Images Grid"
+msgstr ""
+
+#: components/Grid/GridSidebar
+msgid "Listing Grid"
+msgstr ""
+
+#: components/Grid/GridSidebar
+msgid "ListingGrid"
+msgstr ""
+
+#: components/Teaser/DefaultBody
+msgid "Please choose an existing content as source for this element"
+msgstr ""
+
+#: components/Teaser/schema
+msgid "Source"
+msgstr ""
+
+#: components/Grid/GridSidebar
+msgid "Teaser Grid"
+msgstr ""
+
+#: components/SchemaRenderer/SchemaRenderer
+msgid "There were some errors"
+msgstr ""
+
+#: components/utils
+msgid "Variation"
+msgstr ""
