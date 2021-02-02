@@ -28,7 +28,7 @@ msgstr ""
 
 #: components/SchemaRenderer/SchemaRenderer
 msgid "Edit values"
-msgstr "blaaaaa"
+msgstr ""
 
 #: components/SchemaRenderer/SchemaRenderer
 msgid "Error"
