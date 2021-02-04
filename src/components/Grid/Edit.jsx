@@ -236,21 +236,6 @@ class EditGrid extends Component {
               <Button
                 icon
                 basic
-                disabled={
-                  !this.state.selectedColumnIndex &&
-                  this.state.selectedColumnIndex !== 0
-                }
-                onClick={(e) =>
-                  this.removeColumn(e, this.state.selectedColumnIndex)
-                }
-              >
-                <Icon name={trashSVG} size="24px" color="#e40166" />
-              </Button>
-            </Button.Group>
-            <Button.Group>
-              <Button
-                icon
-                basic
                 onClick={(e) => {
                   e.stopPropagation();
                   this.setState({ selectedColumnIndex: null });
@@ -333,6 +318,20 @@ class EditGrid extends Component {
                                       this.onChangeSelectedColumnItem(index);
                                     }}
                                   >
+                                    <Button
+                                      basic
+                                      icon
+                                      onClick={(e) =>
+                                        this.removeColumn(e, index)
+                                      }
+                                      className="remove-block-button"
+                                    >
+                                      <Icon
+                                        name={clearSVG}
+                                        className="circled"
+                                        size="24px"
+                                      />
+                                    </Button>
                                     {item['@type'] ? (
                                       <BlockRenderer
                                         {...this.props}
@@ -352,20 +351,6 @@ class EditGrid extends Component {
                                       />
                                     ) : (
                                       <div className="uber-grid-default-item">
-                                        <Button
-                                          basic
-                                          icon
-                                          onClick={(e) =>
-                                            this.removeColumn(e, index)
-                                          }
-                                          className="remove-block-button"
-                                        >
-                                          <Icon
-                                            name={clearSVG}
-                                            className="circled"
-                                            size="24px"
-                                          />
-                                        </Button>
                                         <p>Add a new block</p>
                                         <NewBlockAddButton
                                           block={this.props.blocks}

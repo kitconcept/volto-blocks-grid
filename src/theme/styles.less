@@ -32,6 +32,31 @@
   .block {
     margin: 0;
   }
+
+  .ui.basic.button.remove-block-button {
+    position: absolute;
+    z-index: 2;
+    top: 6px;
+    right: 2px;
+
+    .icon {
+      height: 18px !important;
+    }
+
+    .circled {
+      padding: 8px;
+      border: none;
+      background: @greySnow;
+
+      &:hover {
+        background-color: @greySmoke;
+      }
+    }
+
+    &:hover {
+      background-color: transparent !important;
+    }
+  }
 }
 
 .uber-grid-default-item {
@@ -43,8 +68,7 @@
   align-items: center;
   justify-content: center;
 
-  .ui.basic.button.add-block-button,
-  .ui.basic.button.remove-block-button {
+  .ui.basic.button.add-block-button {
     .icon {
       height: 32px !important;
     }
@@ -61,22 +85,6 @@
 
     &:hover {
       background-color: transparent !important;
-    }
-  }
-
-  .ui.basic.button.remove-block-button {
-    position: absolute;
-    top: 6px;
-    right: 2px;
-
-    .icon {
-      height: 18px !important;
-    }
-
-    .circled {
-      padding: 8px;
-      border: none;
-      background: @greySnow;
     }
   }
 
@@ -122,6 +130,7 @@
 [class$='Grid'] .block,
 .block.__grid {
   .ui.message {
+    margin: 0;
     border-radius: 6px;
   }
 
