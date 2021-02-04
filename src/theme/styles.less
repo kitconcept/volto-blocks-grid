@@ -8,11 +8,54 @@
 }
 
 .renderer-wrapper {
+  position: relative;
   height: 100%;
   border-radius: 6px;
 
   &.empty {
     background: @blueArctic;
+  }
+
+  &.selected::before {
+    position: absolute;
+    // otherwise, this layer is above the object, then it does not allow clicking inside
+    z-index: -1;
+    top: -5px;
+    left: -5px;
+    width: calc(100% + 10px);
+    height: calc(100% + 10px);
+    border: 1px solid rgba(120, 192, 215, 0.5);
+    border-radius: 3px;
+    content: '';
+  }
+
+  .block {
+    margin: 0;
+  }
+
+  .ui.basic.button.remove-block-button {
+    position: absolute;
+    z-index: 2;
+    top: 6px;
+    right: 2px;
+
+    .icon {
+      height: 18px !important;
+    }
+
+    .circled {
+      padding: 8px;
+      border: 1px solid @greySmoke;
+      background: @greySnow;
+
+      &:hover {
+        background-color: @greySmoke;
+      }
+    }
+
+    &:hover {
+      background-color: transparent !important;
+    }
   }
 }
 
@@ -25,8 +68,7 @@
   align-items: center;
   justify-content: center;
 
-  .ui.basic.button.add-block-button,
-  .ui.basic.button.remove-block-button {
+  .ui.basic.button.add-block-button {
     .icon {
       height: 32px !important;
     }
@@ -43,22 +85,6 @@
 
     &:hover {
       background-color: transparent !important;
-    }
-  }
-
-  .ui.basic.button.remove-block-button {
-    position: absolute;
-    top: 6px;
-    right: 2px;
-
-    .icon {
-      height: 18px !important;
-    }
-
-    .circled {
-      padding: 8px;
-      border: none;
-      background: @greySnow;
     }
   }
 
@@ -99,4 +125,17 @@
   box-shadow: 0px 9px 18px rgba(2, 19, 34, 0.18),
     0px 6px 12px rgba(2, 19, 34, 0.06);
   transform: initial;
+}
+
+[class$='Grid'] .block,
+.block.__grid {
+  .ui.message {
+    margin: 0;
+    border-radius: 6px;
+  }
+
+  // Override for grid image hover
+  .block.image:hover::before {
+    display: none;
+  }
 }

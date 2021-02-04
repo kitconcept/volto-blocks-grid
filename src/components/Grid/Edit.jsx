@@ -253,6 +253,12 @@ class EditGrid extends Component {
             three: data?.columns && data.columns.length === 3,
             four: data?.columns && data.columns.length === 4,
           })}
+          // This is required to enabling a small "in-between" clickable area
+          // for bringing the Grid sidebar alive once you have selected an inner block
+          onClick={(e) => {
+            this.setState({ selectedColumnIndex: null });
+          }}
+          role="presentation"
         >
           {!this.props.data.columns?.length && (
             <TemplateChooser
@@ -264,7 +270,6 @@ class EditGrid extends Component {
               onSelectTemplate={this.onSelectTemplate}
             />
           )}
-
           <DragDropContext onDragEnd={this.onDragEnd}>
             <Droppable droppableId={uuid()} direction="horizontal">
               {(provided) => (
@@ -296,14 +301,36 @@ class EditGrid extends Component {
                                   <div
                                     className={cx('renderer-wrapper', {
                                       empty: !item['@type'],
+                                      selected:
+                                        this.props.selected &&
+                                        this.state.selectedColumnIndex ===
+                                          index,
                                     })}
                                     role="presentation"
                                     // This prevents propagation of ENTER
                                     onKeyDown={(e) => e.stopPropagation()}
-                                    onClick={() =>
-                                      this.onChangeSelectedColumnItem(index)
-                                    }
+                                    onClick={(e) => {
+                                      e.stopPropagation();
+                                      this.props.onSelectBlock(
+                                        this.props.block,
+                                      );
+                                      this.onChangeSelectedColumnItem(index);
+                                    }}
                                   >
+                                    <Button
+                                      basic
+                                      icon
+                                      onClick={(e) =>
+                                        this.removeColumn(e, index)
+                                      }
+                                      className="remove-block-button"
+                                    >
+                                      <Icon
+                                        name={clearSVG}
+                                        className="circled"
+                                        size="24px"
+                                      />
+                                    </Button>
                                     {item['@type'] ? (
                                       <BlockRenderer
                                         {...this.props}
@@ -323,20 +350,6 @@ class EditGrid extends Component {
                                       />
                                     ) : (
                                       <div className="uber-grid-default-item">
-                                        <Button
-                                          basic
-                                          icon
-                                          onClick={(e) =>
-                                            this.removeColumn(e, index)
-                                          }
-                                          className="remove-block-button"
-                                        >
-                                          <Icon
-                                            name={clearSVG}
-                                            className="circled"
-                                            size="24px"
-                                          />
-                                        </Button>
                                         <p>Add a new block</p>
                                         <NewBlockAddButton
                                           block={this.props.blocks}

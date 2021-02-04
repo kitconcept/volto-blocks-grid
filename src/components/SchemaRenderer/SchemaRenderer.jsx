@@ -2,10 +2,12 @@ import PropTypes from 'prop-types';
 import { defineMessages, injectIntl } from 'react-intl';
 import React from 'react';
 import { keys, map } from 'lodash';
-import { Field } from '@plone/volto/components';
+import { Field, Icon } from '@plone/volto/components';
 import AnimateHeight from 'react-animate-height';
 import { Accordion, Segment, Message } from 'semantic-ui-react';
 import { MaybeWrap } from '../../components';
+import upSVG from '@plone/volto/icons/up-key.svg';
+import downSVG from '@plone/volto/icons/down-key.svg';
 
 const messages = defineMessages({
   editValues: {
@@ -119,6 +121,11 @@ const InlineForm = ({
               onClick={handleCurrentActiveFieldset}
             >
               {fieldset.title && <>{fieldset.title}</>}
+              {currentActiveFieldset === index ? (
+                <Icon name={upSVG} size="20px" />
+              ) : (
+                <Icon name={downSVG} size="20px" />
+              )}
             </Accordion.Title>
             <Accordion.Content active={currentActiveFieldset === index}>
               <AnimateHeight
