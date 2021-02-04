@@ -30,7 +30,7 @@ test: ## Run unit test suite for the addon
 .PHONY: cypress
 cypress: ## Run unit test suite for the addon
 	@echo "$(GREEN)==> Run cypress for the addon$(RESET)"
-	docker run -i --rm --link plone -e RAZZLE_API_PATH="http://plone:55001/plone" -e CYPRESS_BACKEND_HOST="plone" -e NAMESPACE="$(NAMESPACE)" -e DEPENDENCIES="$(DEPENDENCIES)" -e GIT_NAME="$(GIT_NAME)" -v $(shell pwd):/opt/frontend/my-volto-project/src/addons/$(GIT_NAME) plone/volto-addon-ci cypress
+	docker run -i --rm --link plone -e NODE_ENV=production -e RAZZLE_API_PATH="http://plone:55001/plone" -e CYPRESS_BACKEND_HOST="plone" -e NAMESPACE="$(NAMESPACE)" -e DEPENDENCIES="$(DEPENDENCIES)" -e GIT_NAME="$(GIT_NAME)" -v $(shell pwd):/opt/frontend/my-volto-project/src/addons/$(GIT_NAME) plone/volto-addon-ci cypress
 
 .PHONY: prettier
 prettier: ## Run unit test suite for the addon
