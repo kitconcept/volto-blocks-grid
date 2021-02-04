@@ -12,6 +12,7 @@ import { Icon, SidebarPortal } from '@plone/volto/components';
 import addSVG from '@plone/volto/icons/add.svg';
 import clearSVG from '@plone/volto/icons/clear.svg';
 import configSVG from '@plone/volto/icons/configuration.svg';
+import trashSVG from '@plone/volto/icons/delete.svg';
 
 import { BlockRenderer, TemplateChooser } from '../../components';
 import NewBlockAddButton from './NewBlockAddButton';
@@ -235,6 +236,21 @@ class EditGrid extends Component {
               <Button
                 icon
                 basic
+                disabled={
+                  !this.state.selectedColumnIndex &&
+                  this.state.selectedColumnIndex !== 0
+                }
+                onClick={(e) =>
+                  this.removeColumn(e, this.state.selectedColumnIndex)
+                }
+              >
+                <Icon name={trashSVG} size="24px" color="#e40166" />
+              </Button>
+            </Button.Group>
+            <Button.Group>
+              <Button
+                icon
+                basic
                 onClick={(e) => {
                   e.stopPropagation();
                   this.setState({ selectedColumnIndex: null });
@@ -253,6 +269,12 @@ class EditGrid extends Component {
             three: data?.columns && data.columns.length === 3,
             four: data?.columns && data.columns.length === 4,
           })}
+          // This is required to enabling a small "in-between" clickable area
+          // for bringing the Grid sidebar alive once you have selected an inner block
+          onClick={(e) => {
+            this.setState({ selectedColumnIndex: null });
+          }}
+          role="presentation"
         >
           {!this.props.data.columns?.length && (
             <TemplateChooser
@@ -264,7 +286,6 @@ class EditGrid extends Component {
               onSelectTemplate={this.onSelectTemplate}
             />
           )}
-
           <DragDropContext onDragEnd={this.onDragEnd}>
             <Droppable droppableId={uuid()} direction="horizontal">
               {(provided) => (
@@ -296,13 +317,21 @@ class EditGrid extends Component {
                                   <div
                                     className={cx('renderer-wrapper', {
                                       empty: !item['@type'],
+                                      selected:
+                                        this.props.selected &&
+                                        this.state.selectedColumnIndex ===
+                                          index,
                                     })}
                                     role="presentation"
                                     // This prevents propagation of ENTER
                                     onKeyDown={(e) => e.stopPropagation()}
-                                    onClick={() =>
-                                      this.onChangeSelectedColumnItem(index)
-                                    }
+                                    onClick={(e) => {
+                                      e.stopPropagation();
+                                      this.props.onSelectBlock(
+                                        this.props.block,
+                                      );
+                                      this.onChangeSelectedColumnItem(index);
+                                    }}
                                   >
                                     {item['@type'] ? (
                                       <BlockRenderer

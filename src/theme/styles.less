@@ -8,11 +8,29 @@
 }
 
 .renderer-wrapper {
+  position: relative;
   height: 100%;
   border-radius: 6px;
 
   &.empty {
     background: @blueArctic;
+  }
+
+  &.selected::before {
+    position: absolute;
+    // otherwise, this layer is above the object, then it does not allow clicking inside
+    z-index: -1;
+    top: -5px;
+    left: -5px;
+    width: calc(100% + 10px);
+    height: calc(100% + 10px);
+    border: 1px solid rgba(120, 192, 215, 0.5);
+    border-radius: 3px;
+    content: '';
+  }
+
+  .block {
+    margin: 0;
   }
 }
 
@@ -99,4 +117,16 @@
   box-shadow: 0px 9px 18px rgba(2, 19, 34, 0.18),
     0px 6px 12px rgba(2, 19, 34, 0.06);
   transform: initial;
+}
+
+[class$='Grid'] .block,
+.block.__grid {
+  .ui.message {
+    border-radius: 6px;
+  }
+
+  // Override for grid image hover
+  .block.image:hover::before {
+    display: none;
+  }
 }
