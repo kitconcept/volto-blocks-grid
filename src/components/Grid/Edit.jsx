@@ -12,7 +12,6 @@ import { Icon, SidebarPortal } from '@plone/volto/components';
 import addSVG from '@plone/volto/icons/add.svg';
 import clearSVG from '@plone/volto/icons/clear.svg';
 import configSVG from '@plone/volto/icons/configuration.svg';
-import trashSVG from '@plone/volto/icons/delete.svg';
 
 import { BlockRenderer, TemplateChooser } from '../../components';
 import NewBlockAddButton from './NewBlockAddButton';
