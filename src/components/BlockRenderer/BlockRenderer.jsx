@@ -49,4 +49,8 @@ BlockRenderer.propTypes = {
   parentBlock: PropTypes.string,
 };
 
+BlockRenderer.defaultProps = {
+  edit: false,
+};
+
 export default withObjectBrowser(BlockRenderer);
