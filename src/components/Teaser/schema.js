@@ -5,13 +5,33 @@ const messages = defineMessages({
     id: 'Source',
     defaultMessage: 'Source',
   },
+  item: {
+    id: 'Item',
+    defaultMessage: 'Item',
+  },
+  imageOverride: {
+    id: 'Image override',
+    defaultMessage: 'Image override',
+  },
+  openLinkInNewTab: {
+    id: 'Open in a new tab',
+    defaultMessage: 'Open in a new tab',
+  },
+  title: {
+    id: 'Title',
+    defaultMessage: 'Title',
+  },
+  description: {
+    id: 'Description',
+    defaultMessage: 'Description',
+  },
 });
 
 export const TeaserSchema = (props) => {
   const { intl } = props;
 
   return {
-    title: 'Item',
+    title: intl.formatMessage(messages.item),
     fieldsets: [
       {
         id: 'default',
@@ -28,15 +48,19 @@ export const TeaserSchema = (props) => {
         selectedItemAttrs: ['Title', 'Description', 'hasPreviewImage'],
       },
       title: {
-        title: 'Title',
+        title: intl.formatMessage(messages.title),
       },
       description: {
-        title: 'Description',
+        title: intl.formatMessage(messages.description),
       },
       preview_image: {
-        title: 'Image override',
+        title: intl.formatMessage(messages.imageOverride),
         widget: 'object_browser',
         mode: 'image',
+      },
+      openLinkInNewTab: {
+        title: intl.formatMessage(messages.openLinkInNewTab),
+        type: 'boolean',
       },
     },
     required: [],

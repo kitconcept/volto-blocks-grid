@@ -11,32 +11,24 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
+#: components/Teaser/schema
+msgid "Description"
+msgstr ""
+
 #: components/SchemaRenderer/SchemaRenderer
 msgid "Error"
 msgstr ""
 
-#: components/Grid/GridSidebar
-msgid "Grid"
+#: components/Teaser/schema
+msgid "Image override"
 msgstr ""
 
-#: components/Grid/GridSidebar
-msgid "Grid Element"
+#: components/Teaser/schema
+msgid "Item"
 msgstr ""
 
-#: components/Grid/GridSidebar
-msgid "Grid Image"
-msgstr ""
-
-#: components/Grid/GridSidebar
-msgid "Images Grid"
-msgstr ""
-
-#: components/Grid/GridSidebar
-msgid "Listing Grid"
-msgstr ""
-
-#: components/Grid/GridSidebar
-msgid "ListingGrid"
+#: components/Teaser/schema
+msgid "Open in a new tab"
 msgstr ""
 
 #: components/Teaser/DefaultBody
@@ -47,12 +39,12 @@ msgstr ""
 msgid "Source"
 msgstr ""
 
-#: components/Grid/GridSidebar
-msgid "Teaser Grid"
-msgstr ""
-
 #: components/SchemaRenderer/SchemaRenderer
 msgid "There were some errors"
+msgstr ""
+
+#: components/Teaser/schema
+msgid "Title"
 msgstr ""
 
 #: components/utils

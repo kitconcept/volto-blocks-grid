@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Plone\n"
-"POT-Creation-Date: 2021-02-08T10:19:58.977Z\n"
+"POT-Creation-Date: 2021-02-08T11:46:54.998Z\n"
 "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -13,39 +13,29 @@ msgstr ""
 "Preferred-Encodings: utf-8\n"
 "Domain: volto\n"
 
+#: components/Teaser/schema
+# defaultMessage: Description
+msgid "Description"
+msgstr ""
+
 #: components/SchemaRenderer/SchemaRenderer
 # defaultMessage: Error
 msgid "Error"
 msgstr ""
 
-#: components/Grid/GridSidebar
-# defaultMessage: Grid
-msgid "Grid"
+#: components/Teaser/schema
+# defaultMessage: Image override
+msgid "Image override"
 msgstr ""
 
-#: components/Grid/GridSidebar
-# defaultMessage: Grid Element {index}
-msgid "Grid Element"
+#: components/Teaser/schema
+# defaultMessage: Item
+msgid "Item"
 msgstr ""
 
-#: components/Grid/GridSidebar
-# defaultMessage: Grid Image {index}
-msgid "Grid Image"
-msgstr ""
-
-#: components/Grid/GridSidebar
-# defaultMessage: Images Grid
-msgid "Images Grid"
-msgstr ""
-
-#: components/Grid/GridSidebar
-# defaultMessage: Listing Grid
-msgid "Listing Grid"
-msgstr ""
-
-#: components/Grid/GridSidebar
-# defaultMessage: Listing Grid {index}
-msgid "ListingGrid"
+#: components/Teaser/schema
+# defaultMessage: Open in a new tab
+msgid "Open in a new tab"
 msgstr ""
 
 #: components/Teaser/DefaultBody
@@ -58,14 +48,14 @@ msgstr ""
 msgid "Source"
 msgstr ""
 
-#: components/Grid/GridSidebar
-# defaultMessage: Teaser Grid
-msgid "Teaser Grid"
-msgstr ""
-
 #: components/SchemaRenderer/SchemaRenderer
 # defaultMessage: There were some errors
 msgid "There were some errors"
+msgstr ""
+
+#: components/Teaser/schema
+# defaultMessage: Title
+msgid "Title"
 msgstr ""
 
 #: components/utils

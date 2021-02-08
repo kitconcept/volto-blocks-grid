@@ -1,3 +1,5 @@
+msgid ""
+msgstr ""
 "Project-Id-Version: Plone\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-27T19:30:59.079Z\n"
@@ -14,33 +16,25 @@
 "Preferred-Encodings: utf-8 latin1\n"
 "X-Is-Fallback-For: de-at de-li de-lu de-ch de-de\n"
 
+#: components/Teaser/schema
+msgid "Description"
+msgstr "Beschreibung"
+
 #: components/SchemaRenderer/SchemaRenderer
 msgid "Error"
 msgstr "Fehler"
 
-#: components/Grid/GridSidebar
-msgid "Grid"
-msgstr "Grid"
+#: components/Teaser/schema
+msgid "Image override"
+msgstr "Bild überschreiben"
 
-#: components/Grid/GridSidebar
-msgid "Grid Element"
-msgstr "Grid Element {index}"
+#: components/Teaser/schema
+msgid "Item"
+msgstr "Element"
 
-#: components/Grid/GridSidebar
-msgid "Grid Image"
-msgstr "Grid Bild {index}"
-
-#: components/Grid/GridSidebar
-msgid "Images Grid"
-msgstr "Bilder Grid"
-
-#: components/Grid/GridSidebar
-msgid "Listing Grid"
-msgstr "Listing Grid {index}"
-
-#: components/Grid/GridSidebar
-msgid "ListingGrid"
-msgstr ""
+#: components/Teaser/schema
+msgid "Open in a new tab"
+msgstr "In neuem Tab öffnen"
 
 #: components/Teaser/DefaultBody
 msgid "Please choose an existing content as source for this element"
@@ -50,13 +44,13 @@ msgstr "Bitte wählen sie einen existierenden Inhalt als Quelle für dieses Elem
 msgid "Source"
 msgstr "Quelle"
 
-#: components/Grid/GridSidebar
-msgid "Teaser Grid"
-msgstr ""
-
 #: components/SchemaRenderer/SchemaRenderer
 msgid "There were some errors"
 msgstr "Es gab einige Fehler"
+
+#: components/Teaser/schema
+msgid "Title"
+msgstr "Titel"
 
 #: components/utils
 msgid "Variation"
