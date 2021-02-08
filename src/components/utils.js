@@ -12,16 +12,28 @@ export function getAllowedBlocks(type) {
   return blocks.blocksConfig?.[type]?.gridAllowedBlocks;
 }
 
-export const applySchemaEnhancer = (schema, block, variation, intl) => {
+export const applySchemaEnhancer = (
+  schema,
+  schemaEnhancer,
+  block,
+  variation,
+  intl,
+) => {
+  let resultantSchema = schema;
   const variations = blocks?.blocksConfig[block]?.variations;
-
+  // We enhance the schema from two possible sources: Variation extenders and block enhancers
+  // This is the Variation extender
   const schemaExtender = variations?.[variation]?.['schemaExtender'];
 
   if (schemaExtender) {
-    return schemaExtender(schema, intl);
-  } else {
-    return schema;
+    resultantSchema = schemaExtender(schema, intl);
   }
+
+  // This is the enhancer schema
+  if (schemaEnhancer) {
+    resultantSchema = schemaEnhancer(schema);
+  }
+  return resultantSchema;
 };
 
 export const getVariationComponent = (block, variation) => {

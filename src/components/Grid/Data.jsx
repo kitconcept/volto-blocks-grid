@@ -5,7 +5,7 @@ import { addVariationsFieldToSchema, applySchemaEnhancer } from '../utils';
 import { GridSchema } from './schema';
 
 const GridData = (props) => {
-  const { block, data, onChangeBlock } = props;
+  const { block, data, onChangeBlock, schemaEnhancer } = props;
   const intl = useIntl();
   const schema = addVariationsFieldToSchema(
     data['@type'],
@@ -16,7 +16,13 @@ const GridData = (props) => {
 
   return (
     <SchemaRenderer
-      schema={applySchemaEnhancer(schema)}
+      schema={applySchemaEnhancer(
+        schema,
+        schemaEnhancer,
+        data['@type'],
+        data.variation,
+        intl,
+      )}
       title={schema.title}
       onChangeField={(id, value) => {
         onChangeBlock(block, {
