@@ -12,10 +12,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #: components/SchemaRenderer/SchemaRenderer
-msgid "Edit values"
-msgstr ""
-
-#: components/SchemaRenderer/SchemaRenderer
 msgid "Error"
 msgstr ""
 

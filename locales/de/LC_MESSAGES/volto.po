@@ -1,15 +1,3 @@
-# Translation of plone.pot to German
-# Jan Ulrich Hasecke <jan.ulrich@hasecke.com>, 2003-2010.
-# Simon Eisenmann <simon@struktur.de>, 2003.
-# Hanno Schlichting <plone@hannosch.info>, 2003-2008.
-# Dominik Bittl <dominik@umount.org>, 2005.
-# Christian Ullrich <chris@chrullrich.de>, 2005.
-# Thomas Lotze <tl@gocept.com>, 2005-2008.
-# Sven Deichmann <deichmann@werkbank.com>, 2008-2010.
-# Harald Friessnegger <harald@webmeisterei.com>, 2011.
-# Andreas Jung <info@zopyx.com>, 2012
-msgid ""
-msgstr ""
 "Project-Id-Version: Plone\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-04-27T19:30:59.079Z\n"
@@ -27,32 +15,28 @@ msgstr ""
 "X-Is-Fallback-For: de-at de-li de-lu de-ch de-de\n"
 
 #: components/SchemaRenderer/SchemaRenderer
-msgid "Edit values"
-msgstr ""
-
-#: components/SchemaRenderer/SchemaRenderer
 msgid "Error"
-msgstr ""
+msgstr "Fehler"
 
 #: components/Grid/GridSidebar
 msgid "Grid"
-msgstr ""
+msgstr "Grid"
 
 #: components/Grid/GridSidebar
 msgid "Grid Element"
-msgstr ""
+msgstr "Grid Element {index}"
 
 #: components/Grid/GridSidebar
 msgid "Grid Image"
-msgstr ""
+msgstr "Grid Bild {index}"
 
 #: components/Grid/GridSidebar
 msgid "Images Grid"
-msgstr ""
+msgstr "Bilder Grid"
 
 #: components/Grid/GridSidebar
 msgid "Listing Grid"
-msgstr ""
+msgstr "Listing Grid {index}"
 
 #: components/Grid/GridSidebar
 msgid "ListingGrid"
@@ -60,11 +44,11 @@ msgstr ""
 
 #: components/Teaser/DefaultBody
 msgid "Please choose an existing content as source for this element"
-msgstr ""
+msgstr "Bitte wählen sie einen existierenden Inhalt als Quelle für dieses Element aus"
 
 #: components/Teaser/schema
 msgid "Source"
-msgstr ""
+msgstr "Quelle"
 
 #: components/Grid/GridSidebar
 msgid "Teaser Grid"
@@ -72,8 +56,8 @@ msgstr ""
 
 #: components/SchemaRenderer/SchemaRenderer
 msgid "There were some errors"
-msgstr ""
+msgstr "Es gab einige Fehler"
 
 #: components/utils
 msgid "Variation"
-msgstr ""
+msgstr "Variante"
