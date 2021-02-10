@@ -376,7 +376,13 @@ class EditGrid extends Component {
               )}
             </Droppable>
           </DragDropContext>
-          <SidebarPortal selected={this.props.selected}>
+          <SidebarPortal
+            selected={
+              this.props.selected &&
+              !this.state.selectedColumnIndex &&
+              this.state.selectedColumnIndex !== 0
+            }
+          >
             <GridData {...this.props}></GridData>
           </SidebarPortal>
         </div>
