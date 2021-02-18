@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { getContent } from '@plone/volto/actions';
 import { SchemaRenderer } from '../../components';
 import { TeaserSchema } from './schema';
-import config from '@plone/volto/registry';
+import { blocks } from '~/config';
 
 const TeaserData = (props) => {
   const { block, data, onChangeBlock } = props;
@@ -36,7 +36,7 @@ const TeaserData = (props) => {
   const schema = TeaserSchema({ ...props, intl });
 
   const applySchemaEnhancer = (schema) => {
-    const variations = config.blocks?.blocksConfig['teaser']?.variations;
+    const variations = blocks?.blocksConfig['teaser']?.variations;
 
     const schemaExtender = variations?.[data.variation]?.['schemaExtenderItem'];
 

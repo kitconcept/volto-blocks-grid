@@ -1,5 +1,5 @@
 import { defineMessages } from 'react-intl';
-import config from '@plone/volto/registry';
+import { blocks } from '~/config';
 
 const messages = defineMessages({
   Variation: {
@@ -9,7 +9,7 @@ const messages = defineMessages({
 });
 
 export function getAllowedBlocks(type) {
-  return config.blocks.blocksConfig?.[type]?.gridAllowedBlocks;
+  return blocks.blocksConfig?.[type]?.gridAllowedBlocks;
 }
 
 export const applySchemaEnhancer = (
@@ -20,7 +20,7 @@ export const applySchemaEnhancer = (
   intl,
 ) => {
   let resultantSchema = schema;
-  const variations = config.blocks?.blocksConfig[block]?.variations;
+  const variations = blocks?.blocksConfig[block]?.variations;
   // We enhance the schema from two possible sources: Variation extenders and block enhancers
   // This is the Variation extender
   const schemaExtender = variations?.[variation]?.['schemaExtender'];
@@ -37,7 +37,7 @@ export const applySchemaEnhancer = (
 };
 
 export const getVariationComponent = (block, variation) => {
-  const variations = config.blocks?.blocksConfig[block]?.variations;
+  const variations = blocks?.blocksConfig[block]?.variations;
 
   return variations?.[variation]?.components?.view;
 };
@@ -48,7 +48,7 @@ export const addVariationsFieldToSchema = (
   currentVariation,
   intl,
 ) => {
-  const variations = config.blocks?.blocksConfig[block]?.variations;
+  const variations = blocks?.blocksConfig[block]?.variations;
 
   if (variations) {
     schema.fieldsets[0].fields.push('variation');
