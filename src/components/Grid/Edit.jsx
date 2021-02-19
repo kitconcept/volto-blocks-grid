@@ -205,7 +205,7 @@ class EditGrid extends Component {
         : templates();
     this.props.onChangeBlock(this.props.block, {
       ...this.props.data,
-      columns: resultantTemplates()[templateIndex].columns,
+      columns: resultantTemplates(this.props.intl)[templateIndex].columns,
     });
   };
 
