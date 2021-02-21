@@ -28,6 +28,7 @@ const NewBlockAddButton = (props) => {
           icon
           onClick={() => setOpenMenu(true)}
           className="add-block-button"
+          aria-label={`Add grid block in position ${index}`}
         >
           <Icon name={addSVG} className="circled" size="24px" />
         </Button>
