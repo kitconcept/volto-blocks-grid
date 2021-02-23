@@ -27,6 +27,7 @@ const ViewGrid = ({ data, render, path }) => {
               data={column}
               variation={data.variation}
               parentBlock={data['@type']}
+              path={path}
             />
           </Grid.Column>
         ))}
