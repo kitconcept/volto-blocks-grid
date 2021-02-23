@@ -7,6 +7,7 @@ import { injectIntl } from 'react-intl';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import { v4 as uuid } from 'uuid';
 import cx from 'classnames';
+import { withRouter } from 'react-router-dom';
 import { Icon, SidebarPortal } from '@plone/volto/components';
 
 import addSVG from '@plone/volto/icons/add.svg';
@@ -393,6 +394,7 @@ class EditGrid extends Component {
 
 export default compose(
   injectIntl,
+  withRouter,
   connect(
     (state) => ({
       request: state.content.create,
