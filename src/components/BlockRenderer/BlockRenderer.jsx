@@ -9,18 +9,20 @@ import withObjectBrowser from '@plone/volto/components/manage/Sidebar/ObjectBrow
  * @extends Component
  */
 function BlockRenderer(props) {
-  if (!props.type) {
+  const { edit, type } = props;
+
+  if (!type) {
     // We could have an empty block, although should be handled somewhere else
     return null;
   }
 
-  const EditBlock = config.blocks.blocksConfig[props.type].edit;
-  const ViewBlock = config.blocks.blocksConfig[props.type].view;
+  const EditBlock = config.blocks.blocksConfig[type].edit;
+  const ViewBlock = config.blocks.blocksConfig[type].view;
 
-  if (!props.edit) {
+  if (!edit) {
     return <ViewBlock {...props} detached onChangeBlock={() => {}} />;
   }
-  if (props.edit) {
+  if (edit) {
     return (
       <EditBlock
         {...props}
