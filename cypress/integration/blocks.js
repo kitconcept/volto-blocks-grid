@@ -70,7 +70,7 @@ context('Blocks Acceptance Tests', () => {
       cy.get('[aria-label="Select my-page"]').dblclick();
       cy.get('#toolbar-save').click();
 
-      cy.findByText('My Page');
+      cy.get('.block.__grid').findByText('My Page');
     });
 
     it('As editor I can add a Teaser Grid', function () {
