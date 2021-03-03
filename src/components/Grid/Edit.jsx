@@ -228,12 +228,18 @@ class EditGrid extends Component {
         {this.props.selected && (
           <div className="toolbar">
             <Button.Group>
-              <Button icon basic onClick={(e) => this.addNewColumn(e)}>
+              <Button
+                aria-label={`Add grid element`}
+                icon
+                basic
+                onClick={(e) => this.addNewColumn(e)}
+              >
                 <Icon name={addSVG} size="24px" />
               </Button>
             </Button.Group>
             <Button.Group>
               <Button
+                aria-label={`Select grid block`}
                 icon
                 basic
                 onClick={(e) => {
@@ -319,6 +325,7 @@ class EditGrid extends Component {
                                     }}
                                   >
                                     <Button
+                                      aria-label={`Remove grid element ${index}`}
                                       basic
                                       icon
                                       onClick={(e) =>
