@@ -58,6 +58,7 @@ export const TeaserSchema = (props) => {
         title: intl.formatMessage(messages.imageOverride),
         widget: 'object_browser',
         mode: 'image',
+        allowExternals: true,
       },
       openLinkInNewTab: {
         title: intl.formatMessage(messages.openLinkInNewTab),
