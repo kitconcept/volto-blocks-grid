@@ -30,7 +30,7 @@ context('Blocks Acceptance Tests', () => {
       cy.get(`.block.title [data-contents]`);
     });
 
-    it('As editor I can add a Grid', function () {
+    it.only('As editor I can add a Grid', function () {
       cy.get('.block.inner.text .public-DraftEditor-content').click();
       cy.get('.button .block-add-button').click({ force: true });
       cy.get('.blocks-chooser .mostUsed .button.__grid').click();
@@ -65,7 +65,7 @@ context('Blocks Acceptance Tests', () => {
       cy.get('button[aria-label="Add grid block in position 1"]').click();
       cy.get('.blocks-chooser .mostUsed .button.teaser').click();
       cy.get(
-        '.objectbrowser-field[aria-labelledby="fieldset-default-field-label-href"]',
+        '.objectbrowser-field[aria-labelledby="fieldset-default-field-label-href"] [aria-label="Open object browser"]',
       ).click();
       cy.get('[aria-label="Select my-page"]').dblclick();
       cy.get('#toolbar-save').click();
@@ -116,25 +116,35 @@ context('Blocks Acceptance Tests', () => {
       );
     });
 
-    // it.only('As editor I can add an Image Grid', function () {
-    //   // creating Image Grid in edit mode
-    //   cy.get('.block.inner.text .public-DraftEditor-content').click();
-    //   cy.get('.button .block-add-button').click({ force: true });
-    //   cy.get('.blocks-chooser .mostUsed .button.imagesGrid').click();
-    //   cy.findByText('2 images').click();
-    //   cy.get('.field-url-0-action-button').click();
-    //   cy.findByText('My Image').click();
-    //   cy.get('.clearSVG').click();
-    //   cy.findByText('GRID IMAEG 2').click();
-    //   cy.get('.field-url-1-action-button').click();
-    //   cy.findByText('My Image').click();
-    //   cy.get('.clearSVG').click();
+    it('As editor I can add an Image Grid', function () {
+      // creating Image Grid in edit mode
+      cy.get('.block.inner.text .public-DraftEditor-content').click();
+      cy.get('.button .block-add-button').click({ force: true });
+      cy.get('.blocks-chooser .mostUsed .button.imagesGrid').click();
+      cy.findByText('2 columns').click();
+      cy.get(
+        '.imagesGrid.two [data-rbd-draggable-context-id]:first-child',
+      ).click();
+      cy.get(
+        '.imagesGrid.two [data-rbd-draggable-context-id]:first-child .block.image .ui.input input[type="text"]',
+      ).type(
+        `https://github.com/plone/volto/raw/master/docs/logos/volto-colorful.png{enter}`,
+      );
+      cy.get(
+        '.imagesGrid.two [data-rbd-draggable-context-id]:nth-child(2)',
+      ).click();
+      cy.get(
+        '.imagesGrid.two [data-rbd-draggable-context-id]:nth-child(2) .block.image .toolbar-inner .ui.buttons:first-child',
+      ).click();
 
-    //   cy.get('#toolbar-save').click();
+      cy.findByText('My Image').click();
+      cy.get('.clearSVG').click();
 
-    //   //then we should have AltText My Image present in view mode
-    //   cy.findAllByAltText('My Image').should('exist');
-    // });
+      cy.get('#toolbar-save').click();
+
+      //then we should have AltText My Image present in view mode
+      cy.findAllByAltText('My Image').should('exist');
+    });
 
     // Basic, Volto ones
     it('As editor I can add a text block', () => {
