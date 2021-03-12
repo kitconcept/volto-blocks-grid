@@ -346,8 +346,9 @@ class EditGrid extends Component {
                                         edit
                                         type={item['@type']}
                                         selected={
+                                          this.props.selected &&
                                           this.state.selectedColumnIndex ===
-                                          index
+                                            index
                                         }
                                         onChangeBlock={(block, data) => {
                                           this.onChangeGridItem(index, data);
