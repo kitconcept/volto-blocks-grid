@@ -46,6 +46,7 @@ export const TeaserSchema = (props) => {
         widget: 'object_browser',
         mode: 'link',
         selectedItemAttrs: ['Title', 'Description', 'hasPreviewImage'],
+        allowExternals: true,
       },
       title: {
         title: intl.formatMessage(messages.title),
@@ -58,6 +59,7 @@ export const TeaserSchema = (props) => {
         title: intl.formatMessage(messages.imageOverride),
         widget: 'object_browser',
         mode: 'image',
+        allowExternals: true,
       },
       openLinkInNewTab: {
         title: intl.formatMessage(messages.openLinkInNewTab),
