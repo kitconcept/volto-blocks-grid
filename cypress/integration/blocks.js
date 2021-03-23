@@ -116,7 +116,7 @@ context('Blocks Acceptance Tests', () => {
       );
     });
 
-    it.only('As editor I can add an Image Grid', function () {
+    it('As editor I can add an Image Grid', function () {
       // creating Image Grid in edit mode
       cy.get('.block.inner.text .public-DraftEditor-content').click();
       cy.get('.button .block-add-button').click({ force: true });
