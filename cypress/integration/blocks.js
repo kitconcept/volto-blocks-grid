@@ -30,7 +30,7 @@ context('Blocks Acceptance Tests', () => {
       cy.get(`.block.title [data-contents]`);
     });
 
-    it.only('As editor I can add a Grid', function () {
+    it('As editor I can add a Grid', function () {
       cy.get('.block.inner.text .public-DraftEditor-content').click();
       cy.get('.button .block-add-button').click({ force: true });
       cy.get('.blocks-chooser .mostUsed .button.__grid').click();
@@ -65,7 +65,7 @@ context('Blocks Acceptance Tests', () => {
       cy.get('button[aria-label="Add grid block in position 1"]').click();
       cy.get('.blocks-chooser .mostUsed .button.teaser').click();
       cy.get(
-        '.objectbrowser-field[aria-labelledby="fieldset-default-field-label-href"] [aria-label="Open object browser"]',
+        '.objectbrowser-field[aria-labelledby="fieldset-default-field-label-href"] button[aria-label="Open object browser"]',
       ).click();
       cy.get('[aria-label="Select my-page"]').dblclick();
       cy.get('#toolbar-save').click();
@@ -123,27 +123,19 @@ context('Blocks Acceptance Tests', () => {
       cy.get('.blocks-chooser .mostUsed .button.imagesGrid').click();
       cy.findByText('2 columns').click();
       cy.get(
-        '.imagesGrid.two [data-rbd-draggable-context-id]:first-child',
+        '.imagesGrid.two [data-rbd-draggable-context-id]:first-child .toolbar-inner .buttons:first-child button',
       ).click();
-      cy.get(
-        '.imagesGrid.two [data-rbd-draggable-context-id]:first-child .block.image .ui.input input[type="text"]',
-      ).type(
-        `https://github.com/plone/volto/raw/master/docs/logos/volto-colorful.png{enter}`,
-      );
-      cy.get(
-        '.imagesGrid.two [data-rbd-draggable-context-id]:nth-child(2)',
-      ).click();
-      cy.get(
-        '.imagesGrid.two [data-rbd-draggable-context-id]:nth-child(2) .block.image .toolbar-inner .ui.buttons:first-child',
-      ).click();
+      cy.findByLabelText('Select my-image').dblclick();
 
-      cy.findByText('My Image').click();
-      cy.get('.clearSVG').click();
+      cy.get(
+        '.imagesGrid.two [data-rbd-draggable-context-id]:last-child .toolbar-inner .buttons:first-child button',
+      ).click();
+      cy.findByLabelText('Select my-image').dblclick();
 
       cy.get('#toolbar-save').click();
 
       //then we should have AltText My Image present in view mode
-      cy.findAllByAltText('My Image').should('exist');
+      cy.findAllByAltText('My Image').should('have.length', 2);
     });
 
     // Basic, Volto ones

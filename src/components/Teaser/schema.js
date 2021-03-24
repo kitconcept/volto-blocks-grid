@@ -46,6 +46,7 @@ export const TeaserSchema = (props) => {
         widget: 'object_browser',
         mode: 'link',
         selectedItemAttrs: ['Title', 'Description', 'hasPreviewImage'],
+        allowExternals: true,
       },
       title: {
         title: intl.formatMessage(messages.title),

@@ -267,6 +267,10 @@ class EditGrid extends Component {
           }}
           role="presentation"
         >
+          {this.props.data.columns && this.props.data.headline && (
+            <h2 className="headline">{data.headline}</h2>
+          )}
+
           {!this.props.data.columns?.length && (
             <TemplateChooser
               templates={
@@ -346,8 +350,9 @@ class EditGrid extends Component {
                                         edit
                                         type={item['@type']}
                                         selected={
+                                          this.props.selected &&
                                           this.state.selectedColumnIndex ===
-                                          index
+                                            index
                                         }
                                         onChangeBlock={(block, data) => {
                                           this.onChangeGridItem(index, data);
