@@ -1,4 +1,14 @@
+import { defineMessages } from 'react-intl';
+
+const messages = defineMessages({
+  headline: {
+    id: 'Headline',
+    defaultMessage: 'Headline',
+  },
+});
+
 export const GridSchema = (props) => {
+  const { intl } = props;
   return {
     title: 'Grid',
     block: '__grid',
@@ -6,11 +16,15 @@ export const GridSchema = (props) => {
       {
         id: 'default',
         title: 'Default',
-        fields: [],
+        fields: ['headline'],
       },
     ],
 
-    properties: {},
+    properties: {
+      headline: {
+        title: intl.formatMessage(messages.headline),
+      },
+    },
     required: [],
   };
 };

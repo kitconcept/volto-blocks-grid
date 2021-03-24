@@ -267,6 +267,10 @@ class EditGrid extends Component {
           }}
           role="presentation"
         >
+          {this.props.data.columns && this.props.data.headline && (
+            <h2 className="headline">{data.headline}</h2>
+          )}
+
           {!this.props.data.columns?.length && (
             <TemplateChooser
               templates={
