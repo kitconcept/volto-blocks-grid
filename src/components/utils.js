@@ -51,7 +51,7 @@ export const addVariationsFieldToSchema = (
   const variations = config.blocks?.blocksConfig[block]?.variations;
 
   if (variations) {
-    schema.fieldsets[0].fields.push('variation');
+    schema.fieldsets[0].fields.unshift('variation');
     schema.properties.variation = {
       title: intl.formatMessage(messages.Variation),
       choices: Object.keys(variations).map((key) => [
