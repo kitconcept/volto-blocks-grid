@@ -136,6 +136,29 @@
     margin: 0 !important;
   }
 
+  .grid-image-wrapper::before {
+    padding-top: 56.25%;
+    content: '';
+    float: left;
+  }
+
+  .grid-image-wrapper::after {
+    display: block;
+    clear: both;
+    content: '';
+  }
+
+  .grid-image-wrapper {
+    position: relative;
+    aspect-ratio: 5/3;
+
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
   .ui.message {
     margin: 0;
     border-radius: 6px;
