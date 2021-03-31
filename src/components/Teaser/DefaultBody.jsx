@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { Message } from 'semantic-ui-react';
 import { defineMessages, useIntl } from 'react-intl';
 import imageBlockSVG from '@plone/volto/components/manage/Blocks/Image/block-image.svg';
 import { flattenToAppURL } from '@plone/volto/helpers';
 import { getTeaserImageURL } from './utils';
 import { MaybeWrap } from '../../components';
+import { UniversalLink } from '@plone/volto/components';
 
 const messages = defineMessages({
   PleaseChooseContent: {
@@ -36,8 +36,8 @@ const TeaserDefaultTemplate = (props) => {
         <div className="grid-teaser-item top">
           <MaybeWrap
             condition={!isEditMode}
-            as={Link}
-            to={flattenToAppURL(href['@id'])}
+            as={UniversalLink}
+            href={href['@id']}
             target={data.openLinkInNewTab ? '_blank' : null}
           >
             {(href.hasPreviewImage || image) && (
