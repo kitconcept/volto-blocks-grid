@@ -24,6 +24,10 @@ msgstr "Beschreibung"
 msgid "Error"
 msgstr "Fehler"
 
+#: components/Grid/schema
+msgid "Headline"
+msgstr ""
+
 #: components/Teaser/schema
 msgid "Image override"
 msgstr "Bild überschreiben"
@@ -55,3 +59,11 @@ msgstr "Titel"
 #: components/utils
 msgid "Variation"
 msgstr "Variante"
+
+#: components/Grid/templates
+msgid "column"
+msgstr ""
+
+#: components/Grid/templates
+msgid "columns"
+msgstr ""

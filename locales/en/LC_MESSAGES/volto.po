@@ -19,6 +19,10 @@ msgstr ""
 msgid "Error"
 msgstr ""
 
+#: components/Grid/schema
+msgid "Headline"
+msgstr ""
+
 #: components/Teaser/schema
 msgid "Image override"
 msgstr ""
@@ -49,4 +53,12 @@ msgstr ""
 
 #: components/utils
 msgid "Variation"
+msgstr ""
+
+#: components/Grid/templates
+msgid "column"
+msgstr ""
+
+#: components/Grid/templates
+msgid "columns"
 msgstr ""
