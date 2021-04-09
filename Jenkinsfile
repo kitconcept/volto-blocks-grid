@@ -7,7 +7,7 @@ pipeline {
   }
 
   environment {
-        GIT_NAME = "volto-blocks"
+        GIT_NAME = "volto-blocks-grid"
         NAMESPACE = "@kitconcept"
         DEPENDENCIES = ""
   }
