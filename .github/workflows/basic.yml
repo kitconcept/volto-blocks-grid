@@ -10,7 +10,6 @@ jobs:
     env:
         GIT_NAME: volto-blocks-grid
         NAMESPACE: "@kitconcept"
-        DEPENDENCIES: ""
 
     steps:
       - uses: actions/checkout@v2
@@ -40,7 +39,7 @@ jobs:
 
       # ESlint
       - name: ESlint
-        run: docker run -i --rm --name="$GITHUB_RUN_ID-eslint" -e NAMESPACE="${{env.NAMESPACE}}" -e DEPENDENCIES="${{DEPENDENCIES}}" -e GIT_NAME=${{env.GIT_NAME}} -v $(pwd):/opt/frontend/my-volto-project/src/addons/${{env.GIT_NAME}} plone/volto-addon-ci eslint
+        run: docker run -i --rm --name="$GITHUB_RUN_ID-eslint" -e NAMESPACE="${{env.NAMESPACE}}" -e DEPENDENCIES="" -e GIT_NAME=${{env.GIT_NAME}} -v $(pwd):/opt/frontend/my-volto-project/src/addons/${{env.GIT_NAME}} plone/volto-addon-ci eslint
 
       # - run: yarn run prettier
       # - run: yarn run stylelint
