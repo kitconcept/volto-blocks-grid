@@ -41,7 +41,7 @@ jobs:
 
       # ESlint
       - name: ESlint
-        run: docker run -i --rm --name="${{GITHUB_RUN_ID}}-eslint" -e NAMESPACE="${{env.NAMESPACE}}" -e DEPENDENCIES="" -e GIT_NAME=${{env.GIT_NAME}} -e GIT_USER=${{env.GIT_USER}} -e GIT_BRANCH=${{env.GIT_BRANCH}} plone/volto-addon-ci eslint
+        run: docker run -i --rm --name="${GITHUB_RUN_ID}-eslint" -e NAMESPACE="${{env.NAMESPACE}}" -e DEPENDENCIES="" -e GIT_NAME=${{env.GIT_NAME}} -e GIT_USER=${{env.GIT_USER}} -e GIT_BRANCH=${{env.GIT_BRANCH}} plone/volto-addon-ci eslint
 
       # - run: yarn run prettier
       # - run: yarn run stylelint
