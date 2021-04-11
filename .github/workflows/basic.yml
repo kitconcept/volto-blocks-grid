@@ -43,11 +43,27 @@ jobs:
       - name: ESlint
         run: docker run -i --rm --name="${{env.BUILD_ID}}-eslint" -e NAMESPACE="${{env.NAMESPACE}}" -e DEPENDENCIES="" -e GIT_NAME=${{env.GIT_NAME}} -e GIT_USER=${{env.GIT_USER}} -e GIT_BRANCH=${{env.GIT_BRANCH}} plone/volto-addon-ci eslint
 
-      # - run: yarn run prettier
-      # - run: yarn run stylelint
+      # Stylelint
+      - name: Stylelint
+        run: docker run -i --rm --name="${{env.BUILD_ID}}-stylelint" -e NAMESPACE="${{env.NAMESPACE}}" -e DEPENDENCIES="" -e GIT_NAME=${{env.GIT_NAME}} -e GIT_USER=${{env.GIT_USER}} -e GIT_BRANCH=${{env.GIT_BRANCH}} plone/volto-addon-ci stylelint
 
-      # # node test
-      # - run: yarn test
+      # Prettier
+      - name: Prettier
+        run: docker run -i --rm --name="${{env.BUILD_ID}}-prettier" -e NAMESPACE="${{env.NAMESPACE}}" -e DEPENDENCIES="" -e GIT_NAME=${{env.GIT_NAME}} -e GIT_USER=${{env.GIT_USER}} -e GIT_BRANCH=${{env.GIT_BRANCH}} plone/volto-addon-ci prettier
+
+      # Unit tests
+      - name: Unit tests
+        run: docker run -i --rm --name="${{env.BUILD_ID}}-unit" -e NAMESPACE="${{env.NAMESPACE}}" -e DEPENDENCIES="" -e GIT_NAME=${{env.GIT_NAME}} -e GIT_USER=${{env.GIT_USER}} -e GIT_BRANCH=${{env.GIT_BRANCH}} plone/volto-addon-ci test
+
+      # Acceptance tests
+      - name: Acceptance tests
+        run: yarn ci:cypress
+
+      # - run: mkdir -p xunit-reports
+      # - run: docker cp ${{env.BUILD_ID}}-unit:/opt/frontend/my-volto-project/coverage xunit-reports/
+      # - run: docker cp ${{env.BUILD_ID}}-unit:/opt/frontend/my-volto-project/junit.xml xunit-reports/
+      # - run: docker cp ${{env.BUILD_ID}}-unit:/opt/frontend/my-volto-project/unit_tests_log.txt xunit-reports/
+      # - run: docker rm -v ${{env.BUILD_ID}}-unit
 
       # # python setup
       # - name: Set up Python ${{ matrix.python-version }}
