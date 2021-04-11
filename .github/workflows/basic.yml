@@ -12,7 +12,6 @@ jobs:
         NAMESPACE: "@kitconcept"
         GIT_USER: 'kitconcept'
         GIT_BRANCH: ${GITHUB_REF##*/}
-        BUILD_ID: ${GITHUB_RUN_ID}
     steps:
       - uses: actions/checkout@v2
 
@@ -41,26 +40,26 @@ jobs:
 
       # ESlint
       - name: ESlint
-        run: docker run -i --rm --name="${{env.BUILD_ID}}-eslint" -e NAMESPACE="${{env.NAMESPACE}}" -e DEPENDENCIES="" -e GIT_NAME=${{env.GIT_NAME}} -e GIT_USER=${{env.GIT_USER}} -e GIT_BRANCH=${{env.GIT_BRANCH}} plone/volto-addon-ci eslint
+        run: docker run -i --rm --name="eslint" -e NAMESPACE="${{env.NAMESPACE}}" -e DEPENDENCIES="" -e GIT_NAME=${{env.GIT_NAME}} -e GIT_USER=${{env.GIT_USER}} -e GIT_BRANCH=${{env.GIT_BRANCH}} plone/volto-addon-ci eslint
 
       # Stylelint
       - name: Stylelint
-        run: docker run -i --rm --name="${{env.BUILD_ID}}-stylelint" -e NAMESPACE="${{env.NAMESPACE}}" -e DEPENDENCIES="" -e GIT_NAME=${{env.GIT_NAME}} -e GIT_USER=${{env.GIT_USER}} -e GIT_BRANCH=${{env.GIT_BRANCH}} plone/volto-addon-ci stylelint
+        run: docker run -i --rm --name="stylelint" -e NAMESPACE="${{env.NAMESPACE}}" -e DEPENDENCIES="" -e GIT_NAME=${{env.GIT_NAME}} -e GIT_USER=${{env.GIT_USER}} -e GIT_BRANCH=${{env.GIT_BRANCH}} plone/volto-addon-ci stylelint
 
       # Prettier
       - name: Prettier
-        run: docker run -i --rm --name="${{env.BUILD_ID}}-prettier" -e NAMESPACE="${{env.NAMESPACE}}" -e DEPENDENCIES="" -e GIT_NAME=${{env.GIT_NAME}} -e GIT_USER=${{env.GIT_USER}} -e GIT_BRANCH=${{env.GIT_BRANCH}} plone/volto-addon-ci prettier
+        run: docker run -i --rm --name="prettier" -e NAMESPACE="${{env.NAMESPACE}}" -e DEPENDENCIES="" -e GIT_NAME=${{env.GIT_NAME}} -e GIT_USER=${{env.GIT_USER}} -e GIT_BRANCH=${{env.GIT_BRANCH}} plone/volto-addon-ci prettier
 
       # Unit tests
       - name: Unit tests
-        run: docker run -i --rm --name="${{env.BUILD_ID}}-unit" -e NAMESPACE="${{env.NAMESPACE}}" -e DEPENDENCIES="" -e GIT_NAME=${{env.GIT_NAME}} -e GIT_USER=${{env.GIT_USER}} -e GIT_BRANCH=${{env.GIT_BRANCH}} plone/volto-addon-ci test
+        run: docker run -i --rm --name="unit" -e NAMESPACE="${{env.NAMESPACE}}" -e DEPENDENCIES="" -e GIT_NAME=${{env.GIT_NAME}} -e GIT_USER=${{env.GIT_USER}} -e GIT_BRANCH=${{env.GIT_BRANCH}} plone/volto-addon-ci test
 
       # Acceptance tests
       - name: Acceptance tests
-        run: ./node_modules/.bin/start-test ci:test-acceptance-server http-get://localhost:55001/plone 'docker run -i --link plone -e NODE_ENV=production -e RAZZLE_API_PATH="http://plone:55001/plone" -e CYPRESS_BACKEND_HOST="plone" --name="${{env.BUILD_ID}}-cypress" -e NAMESPACE="${{env.NAMESPACE}}" -e DEPENDENCIES="" -e GIT_NAME=${{env.GIT_NAME}} -e GIT_USER=${{env.GIT_USER}} -e GIT_BRANCH=${{env.GIT_BRANCH}} plone/volto-addon-ci cypress'
+        run: ./node_modules/.bin/start-test ci:test-acceptance-server http-get://localhost:55001/plone 'docker run -i --link plone -e NODE_ENV=production -e RAZZLE_API_PATH="http://plone:55001/plone" -e CYPRESS_BACKEND_HOST="plone" --name="cypress" -e NAMESPACE="${{env.NAMESPACE}}" -e DEPENDENCIES="" -e GIT_NAME=${{env.GIT_NAME}} -e GIT_USER=${{env.GIT_USER}} -e GIT_BRANCH=${{env.GIT_BRANCH}} plone/volto-addon-ci cypress'
 
-      - run: docker cp ${{env.BUILD_ID}}-cypress:/opt/frontend/my-volto-project/cypress .
-      - run: docker rm -v ${{env.BUILD_ID}}-unit
+      - run: docker cp cypress:/opt/frontend/my-volto-project/cypress .
+      - run: docker rm -v cypress
 
       # Upload Cypress screenshots
       - uses: actions/upload-artifact@v1
@@ -76,10 +75,10 @@ jobs:
           path: cypress/videos
 
       # - run: mkdir -p xunit-reports
-      # - run: docker cp ${{env.BUILD_ID}}-unit:/opt/frontend/my-volto-project/coverage xunit-reports/
-      # - run: docker cp ${{env.BUILD_ID}}-unit:/opt/frontend/my-volto-project/junit.xml xunit-reports/
-      # - run: docker cp ${{env.BUILD_ID}}-unit:/opt/frontend/my-volto-project/unit_tests_log.txt xunit-reports/
-      # - run: docker rm -v ${{env.BUILD_ID}}-unit
+      # - run: docker cp unit:/opt/frontend/my-volto-project/coverage xunit-reports/
+      # - run: docker cp unit:/opt/frontend/my-volto-project/junit.xml xunit-reports/
+      # - run: docker cp unit:/opt/frontend/my-volto-project/unit_tests_log.txt xunit-reports/
+      # - run: docker rm -v unit
 
       # # python setup
       # - name: Set up Python ${{ matrix.python-version }}
