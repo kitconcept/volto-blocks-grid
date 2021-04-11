@@ -1,11 +1,10 @@
-# kitconcept's Volto Blocks Grids
+# Volto Blocks Grid (by kitconcept)
 
 ![kitconcept GmbH](https://raw.githubusercontent.com/kitconcept/volto-form-builder/master/kitconcept.png)
 
 This package includes blocks for building unidimensional (x-axis) grids in Volto.
 
 ![ezgif-4-19f6e409685b](https://user-images.githubusercontent.com/486927/114311809-8b032600-9af0-11eb-90e0-0944294a6084.gif)
-
 
 [Full size video](https://user-images.githubusercontent.com/486927/114309930-40ca7680-9ae9-11eb-873d-0504bddc0682.mov)
 
@@ -25,7 +24,7 @@ position blocks in a 2D space.
 Also, unidimensional grids are also more in line of the current design trends in modern
 web, where we can often find these unified one rowed sections, specially in landing pages.
 
-## Blocks that include this package
+## Block included in this package
 
 ### Grid block
 
