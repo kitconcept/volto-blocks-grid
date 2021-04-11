@@ -15,7 +15,11 @@
     "ci:cypress": "start-test ci:test-acceptance-server http-get://localhost:55001/plone ci:cypress:run",
     "ci:test-acceptance-server": "make test-acceptance-server",
     "cy:test:fixture:setup": "node cypress/support/reset-fixture.js",
-    "cy:test:fixture:teardown": "node cypress/support/reset-fixture.js teardown"
+    "cy:test:fixture:teardown": "node cypress/support/reset-fixture.js teardown",
+    "dry-release": "release-it --dry-run",
+    "release": "release-it",
+    "release-major-alpha": "release-it major --preRelease=alpha",
+    "release-alpha": "release-it --preRelease=alpha"
   },
   "repository": {
     "type": "git",
@@ -27,6 +31,22 @@
     "url": "https://github.com/kitconcept/volto-blocks-grid/issues"
   },
   "homepage": "https://github.com/kitconcept/volto-blocks-grid#readme",
+  "release-it": {
+    "hooks": {
+      "after:bump": "node changelogupdater.js bump ${version}",
+      "after:release": "node changelogupdater.js back ${version} && git commit -am 'Back to development' && git push"
+    },
+    "git": {
+      "changelog": "node changelogupdater.js excerpt",
+      "requireUpstream": false,
+      "requireCleanWorkingDir": false
+    },
+    "github": {
+      "release": true,
+      "releaseName": "${version}",
+      "releaseNotes": "node changelogupdater.js excerpt"
+    }
+  },
   "prettier": {
     "trailingComma": "all",
     "singleQuote": true,
@@ -67,6 +87,7 @@
     "jest-junit": "8.0.0",
     "pofile": "1.0.10",
     "prettier": "2.0.5",
+    "release-it": "^14.6.1",
     "start-server-and-test": "1.10.6",
     "stylelint": "13.3.3",
     "stylelint-config-idiomatic-order": "8.1.0",
