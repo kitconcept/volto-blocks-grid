@@ -38,26 +38,27 @@ jobs:
 
       - run: docker pull plone/volto-addon-ci
 
-      # ESlint
-      - name: ESlint
-        run: docker run -i --rm --name="eslint" -e NAMESPACE="${{env.NAMESPACE}}" -e DEPENDENCIES="" -e GIT_NAME=${{env.GIT_NAME}} -e GIT_USER=${{env.GIT_USER}} -e GIT_BRANCH=${{env.GIT_BRANCH}} plone/volto-addon-ci eslint
+      # # ESlint
+      # - name: ESlint
+      #   run: docker run -i --rm --name="eslint" -e NAMESPACE="${{env.NAMESPACE}}" -e DEPENDENCIES="" -e GIT_NAME=${{env.GIT_NAME}} -e GIT_USER=${{env.GIT_USER}} -e GIT_BRANCH=${{env.GIT_BRANCH}} plone/volto-addon-ci eslint
 
-      # Stylelint
-      - name: Stylelint
-        run: docker run -i --rm --name="stylelint" -e NAMESPACE="${{env.NAMESPACE}}" -e DEPENDENCIES="" -e GIT_NAME=${{env.GIT_NAME}} -e GIT_USER=${{env.GIT_USER}} -e GIT_BRANCH=${{env.GIT_BRANCH}} plone/volto-addon-ci stylelint
+      # # Stylelint
+      # - name: Stylelint
+      #   run: docker run -i --rm --name="stylelint" -e NAMESPACE="${{env.NAMESPACE}}" -e DEPENDENCIES="" -e GIT_NAME=${{env.GIT_NAME}} -e GIT_USER=${{env.GIT_USER}} -e GIT_BRANCH=${{env.GIT_BRANCH}} plone/volto-addon-ci stylelint
 
-      # Prettier
-      - name: Prettier
-        run: docker run -i --rm --name="prettier" -e NAMESPACE="${{env.NAMESPACE}}" -e DEPENDENCIES="" -e GIT_NAME=${{env.GIT_NAME}} -e GIT_USER=${{env.GIT_USER}} -e GIT_BRANCH=${{env.GIT_BRANCH}} plone/volto-addon-ci prettier
+      # # Prettier
+      # - name: Prettier
+      #   run: docker run -i --rm --name="prettier" -e NAMESPACE="${{env.NAMESPACE}}" -e DEPENDENCIES="" -e GIT_NAME=${{env.GIT_NAME}} -e GIT_USER=${{env.GIT_USER}} -e GIT_BRANCH=${{env.GIT_BRANCH}} plone/volto-addon-ci prettier
 
-      # Unit tests
-      - name: Unit tests
-        run: docker run -i --rm --name="unit" -e NAMESPACE="${{env.NAMESPACE}}" -e DEPENDENCIES="" -e GIT_NAME=${{env.GIT_NAME}} -e GIT_USER=${{env.GIT_USER}} -e GIT_BRANCH=${{env.GIT_BRANCH}} plone/volto-addon-ci test
+      # # Unit tests
+      # - name: Unit tests
+      #   run: docker run -i --rm --name="unit" -e NAMESPACE="${{env.NAMESPACE}}" -e DEPENDENCIES="" -e GIT_NAME=${{env.GIT_NAME}} -e GIT_USER=${{env.GIT_USER}} -e GIT_BRANCH=${{env.GIT_BRANCH}} plone/volto-addon-ci test
 
       # Acceptance tests
       - name: Acceptance tests
         run: ./node_modules/.bin/start-test ci:test-acceptance-server http-get://localhost:55001/plone 'docker run -i --link plone -e NODE_ENV=production -e RAZZLE_API_PATH="http://plone:55001/plone" -e CYPRESS_BACKEND_HOST="plone" --name="cypress" -e NAMESPACE="${{env.NAMESPACE}}" -e DEPENDENCIES="" -e GIT_NAME=${{env.GIT_NAME}} -e GIT_USER=${{env.GIT_USER}} -e GIT_BRANCH=${{env.GIT_BRANCH}} plone/volto-addon-ci cypress'
 
+      - run: docker ps -a
       - run: docker cp cypress:/opt/frontend/my-volto-project/cypress .
       - run: docker rm -v cypress
 
