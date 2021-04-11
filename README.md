@@ -4,18 +4,19 @@
 
 This package includes blocks for building unidimensional (x-axis) grids in Volto.
 
-![ezgif-4-19f6e409685b](https://user-images.githubusercontent.com/486927/114311809-8b032600-9af0-11eb-90e0-0944294a6084.gif)
+![gif-video](https://user-images.githubusercontent.com/486927/114311809-8b032600-9af0-11eb-90e0-0944294a6084.gif)
 
 [Full size video](https://user-images.githubusercontent.com/486927/114309930-40ca7680-9ae9-11eb-873d-0504bddc0682.mov)
 
 ## Philosophy
 
 At kitconcept, we think that providing a full featured, two dimensional free will layout
-(eg. Plone Mosaic-ish like) to users is often overwhelming, specially if these users are
-not technical or power users. Providing a proper and comprehensive UX for this kind of
-layouts are often hard and counter intuitive, specially when dealing with behaviors in
-responsive layouts. Our experience is that allowing that also enables an easy path to
-craft "ugly layouts" way out of the (most probably) existing site style guide.
+(eg. Plone Mosaic-ish like) experience to users is often overwhelming for them,
+specially if these users are not technical or power users. Providing a proper and
+comprehensive UX for this kind of layouts are often hard and counter intuitive,
+specially when dealing with behaviors in responsive layouts. Our experience is that
+allowing that also enables an easy path to craft "ugly layouts" way out of the (most
+probably) existing site style guide.
 
 By providing a mean to restrict the users to unidimensional layouts (and still enabling
 them to build with them 2D layouts) are better than an UX that allows you to arbitrary
