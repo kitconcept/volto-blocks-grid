@@ -4,6 +4,8 @@
 
 This package includes blocks for building unidimensional (x-axis) grids in Volto.
 
+https://user-images.githubusercontent.com/486927/114309930-40ca7680-9ae9-11eb-873d-0504bddc0682.mov
+
 ## Philosophy
 
 At kitconcept, we think that providing a full featured, two dimensional free will layout
