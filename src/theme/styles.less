@@ -136,6 +136,20 @@
     margin: 0 !important;
   }
 
+  .grid-teaser-item {
+    h2,
+    h3 {
+      margin-bottom: 1rem !important;
+    }
+  }
+
+  .grid-image-wrapper {
+    display: flex;
+    // This one is because Safari has a bug with flexed items, the default is
+    // align-items `stretched`, so it's required to reset it.
+    align-items: flex-start;
+  }
+
   .grid-image-wrapper::before {
     padding-top: 56.25%;
     content: '';
@@ -150,12 +164,12 @@
 
   .grid-image-wrapper {
     position: relative;
-    aspect-ratio: 5/3;
 
     img {
-      position: absolute;
       width: 100%;
-      height: 100%;
+      aspect-ratio: 5/3;
+      object-fit: cover;
+      object-position: top left;
     }
   }
 
@@ -171,5 +185,41 @@
 
   .block.listing:hover::before {
     display: none;
+  }
+}
+
+.grid-teaser-item {
+  display: flex;
+  flex-direction: column;
+
+  a,
+  a:hover {
+    color: rgba(0, 0, 0, 0.87);
+  }
+
+  p {
+    // Defaults are always standard, on theme with customizations
+    margin-bottom: 0;
+    text-align: left;
+  }
+
+  &.default {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+      max-width: 300px;
+      align-self: center;
+    }
+  }
+
+  &.top .grid-image-wrapper {
+    margin-bottom: 25px;
+  }
+
+  &.top a {
+    display: flex;
+    flex-direction: column;
   }
 }
