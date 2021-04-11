@@ -6,16 +6,16 @@ This package includes blocks for building unidimensional (x-axis) grids in Volto
 
 ## Philosophy
 
-At kitconcept, we think that providing a full featured, 2d free will layout (eg. Plone
-Mosaic-ish like) to users is often overwhelming, specially if these users are not
-technical or power users. Providing a proper and comprehensive UX for this kind of
+At kitconcept, we think that providing a full featured, two dimensional free will layout
+(eg. Plone Mosaic-ish like) to users is often overwhelming, specially if these users are
+not technical or power users. Providing a proper and comprehensive UX for this kind of
 layouts are often hard and counter intuitive, specially when dealing with behaviors in
 responsive layouts. Our experience is that allowing that also enables an easy path to
 craft "ugly layouts" way out of the (most probably) existing site style guide.
 
 By providing a mean to restrict the users to unidimensional layouts (and still enabling
-them to build with them 2d layouts) are better than an UX that allows you to arbitrary
-position blocks in a 2d space.
+them to build with them 2D layouts) are better than an UX that allows you to arbitrary
+position blocks in a 2D space.
 
 Also, unidimensional grids are also more in line of the current design trends in modern
 web, where we can often find these unified one rowed sections, specially in landing pages.
@@ -38,11 +38,11 @@ block config `gridAllowedBlocks` key:
 
 ### Teaser Grid block
 
-This block is restricted by defaul to `Teaser` block type.
+This block is restricted by default to contain `Teaser` block type.
 
 ### Image Grid block
 
-This block is restricted by defaul to `Image` block type.
+This block is restricted by default to contain `Image` block type.
 
 ## Create your own block types
 
@@ -98,5 +98,5 @@ any registered block types are allowed.
 You can try other similar products developed by some of our fellow community members and
 companies.
 
-[@eeacms/volto-grid-block](https://github.com/eea/volto-grid-block)
-[volto-subblocks](https://github.com/collective/volto-subblocks)
+- [@eeacms/volto-grid-block](https://github.com/eea/volto-grid-block)
+- [volto-subblocks](https://github.com/collective/volto-subblocks)
