@@ -33,7 +33,7 @@ try {
     const data = fs.readFileSync('CHANGELOG.md', 'utf8');
     const [original, origVersion, orig] = data.match(/##\s(.+)\s\((.+)\)/);
     if (orig !== 'unreleased') {
-      return console.log('Error, the CHANGELOG file is malformed.');
+      console.log('Error, the CHANGELOG file is malformed.');
     }
     const currentDate = new Date();
     const date = `${currentDate.getFullYear()}-${`0${
