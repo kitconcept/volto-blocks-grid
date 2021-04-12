@@ -27,7 +27,6 @@ try {
       versionExcerpt.match('\n\n')['index'] + 2,
     );
     process.stdout.write(versionExcerpt);
-    return;
   }
 
   if (command === 'bump') {
@@ -79,8 +78,6 @@ try {
       console.log('Back to development on CHANGELOG.md');
     });
   }
-
-  return;
 } catch (e) {
   console.log('Error:', e.stack);
 }
