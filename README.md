@@ -1,9 +1,9 @@
+# Volto Blocks Grid (by kitconcept)
+
 [![NPM](https://img.shields.io/npm/v/@kitconcept/volto-blocks-grid.svg)](https://www.npmjs.com/package/@kitconcept/volto-blocks-grid)
 [![Build Status](https://github.com/kitconcept/volto-blocks-grid/actions/workflows/code.yml/badge.svg)](https://github.com/kitconcept/volto-blocks-grid/actions)
 [![Build Status](https://github.com/kitconcept/volto-blocks-grid/actions/workflows/unit.yml/badge.svg)](https://github.com/kitconcept/volto-blocks-grid/actions)
 [![Build Status](https://github.com/kitconcept/volto-blocks-grid/actions/workflows/acceptance.yml/badge.svg)](https://github.com/kitconcept/volto-blocks-grid/actions)
-
-# Volto Blocks Grid (by kitconcept)
 
 ![kitconcept GmbH](https://raw.githubusercontent.com/kitconcept/volto-form-builder/master/kitconcept.png)
 
@@ -115,29 +115,29 @@ companies.
 
 If you already have a Volto project, just update `package.json`:
 
-   ```JSON
-   "addons": [
-       "@kitconcept/volto-blocks-grid"
-   ],
+```JSON
+"addons": [
+    "@kitconcept/volto-blocks-grid"
+],
 
-   "dependencies": {
-       "@kitconcept/volto-blocks-grid": "*"
-   }
-   ```
+"dependencies": {
+    "@kitconcept/volto-blocks-grid": "*"
+}
+```
 
 If not, create one:
 
-   ```
-   npm install -g yo @plone/generator-volto
-   yo @plone/volto my-volto-project --addon @kitconcept/volto-blocks-grid
-   cd my-volto-project
-   ```
+```shell
+npm install -g yo @plone/generator-volto
+yo @plone/volto my-volto-project --addon @kitconcept/volto-blocks-grid
+cd my-volto-project
+```
 
 Install new add-on and restart Volto:
 
-   ```
-   yarn install
-   yarn start
-   ```
+```shell
+yarn install
+yarn start
+```
 
 Go to http://localhost:3000
