@@ -110,3 +110,34 @@ companies.
 
 - [@eeacms/volto-grid-block](https://github.com/eea/volto-grid-block)
 - [volto-subblocks](https://github.com/collective/volto-subblocks)
+
+## Install
+
+If you already have a Volto project, just update `package.json`:
+
+   ```JSON
+   "addons": [
+       "@kitconcept/volto-blocks-grid"
+   ],
+
+   "dependencies": {
+       "@kitconcept/volto-blocks-grid": "*"
+   }
+   ```
+
+If not, create one:
+
+   ```
+   npm install -g yo @plone/generator-volto
+   yo @plone/volto my-volto-project --addon @kitconcept/volto-blocks-grid
+   cd my-volto-project
+   ```
+
+Install new add-on and restart Volto:
+
+   ```
+   yarn install
+   yarn start
+   ```
+
+Go to http://localhost:3000

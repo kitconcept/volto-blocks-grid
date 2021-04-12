@@ -5,10 +5,7 @@ const semver = require('semver');
 const args = process.argv;
 
 if (process.argv.length < 3) {
-  console.log(
-    'Not enough arguments. You should supply one of: bump || excerpt || back',
-  );
-  return;
+  throw 'Not enough arguments. You should supply one of: bump || excerpt || back';
 }
 
 const command = process.argv[2];
