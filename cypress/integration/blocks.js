@@ -13,12 +13,14 @@ context('Blocks Acceptance Tests', () => {
         contentType: 'Document',
         contentId: 'my-page',
         contentTitle: 'My Page',
+        path: '/document',
       });
       // Adding Image for Grid Image
       cy.createContent({
         contentType: 'Image',
         contentId: 'my-image',
         contentTitle: 'My Image',
+        path: '/document',
       });
       cy.visit('/document');
       cy.waitForResourceToLoad('@navigation');
@@ -85,7 +87,7 @@ context('Blocks Acceptance Tests', () => {
       cy.get(
         '#sidebar-properties .inline.field.text:first-of-type() .objectbrowser-field:first-of-type() .ui.button.action svg',
       ).click();
-      cy.findByText('My Page', { selector: 'span' }).click();
+      cy.findByLabelText('Select my-page').dblclick();
       // This is because the objectbrowser doesn't shows the content
       cy.wait(500);
       cy.get(
@@ -98,13 +100,14 @@ context('Blocks Acceptance Tests', () => {
       cy.get(
         '#sidebar-properties .inline.field.text:first-of-type() .objectbrowser-field:first-of-type() .ui.button.action svg',
       ).click();
-      cy.findByText('My Page', { selector: 'span' }).click();
+      cy.findByLabelText('Select my-page').dblclick();
+
       // This is because the objectbrowser doesn't shows the content
       cy.wait(500);
       cy.get(
         '#sidebar-properties .inline.field.text:nth-of-type(4) .objectbrowser-field:first-of-type() .ui.button.action svg',
       ).click();
-      cy.findByText('My Image', { selector: 'span' }).click();
+      cy.findByLabelText('Select my-image').dblclick();
 
       cy.get('#toolbar-save').click();
       cy.wait(500);
