@@ -2,18 +2,18 @@
 const fs = require('fs');
 const semver = require('semver');
 
-const args = process.argv;
+// const args = process.argv;
 
 if (process.argv.length < 3) {
-  throw 'Not enough arguments. You should supply one of: bump || excerpt || back';
+  throw new Error('Not enough arguments. You should supply one of: bump || excerpt || back');
 }
 
 const command = process.argv[2];
 const version = process.argv[3];
 
-function escapeRegExp(string) {
-  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
-}
+// function escapeRegExp(string) {
+//   return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
+// }
 
 try {
   if (command === 'excerpt') {
