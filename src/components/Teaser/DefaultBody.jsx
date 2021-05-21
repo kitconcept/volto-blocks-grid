@@ -49,8 +49,10 @@ const TeaserDefaultTemplate = (props) => {
                 />
               </div>
             )}
-            <h3>{data?.title}</h3>
-            {!data.hide_description && <p>{data?.description}</p>}
+            <div className="content">
+              <h3>{data?.title}</h3>
+              {!data.hide_description && <p>{data?.description}</p>}
+            </div>
           </MaybeWrap>
         </div>
       )}
