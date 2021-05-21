@@ -47,7 +47,7 @@ jobs:
 
       - name: Copy from docker screenshots on failure
         run: docker cp cypress:/opt/frontend/my-volto-project/src/addons/${{env.GIT_NAME}}/cypress .
-        if: failure()
+        if: always()
 
       - name: Delete Cypress docker on failure
         run: docker rm -v cypress
