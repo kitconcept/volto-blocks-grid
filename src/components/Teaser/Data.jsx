@@ -2,9 +2,8 @@ import React from 'react';
 import { useIntl } from 'react-intl';
 import { useDispatch } from 'react-redux';
 import { getContent } from '@plone/volto/actions';
-import { SchemaRenderer } from '../../components';
+import { BlockDataForm } from '@plone/volto/components';
 import { TeaserSchema } from './schema';
-import config from '@plone/volto/registry';
 
 const TeaserData = (props) => {
   const { block, data, onChangeBlock } = props;
@@ -35,21 +34,9 @@ const TeaserData = (props) => {
 
   const schema = TeaserSchema({ ...props, intl });
 
-  const applySchemaEnhancer = (schema) => {
-    const variations = config.blocks?.blocksConfig['teaser']?.variations;
-
-    const schemaExtender = variations?.[data.variation]?.['schemaExtenderItem'];
-
-    if (schemaExtender) {
-      return schemaExtender(schema, props, intl);
-    } else {
-      return schema;
-    }
-  };
-
   return (
-    <SchemaRenderer
-      schema={applySchemaEnhancer(schema)}
+    <BlockDataForm
+      schema={schema}
       title={schema.title}
       onChangeField={(id, value) => {
         onChangeBlock(block, {
@@ -58,7 +45,7 @@ const TeaserData = (props) => {
         });
       }}
       formData={data}
-      fieldIndex={data.index}
+      block={block}
     />
   );
 };

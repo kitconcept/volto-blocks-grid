@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Grid } from 'semantic-ui-react';
 import cx from 'classnames';
 import { BlockRenderer } from '../../components';
+import { withBlockExtensions } from '@plone/volto/helpers';
 
 const ViewGrid = ({ data, render, path }) => {
   return (
@@ -27,8 +28,6 @@ const ViewGrid = ({ data, render, path }) => {
               block={column.id}
               type={column['@type']}
               data={column}
-              variation={data.variation}
-              parentBlock={data['@type']}
               path={path}
             />
           </Grid.Column>
@@ -47,4 +46,4 @@ ViewGrid.propTypes = {
   data: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
-export default ViewGrid;
+export default withBlockExtensions(ViewGrid);

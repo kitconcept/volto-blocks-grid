@@ -9,6 +9,7 @@ import { v4 as uuid } from 'uuid';
 import cx from 'classnames';
 import { withRouter } from 'react-router-dom';
 import { Icon, SidebarPortal } from '@plone/volto/components';
+import { withBlockExtensions } from '@plone/volto/helpers';
 
 import addSVG from '@plone/volto/icons/add.svg';
 import clearSVG from '@plone/volto/icons/clear.svg';
@@ -358,8 +359,6 @@ class EditGrid extends Component {
                                           this.onChangeGridItem(index, data);
                                         }}
                                         data={this.props.data.columns[index]}
-                                        variation={this.props.data.variation}
-                                        parentBlock={this.props.data['@type']}
                                       />
                                     ) : (
                                       <div className="uber-grid-default-item">
@@ -407,6 +406,7 @@ class EditGrid extends Component {
 export default compose(
   injectIntl,
   withRouter,
+  withBlockExtensions,
   connect(
     (state) => ({
       request: state.content.create,

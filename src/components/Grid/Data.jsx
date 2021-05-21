@@ -1,28 +1,16 @@
 import React from 'react';
 import { useIntl } from 'react-intl';
-import { SchemaRenderer } from '../../components';
-import { addVariationsFieldToSchema, applySchemaEnhancer } from '../utils';
+import { BlockDataForm } from '@plone/volto/components';
 import { GridSchema } from './schema';
 
 const GridData = (props) => {
-  const { block, data, onChangeBlock, schemaEnhancer } = props;
+  const { block, data, onChangeBlock } = props;
   const intl = useIntl();
-  const schema = addVariationsFieldToSchema(
-    data['@type'],
-    GridSchema({ ...props, intl }),
-    data.variation,
-    intl,
-  );
+  const schema = GridSchema({ ...props, intl });
 
   return (
-    <SchemaRenderer
-      schema={applySchemaEnhancer(
-        schema,
-        schemaEnhancer,
-        data['@type'],
-        data.variation,
-        intl,
-      )}
+    <BlockDataForm
+      schema={schema}
       title={schema.title}
       onChangeField={(id, value) => {
         onChangeBlock(block, {

@@ -47,8 +47,6 @@ BlockRenderer.propTypes = {
   block: PropTypes.string.isRequired,
   onChangeBlock: PropTypes.func,
   data: PropTypes.objectOf(PropTypes.any).isRequired,
-  variation: PropTypes.string,
-  parentBlock: PropTypes.string,
 };
 
 BlockRenderer.defaultProps = {
