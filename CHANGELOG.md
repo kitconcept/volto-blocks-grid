@@ -10,6 +10,8 @@
 
 ### Bugfix
 
+- Fixes #12, default image in teaser is now Plone classic standard one, overridable using the imageScale in the teaser block config @sneridagh
+
 ### Internal
 
 - Add a wrapper for the content (div with class content) in Teaser @sneridagh
