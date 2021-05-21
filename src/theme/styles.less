@@ -107,7 +107,8 @@
 
 // Required to overcome the droppable from b-d&d at the bottom
 // !! Required for ALL blocks that have b-d&d and a grid
-.block.__grid {
+.block.__grid,
+[class$='Grid'].block {
   .ui.grid {
     margin-top: 0;
     margin-bottom: 0;
