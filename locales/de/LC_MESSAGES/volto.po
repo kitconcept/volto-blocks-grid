@@ -20,10 +20,6 @@ msgstr ""
 msgid "Description"
 msgstr "Beschreibung"
 
-#: components/SchemaRenderer/SchemaRenderer
-msgid "Error"
-msgstr "Fehler"
-
 #: components/Grid/schema
 msgid "Headline"
 msgstr ""
@@ -48,17 +44,9 @@ msgstr "Bitte wählen sie einen existierenden Inhalt als Quelle für dieses Elem
 msgid "Source"
 msgstr "Quelle"
 
-#: components/SchemaRenderer/SchemaRenderer
-msgid "There were some errors"
-msgstr "Es gab einige Fehler"
-
 #: components/Teaser/schema
 msgid "Title"
 msgstr "Titel"
-
-#: components/utils
-msgid "Variation"
-msgstr "Variante"
 
 #: components/Grid/templates
 msgid "column"

@@ -15,10 +15,6 @@ msgstr ""
 msgid "Description"
 msgstr ""
 
-#: components/SchemaRenderer/SchemaRenderer
-msgid "Error"
-msgstr ""
-
 #: components/Grid/schema
 msgid "Headline"
 msgstr ""
@@ -43,16 +39,8 @@ msgstr ""
 msgid "Source"
 msgstr ""
 
-#: components/SchemaRenderer/SchemaRenderer
-msgid "There were some errors"
-msgstr ""
-
 #: components/Teaser/schema
 msgid "Title"
-msgstr ""
-
-#: components/utils
-msgid "Variation"
 msgstr ""
 
 #: components/Grid/templates
