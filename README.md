@@ -98,10 +98,19 @@ import {
       addPermission: [],
       view: [],
     },
+    imageScale: 'teaser'
   },
 ```
 
 any registered block types are allowed.
+
+## Teaser block
+
+For convenience, this package includes a "teaser" block that allows you to pull content from a source content object and brings in to a block (title, description, preview_image fields).
+
+You'll find the `preview_image` field in `kitconcept.volto` add-on, or use your own definition of it in your Volto integration package.
+
+It includes a configuration option `imageScale` (see above example) that allows you to use an specific scale for the `preview_image`.
 
 ## Similar products
 
