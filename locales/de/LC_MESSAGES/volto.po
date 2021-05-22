@@ -22,7 +22,7 @@ msgstr "Beschreibung"
 
 #: components/Grid/schema
 msgid "Headline"
-msgstr ""
+msgstr "Überschrift"
 
 #: components/Teaser/schema
 msgid "Image override"
@@ -50,8 +50,8 @@ msgstr "Titel"
 
 #: components/Grid/templates
 msgid "column"
-msgstr ""
+msgstr "spalte"
 
 #: components/Grid/templates
 msgid "columns"
-msgstr ""
+msgstr "spalten"
