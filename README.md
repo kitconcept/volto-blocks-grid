@@ -112,6 +112,11 @@ You'll find the `preview_image` field in `kitconcept.volto` add-on, or use your 
 
 It includes a configuration option `imageScale` (see above example) that allows you to use an specific scale for the `preview_image`.
 
+## Compatibility
+
+2.0.0 -> Volto 12.14.0 or above
+1.0.0 -> Anything lower
+
 ## Similar products
 
 You can try other similar products developed by some of our fellow community members and
