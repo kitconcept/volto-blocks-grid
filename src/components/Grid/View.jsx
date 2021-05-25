@@ -9,7 +9,7 @@ const ViewGrid = ({ data, render, path }) => {
   return (
     <div
       className={cx('block __grid', {
-        [data['@type']]: true,
+        [data['@type']]: data['@type'] !== '__grid',
         centered: data.align === 'center' || data.align === undefined,
         'space-between': data.align === 'space-between',
         'centered-text': data.centeredText,
@@ -21,7 +21,7 @@ const ViewGrid = ({ data, render, path }) => {
     >
       {data.headline && <h2 className="headline">{data.headline}</h2>}
 
-      <Grid stackable columns={data.columns.length}>
+      <Grid stackable stretched columns={data.columns.length}>
         {data.columns.map((column) => (
           <Grid.Column key={column.id}>
             <BlockRenderer

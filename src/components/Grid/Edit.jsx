@@ -287,6 +287,8 @@ class EditGrid extends Component {
               {(provided) => (
                 <Ref innerRef={provided.innerRef}>
                   <Grid
+                    stackable
+                    stretched
                     {...provided.droppableProps}
                     columns={
                       this.props.data.columns
