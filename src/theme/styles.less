@@ -134,7 +134,9 @@
 .block.__grid {
   h2,
   h3 {
-    margin: 0 !important;
+    &:not(.headline) {
+      margin: 0 !important;
+    }
   }
 
   .grid-teaser-item {
