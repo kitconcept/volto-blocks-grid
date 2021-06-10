@@ -20,11 +20,12 @@ const customBlocks = {
     restricted: false,
     mostUsed: true,
     sidebarTab: 1,
+    blockHasOwnFocusManagement: true,
     security: {
       addPermission: [],
       view: [],
     },
-    gridAllowedBlocks: ['teaser', 'image', 'listing', 'text'],
+    gridAllowedBlocks: ['teaser', 'image', 'listing', 'slate', 'text'],
   },
   teaserGrid: {
     id: 'teaserGrid',

@@ -23,20 +23,7 @@ function BlockRenderer(props) {
     return <ViewBlock {...props} detached onChangeBlock={() => {}} />;
   }
   if (edit) {
-    return (
-      <EditBlock
-        {...props}
-        detached
-        index={0}
-        onSelectBlock={() => {}}
-        onFocusPreviousBlock={() => {}}
-        onFocusNextBlock={() => {}}
-        onAddBlock={() => {}}
-        onDeleteBlock={() => {}}
-        onMutateBlock={() => {}}
-        handleKeyDown={() => {}}
-      />
-    );
+    return <EditBlock {...props} detached index={0} />;
   }
   return '';
 }
