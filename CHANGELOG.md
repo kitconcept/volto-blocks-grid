@@ -8,7 +8,12 @@
 
 ### Bugfix
 
+- Make Slate block work properly @tiberiuichim
+
 ### Internal
+
+- Detached mode 2.0 @tiberiuichim
+- Related slate/text styling @sneridagh
 
 ## 2.0.0 (2021-05-22)
 
