@@ -25,6 +25,10 @@ const messages = defineMessages({
     id: 'Description',
     defaultMessage: 'Description',
   },
+  headtitle: {
+    id: 'Headtitle',
+    defaultMessage: 'Headtitle',
+  },
 });
 
 export const TeaserSchema = (props) => {
@@ -36,7 +40,7 @@ export const TeaserSchema = (props) => {
       {
         id: 'default',
         title: 'Default',
-        fields: ['href', 'title', 'description', 'preview_image'],
+        fields: ['href', 'title', 'headtitle', 'description', 'preview_image'],
       },
     ],
 
@@ -45,11 +49,19 @@ export const TeaserSchema = (props) => {
         title: intl.formatMessage(messages.Source),
         widget: 'object_browser',
         mode: 'link',
-        selectedItemAttrs: ['Title', 'Description', 'hasPreviewImage'],
+        selectedItemAttrs: [
+          'Title',
+          'headtitle',
+          'Description',
+          'hasPreviewImage',
+        ],
         allowExternals: true,
       },
       title: {
         title: intl.formatMessage(messages.title),
+      },
+      headtitle: {
+        title: intl.formatMessage(messages.headtitle),
       },
       description: {
         title: intl.formatMessage(messages.description),
