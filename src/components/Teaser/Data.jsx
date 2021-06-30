@@ -19,6 +19,7 @@ const TeaserData = (props) => {
           ...data,
           ...(!data.title && { title: resp.title }),
           ...(!data.description && { description: resp.description }),
+          ...(!data.headtitle && { headtitle: resp.headtitle }),
         });
       });
     }
@@ -27,6 +28,7 @@ const TeaserData = (props) => {
         ...data,
         title: '',
         description: '',
+        headtitle: '',
       });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
