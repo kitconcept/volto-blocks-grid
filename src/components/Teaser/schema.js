@@ -5,10 +5,6 @@ const messages = defineMessages({
     id: 'Source',
     defaultMessage: 'Source',
   },
-  item: {
-    id: 'Item',
-    defaultMessage: 'Item',
-  },
   imageOverride: {
     id: 'Image override',
     defaultMessage: 'Image override',
@@ -29,13 +25,17 @@ const messages = defineMessages({
     id: 'Headtitle',
     defaultMessage: 'Headtitle',
   },
+  teaser: {
+    id: 'Teaser',
+    defaultMessage: 'Teaser',
+  },
 });
 
 export const TeaserSchema = (props) => {
   const { intl } = props;
 
   return {
-    title: intl.formatMessage(messages.item),
+    title: intl.formatMessage(messages.teaser),
     fieldsets: [
       {
         id: 'default',
