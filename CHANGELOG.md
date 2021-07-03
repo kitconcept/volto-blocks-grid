@@ -9,6 +9,7 @@
 ### Bugfix
 
 - Make Slate block work properly @tiberiuichim
+- Change the title of teaser sidebar from 'Element' to 'Teaser' @iFlameing
 
 ### Internal
 
