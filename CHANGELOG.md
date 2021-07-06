@@ -2,8 +2,6 @@
 
 ## 2.0.1 (unreleased)
 
-### Breaking
-
 ### Feature
 
 - Add support for `head_title` behavior @iFlameing @sneridagh
