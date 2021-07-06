@@ -29,10 +29,6 @@ msgid "Image override"
 msgstr "Bild überschreiben"
 
 #: components/Teaser/schema
-msgid "Item"
-msgstr "Element"
-
-#: components/Teaser/schema
 msgid "Open in a new tab"
 msgstr "In neuem Tab öffnen"
 
@@ -45,6 +41,10 @@ msgid "Source"
 msgstr "Quelle"
 
 #: components/Teaser/schema
+msgid "Teaser"
+msgstr ""
+
+#: components/Teaser/schema
 msgid "Title"
 msgstr "Titel"
 
@@ -55,3 +55,7 @@ msgstr "spalte"
 #: components/Grid/templates
 msgid "columns"
 msgstr "spalten"
+
+#: components/Teaser/schema
+msgid "head_title"
+msgstr ""

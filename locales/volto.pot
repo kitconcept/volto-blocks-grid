@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Plone\n"
-"POT-Creation-Date: 2021-05-22T18:23:06.270Z\n"
+"POT-Creation-Date: 2021-07-06T15:19:23.677Z\n"
 "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -29,11 +29,6 @@ msgid "Image override"
 msgstr ""
 
 #: components/Teaser/schema
-# defaultMessage: Item
-msgid "Item"
-msgstr ""
-
-#: components/Teaser/schema
 # defaultMessage: Open in a new tab
 msgid "Open in a new tab"
 msgstr ""
@@ -49,6 +44,11 @@ msgid "Source"
 msgstr ""
 
 #: components/Teaser/schema
+# defaultMessage: Teaser
+msgid "Teaser"
+msgstr ""
+
+#: components/Teaser/schema
 # defaultMessage: Title
 msgid "Title"
 msgstr ""
@@ -61,4 +61,9 @@ msgstr ""
 #: components/Grid/templates
 # defaultMessage: columns
 msgid "columns"
+msgstr ""
+
+#: components/Teaser/schema
+# defaultMessage: head_title
+msgid "head_title"
 msgstr ""
