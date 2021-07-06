@@ -6,6 +6,8 @@
 
 ### Feature
 
+- Add support for `head_title` behavior @iFlameing @sneridagh
+
 ### Bugfix
 
 - Make Slate block work properly @tiberiuichim
