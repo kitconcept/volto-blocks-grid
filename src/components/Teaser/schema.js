@@ -21,9 +21,9 @@ const messages = defineMessages({
     id: 'Description',
     defaultMessage: 'Description',
   },
-  headtitle: {
-    id: 'Headtitle',
-    defaultMessage: 'Headtitle',
+  head_title: {
+    id: 'head_title',
+    defaultMessage: 'head_title',
   },
   teaser: {
     id: 'Teaser',
@@ -40,7 +40,7 @@ export const TeaserSchema = (props) => {
       {
         id: 'default',
         title: 'Default',
-        fields: ['href', 'title', 'headtitle', 'description', 'preview_image'],
+        fields: ['href', 'title', 'head_title', 'description', 'preview_image'],
       },
     ],
 
@@ -51,7 +51,7 @@ export const TeaserSchema = (props) => {
         mode: 'link',
         selectedItemAttrs: [
           'Title',
-          'headtitle',
+          'head_title',
           'Description',
           'hasPreviewImage',
         ],
@@ -60,8 +60,8 @@ export const TeaserSchema = (props) => {
       title: {
         title: intl.formatMessage(messages.title),
       },
-      headtitle: {
-        title: intl.formatMessage(messages.headtitle),
+      head_title: {
+        title: intl.formatMessage(messages.head_title),
       },
       description: {
         title: intl.formatMessage(messages.description),
