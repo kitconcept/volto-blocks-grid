@@ -58,4 +58,4 @@ msgstr "spalten"
 
 #: components/Teaser/schema
 msgid "head_title"
-msgstr ""
+msgstr "Kopftitel"

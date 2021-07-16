@@ -25,6 +25,7 @@
 
 - Detached mode 2.0 @tiberiuichim
 - Related slate/text styling @sneridagh
+- Add german translation for head_title in teaser/data @ThomasKindermann
 
 ## 2.0.0 (2021-05-22)
 

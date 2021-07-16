@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Plone\n"
-"POT-Creation-Date: 2021-07-06T15:19:23.677Z\n"
+"POT-Creation-Date: 2021-07-16T09:24:20.729Z\n"
 "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -64,6 +64,6 @@ msgid "columns"
 msgstr ""
 
 #: components/Teaser/schema
-# defaultMessage: head_title
+# defaultMessage: head title
 msgid "head_title"
 msgstr ""
