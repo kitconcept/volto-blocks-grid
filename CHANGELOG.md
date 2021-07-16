@@ -10,6 +10,8 @@
 
 ### Internal
 
+- Add Brazilian Portuguese translation @ericof
+
 ## 2.1.0 (2021-07-06)
 
 ### Feature

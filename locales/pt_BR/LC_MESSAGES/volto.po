@@ -1,0 +1,56 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language: \n"
+"Language-Team: \n"
+"Content-Type: \n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#: components/Teaser/schema
+msgid "Description"
+msgstr "Descrição"
+
+#: components/Grid/schema
+msgid "Headline"
+msgstr "Chamada"
+
+#: components/Teaser/schema
+msgid "Image override"
+msgstr "Imagem"
+
+#: components/Teaser/schema
+msgid "Open in a new tab"
+msgstr "Abrir em nova aba"
+
+#: components/Teaser/DefaultBody
+msgid "Please choose an existing content as source for this element"
+msgstr "Por favor escolha um conteúdo como fonte deste elemento."
+
+#: components/Teaser/schema
+msgid "Source"
+msgstr "Fonte"
+
+#: components/Teaser/schema
+msgid "Teaser"
+msgstr "Destaque"
+
+#: components/Teaser/schema
+msgid "Title"
+msgstr "Título"
+
+#: components/Grid/templates
+msgid "column"
+msgstr "coluna"
+
+#: components/Grid/templates
+msgid "columns"
+msgstr "colunas"
+
+#: components/Teaser/schema
+msgid "head_title"
+msgstr "Chapéu"
