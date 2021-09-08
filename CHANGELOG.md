@@ -5,6 +5,7 @@
 ### Breaking
 
 ### Feature
+- Add the enter key support in grid block to create the default text block below. @iFlameing
 
 ### Bugfix
 
