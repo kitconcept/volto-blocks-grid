@@ -2,12 +2,9 @@
 
 ## 2.1.1 (unreleased)
 
-### Breaking
-
 ### Feature
-- Add the enter key support in grid block to create the default text block below. @iFlameing
 
-### Bugfix
+- Add the enter key support in grid block to create the default text block below. @iFlameing
 
 ### Internal
 
