@@ -7,7 +7,7 @@
 
 ![kitconcept GmbH](https://raw.githubusercontent.com/kitconcept/volto-form-builder/master/kitconcept.png)
 
-This package includes blocks for building unidimensional (x-axis) grids in Volto.
+Volto Blocks Grid allows sophisticated page layouts for Plone 6 (Volto).
 
 ![gif-video](https://user-images.githubusercontent.com/486927/114311809-8b032600-9af0-11eb-90e0-0944294a6084.gif)
 
