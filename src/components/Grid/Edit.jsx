@@ -23,7 +23,6 @@ import { reorderArray, replaceItemOfArray } from '../../helpers';
 
 import { getAllowedBlocks } from '../utils';
 import templates from './templates';
-import config from '@plone/volto/registry';
 
 /**
  * Edit image block class.
@@ -69,7 +68,6 @@ class EditGrid extends Component {
     super(props);
 
     this.onChangeBlock = this.onChangeBlock.bind(this);
-    this.container = React.createRef();
 
     // sets defaults
     if (!this.props.data.columns) {
@@ -256,7 +254,6 @@ class EditGrid extends Component {
           </div>
         )}
         <div
-          ref={this.container}
           className={cx({
             [data['@type']]: true,
             one: data?.columns && data.columns.length === 1,
@@ -268,19 +265,8 @@ class EditGrid extends Component {
           // for bringing the Grid sidebar alive once you have selected an inner block
           onClick={(e) => {
             this.setState({ selectedColumnIndex: null });
-            this.container.current.focus();
           }}
-          onKeyDown={(e) => {
-            this.props.onAddBlock(
-              config.settings.defaultBlockType,
-              this.props.index + 1,
-            );
-          }}
-          style={{ outline: 'none' }}
           role="presentation"
-          // The tabIndex is required for the keyboard navigation
-          /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
-          tabIndex="0"
         >
           {this.props.data.columns && this.props.data.headline && (
             <h2 className="headline">{data.headline}</h2>
@@ -336,6 +322,8 @@ class EditGrid extends Component {
                                           index,
                                     })}
                                     role="presentation"
+                                    // This prevents propagation of ENTER
+                                    onKeyDown={(e) => e.stopPropagation()}
                                     onClick={(e) => {
                                       e.stopPropagation();
                                       this.props.onSelectBlock(
