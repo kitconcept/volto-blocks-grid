@@ -41,7 +41,7 @@ context('Blocks Acceptance Tests', () => {
       cy.get('button[aria-label="Add grid block in position 0"]').click();
       cy.get('.blocks-chooser .mostUsed .button.image').click();
       cy.get('.block.image .toolbar-inner .buttons:first-child').click();
-      cy.get('[aria-label="Select My Image"]').dblclick();
+      cy.get('[aria-label="Select my-image"]').dblclick();
       cy.findByText('my-image');
 
       cy.get('button[aria-label="Add grid block in position 1"]').click();
@@ -69,7 +69,7 @@ context('Blocks Acceptance Tests', () => {
       cy.get(
         '.objectbrowser-field[aria-labelledby="fieldset-default-field-label-href"] button[aria-label="Open object browser"]',
       ).click();
-      cy.get('[aria-label="Select My Page"]').dblclick();
+      cy.get('[aria-label="Select my-page"]').dblclick();
       cy.get('#toolbar-save').click();
 
       cy.get('.block.__grid').findByText('My Page');
@@ -87,7 +87,7 @@ context('Blocks Acceptance Tests', () => {
       cy.get(
         '#sidebar-properties .inline.field.text:first-of-type() .objectbrowser-field:first-of-type() .ui.button.action svg',
       ).click();
-      cy.findByLabelText('Select My Page').dblclick();
+      cy.findByLabelText('Select my-page').dblclick();
       // This is because the objectbrowser doesn't shows the content
       cy.wait(500);
       cy.get(
@@ -100,14 +100,14 @@ context('Blocks Acceptance Tests', () => {
       cy.get(
         '#sidebar-properties .inline.field.text:first-of-type() .objectbrowser-field:first-of-type() .ui.button.action svg',
       ).click();
-      cy.findByLabelText('Select My Page').dblclick();
+      cy.findByLabelText('Select my-page').dblclick();
 
       // This is because the objectbrowser doesn't shows the content
       cy.wait(500);
       cy.get(
         '#sidebar-properties .inline.field.text:nth-of-type(5) .objectbrowser-field:first-of-type() .ui.button.action svg',
       ).click();
-      cy.findByLabelText('Select My Image').dblclick();
+      cy.findByLabelText('Select my-image').dblclick();
 
       cy.get('#toolbar-save').click();
       cy.wait(500);
@@ -128,12 +128,12 @@ context('Blocks Acceptance Tests', () => {
       cy.get(
         '.imagesGrid.two [data-rbd-draggable-context-id]:first-child .toolbar-inner .buttons:first-child button',
       ).click();
-      cy.findByLabelText('Select My Image').dblclick();
+      cy.findByLabelText('Select my-image').dblclick();
 
       cy.get(
         '.imagesGrid.two [data-rbd-draggable-context-id]:last-child .toolbar-inner .buttons:first-child button',
       ).click();
-      cy.findByLabelText('Select My Image').dblclick();
+      cy.findByLabelText('Select my-image').dblclick();
 
       cy.get('#toolbar-save').click();
 
