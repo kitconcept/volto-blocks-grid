@@ -2,13 +2,9 @@
 
 ## 2.2.1 (unreleased)
 
-### Breaking
-
-### Feature
-
-### Bugfix
-
 ### Internal
+
+- Revert "Add the enter key support in grid block to create the default text block below." @sneridagh
 
 ## 2.2.0 (2021-09-08)
 
