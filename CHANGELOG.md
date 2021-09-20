@@ -1,5 +1,15 @@
 # Change Log
 
+## 2.2.3 (unreleased)
+
+### Breaking
+
+### Feature
+
+### Bugfix
+
+### Internal
+
 ## 2.2.2 (2021-09-20)
 
 ### Bugfix
