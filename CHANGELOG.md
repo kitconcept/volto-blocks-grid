@@ -8,6 +8,8 @@
 
 ### Bugfix
 
+- Fix press ENTER in the Grid main container block creates a new block @sneridagh
+
 ### Internal
 
 ## 2.2.1 (2021-09-17)

@@ -20,6 +20,7 @@ const customBlocks = {
     restricted: false,
     mostUsed: true,
     sidebarTab: 1,
+    // This has a good reason: Slate does not work in detached mode if enabled
     blockHasOwnFocusManagement: true,
     security: {
       addPermission: [],
