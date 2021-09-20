@@ -24,6 +24,8 @@ import { reorderArray, replaceItemOfArray } from '../../helpers';
 import { getAllowedBlocks } from '../utils';
 import templates from './templates';
 
+import config from '@plone/volto/registry';
+
 /**
  * Edit image block class.
  * @class Edit
@@ -56,6 +58,7 @@ class EditGrid extends Component {
 
   state = {
     selectedColumnIndex: 0,
+    droppableId: uuid(),
   };
 
   /**
@@ -246,6 +249,7 @@ class EditGrid extends Component {
                 onClick={(e) => {
                   e.stopPropagation();
                   this.setState({ selectedColumnIndex: null });
+                  this.node.current.focus();
                 }}
               >
                 <Icon name={configSVG} size="24px" />
@@ -265,8 +269,37 @@ class EditGrid extends Component {
           // for bringing the Grid sidebar alive once you have selected an inner block
           onClick={(e) => {
             this.setState({ selectedColumnIndex: null });
+            this.node.current.focus();
           }}
+          // Custom own focus management
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+              this.props.onAddBlock(
+                config.settings.defaultBlockType,
+                this.props.index + 1,
+              );
+            }
+            if (e.key === 'ArrowUp') {
+              this.props.onFocusPreviousBlock(
+                this.props.id,
+                this.props.blockNode.current,
+              );
+              e.preventDefault();
+            }
+            if (e.key === 'ArrowDown') {
+              this.props.onFocusNextBlock(
+                this.props.id,
+                this.props.blockNode.current,
+              );
+              e.preventDefault();
+            }
+          }}
+          ref={this.node}
           role="presentation"
+          style={{ outline: 'none' }}
+          // The tabIndex is required for the keyboard navigation and for making the element interactive
+          /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
+          tabIndex="0"
         >
           {this.props.data.columns && this.props.data.headline && (
             <h2 className="headline">{data.headline}</h2>
@@ -283,7 +316,10 @@ class EditGrid extends Component {
             />
           )}
           <DragDropContext onDragEnd={this.onDragEnd}>
-            <Droppable droppableId={uuid()} direction="horizontal">
+            <Droppable
+              droppableId={this.state.droppableId}
+              direction="horizontal"
+            >
               {(provided) => (
                 <Ref innerRef={provided.innerRef}>
                   <Grid
