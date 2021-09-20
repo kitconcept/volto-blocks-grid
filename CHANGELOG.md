@@ -1,6 +1,6 @@
 # Change Log
 
-## 2.2.2 (unreleased)
+## 2.2.2 (2021-09-20)
 
 ### Bugfix
 
