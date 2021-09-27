@@ -17,45 +17,56 @@ msgstr ""
 "X-Is-Fallback-For: de-at de-li de-lu de-ch de-de\n"
 
 #: components/Teaser/schema
+# defaultMessage: Description
 msgid "Description"
 msgstr "Beschreibung"
 
 #: components/Grid/schema
+# defaultMessage: Headline
 msgid "Headline"
 msgstr "Überschrift"
 
 #: components/Teaser/schema
+# defaultMessage: Image override
 msgid "Image override"
 msgstr "Bild überschreiben"
 
 #: components/Teaser/schema
+# defaultMessage: Open in a new tab
 msgid "Open in a new tab"
 msgstr "In neuem Tab öffnen"
 
 #: components/Teaser/DefaultBody
+# defaultMessage: Please choose an existing content as source for this element
 msgid "Please choose an existing content as source for this element"
 msgstr "Bitte wählen sie einen existierenden Inhalt als Quelle für dieses Element aus"
 
 #: components/Teaser/schema
+# defaultMessage: Source
 msgid "Source"
 msgstr "Quelle"
 
 #: components/Teaser/schema
+# defaultMessage: Teaser
 msgid "Teaser"
 msgstr ""
 
 #: components/Teaser/schema
+# defaultMessage: Title
 msgid "Title"
 msgstr "Titel"
 
 #: components/Grid/templates
+# defaultMessage: column
 msgid "column"
 msgstr "spalte"
 
 #: components/Grid/templates
+# defaultMessage: columns
 msgid "columns"
 msgstr "spalten"
 
 #: components/Teaser/schema
+# defaultMessage: head title
 msgid "head_title"
 msgstr "Kopftitel"

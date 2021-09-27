@@ -12,45 +12,56 @@ msgstr ""
 "Plural-Forms: \n"
 
 #: components/Teaser/schema
+# defaultMessage: Description
 msgid "Description"
 msgstr ""
 
 #: components/Grid/schema
+# defaultMessage: Headline
 msgid "Headline"
 msgstr ""
 
 #: components/Teaser/schema
+# defaultMessage: Image override
 msgid "Image override"
 msgstr ""
 
 #: components/Teaser/schema
+# defaultMessage: Open in a new tab
 msgid "Open in a new tab"
 msgstr ""
 
 #: components/Teaser/DefaultBody
+# defaultMessage: Please choose an existing content as source for this element
 msgid "Please choose an existing content as source for this element"
 msgstr ""
 
 #: components/Teaser/schema
+# defaultMessage: Source
 msgid "Source"
 msgstr ""
 
 #: components/Teaser/schema
+# defaultMessage: Teaser
 msgid "Teaser"
 msgstr ""
 
 #: components/Teaser/schema
+# defaultMessage: Title
 msgid "Title"
 msgstr ""
 
 #: components/Grid/templates
+# defaultMessage: column
 msgid "column"
 msgstr ""
 
 #: components/Grid/templates
+# defaultMessage: columns
 msgid "columns"
 msgstr ""
 
 #: components/Teaser/schema
+# defaultMessage: head title
 msgid "head_title"
 msgstr ""
