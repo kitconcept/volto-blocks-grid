@@ -2,15 +2,9 @@
 
 ## 2.2.3 (unreleased)
 
-### Breaking
-
 ### Feature
 
 - New i18n in Volto 14, use @plone/scripts @sneridagh
-
-### Bugfix
-
-### Internal
 
 ## 2.2.2 (2021-09-20)
 
