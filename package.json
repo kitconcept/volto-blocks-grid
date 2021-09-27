@@ -4,7 +4,7 @@
   "description": "kitconcept's Volto Grids add-on - Unidimensional grids FTW",
   "main": "src/index.js",
   "scripts": {
-    "i18n": "rm -rf build/messages && NODE_ENV=production node src/i18n.js",
+    "i18n": "rm -rf build/messages && NODE_ENV=production i18n -a",
     "prettier": "make prettier",
     "lint": "make lint",
     "stylelint": "make stylelint",
@@ -97,5 +97,8 @@
   },
   "peerDependencies": {
     "@plone/volto": ">=12.14.0"
+  },
+  "dependencies": {
+    "@plone/scripts": "1.0.1"
   }
 }

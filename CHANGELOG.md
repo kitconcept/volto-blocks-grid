@@ -6,6 +6,8 @@
 
 ### Feature
 
+- New i18n in Volto 14, use @plone/scripts @sneridagh
+
 ### Bugfix
 
 ### Internal
