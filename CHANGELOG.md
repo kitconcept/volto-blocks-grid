@@ -6,6 +6,10 @@
 
 - New i18n in Volto 14, use @plone/scripts @sneridagh
 
+### Internal
+
+- Upgrade @plone/scripts 1.0.2
+
 ## 2.2.2 (2021-09-20)
 
 ### Bugfix
