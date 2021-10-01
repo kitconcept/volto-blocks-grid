@@ -10,6 +10,8 @@
 
 ### Internal
 
+- Upgrade @plone/scripts 1.0.3
+
 ## 2.3.0 (2021-09-27)
 
 ### Feature

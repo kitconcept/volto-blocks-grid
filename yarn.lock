@@ -1562,10 +1562,10 @@
   dependencies:
     "@octokit/openapi-types" "^6.0.0"
 
-"@plone/scripts@1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@plone/scripts/-/scripts-1.0.2.tgz#a069e6bfabc403ac13b194e1fc025ea5cf412792"
-  integrity sha512-EFTin2BUyXStmOxfoa8UM2RlJ8/KJT2z+eAN0s4e7A0DTmCEjfN48IYgyTTvRn2SEStBlW0sdn4T92IBuRR6FA==
+"@plone/scripts@1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@plone/scripts/-/scripts-1.0.3.tgz#ea3e5f29b6fcb8f088b32e43394d71748d5538b4"
+  integrity sha512-wE0vsWpOI5jeoVJVP0T2IpBGz6wdlQrOqicK0EsC0+6hYqmPJb2cGUXNe0JhUDONF6Gi/Ubklcgd05Lpb2+bjA==
   dependencies:
     babel-plugin-react-intl "5.1.17"
     babel-preset-razzle "3.4.5"
