@@ -6,6 +6,8 @@
 
 ### Feature
 
+- Use image field as fallback for teaser and preview @ericof
+
 ### Bugfix
 
 ### Internal

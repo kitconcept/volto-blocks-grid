@@ -11,6 +11,6 @@ export function getTeaserImageURL(href, image) {
       return image['@id'];
     }
   } else {
-    return `${href['@id']}/@@images/preview_image/${imageScale}`;
+    return `${href['@id']}/@@images/${href['image_field']}/${imageScale}`;
   }
 }
