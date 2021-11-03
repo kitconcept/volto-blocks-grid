@@ -40,7 +40,7 @@ const TeaserDefaultTemplate = (props) => {
             href={href['@id']}
             target={data.openLinkInNewTab ? '_blank' : null}
           >
-            {(href.hasPreviewImage || image) && (
+            {(href.hasPreviewImage || href.image_field || image) && (
               <div className="grid-image-wrapper">
                 <img
                   src={flattenToAppURL(getTeaserImageURL(href, image))}
