@@ -10,6 +10,8 @@
 
 ### Bugfix
 
+- Play well with the new blocks defaults @sneridagh
+
 ### Internal
 
 - Upgrade @plone/scripts 1.0.3
