@@ -14,7 +14,7 @@ const TeaserData = (props) => {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-    if (href && !isEmpty(href) && !data.title && !data.description) {
+    if (!isEmpty(href) && !data.title && !data.description) {
       dispatch(getContent(href['@id'], null, block)).then((resp) => {
         onChangeBlock(block, {
           ...data,
