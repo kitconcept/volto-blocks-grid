@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { getContent } from '@plone/volto/actions';
 import { BlockDataForm } from '@plone/volto/components';
 import { TeaserSchema } from './schema';
+import { isEmpty } from 'lodash';
 
 const TeaserData = (props) => {
   const { block, data, onChangeBlock } = props;
@@ -13,7 +14,7 @@ const TeaserData = (props) => {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-    if (href && !data.title && !data.description) {
+    if (href && !isEmpty(href) && !data.title && !data.description) {
       dispatch(getContent(href['@id'], null, block)).then((resp) => {
         onChangeBlock(block, {
           ...data,
@@ -23,7 +24,9 @@ const TeaserData = (props) => {
         });
       });
     }
-    if (!href) {
+    // This condition is required in order to not reset the fields on mount (block creation),
+    // when the href is undefined yet. It makes the block defaults play well with this block.
+    if (href === undefined && data.href !== undefined) {
       onChangeBlock(block, {
         ...data,
         title: '',
