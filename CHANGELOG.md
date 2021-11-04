@@ -2,8 +2,6 @@
 
 ## 2.3.1 (unreleased)
 
-### Breaking
-
 ### Feature
 
 - Use image field as fallback for teaser and preview @ericof
