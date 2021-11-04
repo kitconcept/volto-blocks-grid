@@ -1,5 +1,15 @@
 # Change Log
 
+## 2.4.1 (unreleased)
+
+### Breaking
+
+### Feature
+
+### Bugfix
+
+### Internal
+
 ## 2.4.0 (2021-11-04)
 
 ### Feature
