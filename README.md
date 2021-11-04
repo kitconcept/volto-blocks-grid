@@ -106,9 +106,9 @@ any registered block types are allowed.
 
 ## Teaser block
 
-For convenience, this package includes a "teaser" block that allows you to pull content from a source content object and brings in to a block (title, description, preview_image fields).
+For convenience, this package includes a "teaser" block that allows you to pull content from a source content object and brings in to a block (`title`, `head_line`, `description`, and `preview_image` fields). It tries to get these fields from the original source content first, and allows you to override them afterwards.
 
-You'll find the `preview_image` field in `kitconcept.volto` add-on, or use your own definition of it in your Volto integration package.
+You'll find the `preview_image` field in `plone.volto` (and previous to that, in `kitconcept.volto`) add-on. If no `preview_image` field is present in the source content, it will fallback to the `image` (eg. `Lead image` behavior), if any. If no image fields are present, it won't show any image unless you override it (using the local `preview_image` field) in the block's config.
 
 It includes a configuration option `imageScale` (see above example) that allows you to use an specific scale for the `preview_image`.
 

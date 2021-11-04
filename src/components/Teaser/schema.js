@@ -54,6 +54,7 @@ export const TeaserSchema = (props) => {
           'head_title',
           'Description',
           'hasPreviewImage',
+          'image_field',
         ],
         allowExternals: true,
       },

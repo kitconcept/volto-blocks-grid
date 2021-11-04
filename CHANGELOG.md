@@ -6,6 +6,8 @@
 
 ### Feature
 
+- Use image field as fallback for teaser and preview @ericof
+
 ### Bugfix
 
 - Play well with the new blocks defaults @sneridagh
