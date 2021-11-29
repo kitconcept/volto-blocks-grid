@@ -23,7 +23,10 @@ const ViewGrid = ({ data, render, path }) => {
 
       <Grid stackable stretched columns={data.columns.length}>
         {data.columns.map((column) => (
-          <Grid.Column key={column.id}>
+          <Grid.Column
+            key={column.id}
+            className={`grid-block-${column['@type']}`}
+          >
             <BlockRenderer
               block={column.id}
               type={column['@type']}
