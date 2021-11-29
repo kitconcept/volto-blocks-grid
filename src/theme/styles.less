@@ -120,6 +120,14 @@
   }
 }
 
+// This is required to overcome the inline-flex imposed from semantic grids
+.block.__grid,
+[class$='Grid'].block {
+  .ui.stretched.grid > .column.grid-block-slate {
+    display: block !important;
+  }
+}
+
 .block-editor-__grid .block .toolbar,
 [class$='Grid'] .block .toolbar {
   top: -49px;
