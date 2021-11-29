@@ -1,16 +1,10 @@
 # Change Log
 
-## 2.4.1 (unreleased)
-
-### Breaking
-
-### Feature
+## 2.4.1 (2021-11-29)
 
 ### Bugfix
 
 - Fix inline height flex grow problem for slate grids @sneridagh
-
-### Internal
 
 ## 2.4.0 (2021-11-04)
 
