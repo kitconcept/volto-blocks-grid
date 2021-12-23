@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [16.x]
         python-version: [3.8]
     env:
         GIT_NAME: volto-blocks-grid
@@ -43,7 +43,7 @@ jobs:
 
       # Acceptance tests
       - name: Acceptance tests
-        run: ./node_modules/.bin/start-test ci:test-acceptance-server http-get://localhost:55001/plone 'docker run -i --link plone -e NODE_ENV=production -e RAZZLE_API_PATH="http://plone:55001/plone" -e CYPRESS_BACKEND_HOST="plone" --name="cypress" -e NAMESPACE="${{env.NAMESPACE}}" -e DEPENDENCIES="" -e GIT_NAME=${{env.GIT_NAME}} -e GIT_USER=${{env.GIT_USER}} -e GIT_BRANCH=${{env.GIT_BRANCH}} plone/volto-addon-ci cypress'
+        run: ./node_modules/.bin/start-test ci:test-acceptance-server http-get://localhost:55001/plone 'docker run -i --link plone -e NODE_ENV=test -e RAZZLE_API_PATH="http://plone:55001/plone" -e CYPRESS_BACKEND_HOST="plone" --name="cypress" -e NAMESPACE="${{env.NAMESPACE}}" -e DEPENDENCIES="" -e GIT_NAME=${{env.GIT_NAME}} -e GIT_USER=${{env.GIT_USER}} -e GIT_BRANCH=${{env.GIT_BRANCH}} plone/volto-addon-ci cypress'
 
       - name: Copy from docker screenshots on failure
         run: docker cp cypress:/opt/frontend/my-volto-project/src/addons/${{env.GIT_NAME}}/cypress .
