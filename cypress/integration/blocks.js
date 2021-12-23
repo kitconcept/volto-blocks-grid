@@ -129,11 +129,16 @@ context('Blocks Acceptance Tests', () => {
         '.imagesGrid.two [data-rbd-draggable-context-id]:first-child .toolbar-inner .buttons:first-child button',
       ).click();
       cy.findByLabelText('Select My Image').dblclick();
+      cy.get(
+        '.imagesGrid.two [data-rbd-draggable-context-id]:first-child',
+      ).click();
+      cy.get('#field-alt').click().type('My Image');
 
       cy.get(
-        '.imagesGrid.two [data-rbd-draggable-context-id]:last-child .toolbar-inner .buttons:first-child button',
+        '.imagesGrid.two [data-rbd-draggable-context-id]:last-child',
       ).click();
       cy.findByLabelText('Select My Image').dblclick();
+      cy.get('#field-alt').click().type('My Image');
 
       cy.get('#toolbar-save').click();
 
