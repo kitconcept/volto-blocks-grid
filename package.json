@@ -70,6 +70,20 @@
     "plugins": [
       "stylelint-prettier"
     ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.less"
+        ],
+        "customSyntax": "postcss-less"
+      },
+      {
+        "files": [
+          "**/*.overrides"
+        ],
+        "customSyntax": "postcss-less"
+      }
+    ],
     "rules": {
       "prettier/prettier": true,
       "rule-empty-line-before": [
@@ -102,6 +116,6 @@
     "@plone/volto": ">=12.14.0"
   },
   "dependencies": {
-    "@plone/scripts": "1.0.3"
+    "@plone/scripts": "1.4.0"
   }
 }
