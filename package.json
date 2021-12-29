@@ -5,9 +5,12 @@
   "main": "src/index.js",
   "scripts": {
     "i18n": "rm -rf build/messages && NODE_ENV=production i18n -a",
-    "prettier": "make prettier",
-    "lint": "make lint",
-    "stylelint": "make stylelint",
+    "prettier": "prettier --single-quote --check 'src/**/*.{js,jsx,ts,tsx,json,css,scss,md}'",
+    "ci:prettier": "make prettier",
+    "lint": "eslint 'src/**/*.{js,jsx}'",
+    "ci:lint": "make lint",
+    "stylelint": "stylelint 'theme/**/*.{css,less}' 'src/**/*.{css,less}'",
+    "ci:stylelint": "make stylelint",
     "test": "make test",
     "cypress:open": "NODE_ENV=production ../../../node_modules/cypress/bin/cypress open",
     "cypress:start-frontend": "cd ../../../ && RAZZLE_API_PATH=http://localhost:55001/plone yarn start",
@@ -67,6 +70,20 @@
     "plugins": [
       "stylelint-prettier"
     ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.less"
+        ],
+        "customSyntax": "postcss-less"
+      },
+      {
+        "files": [
+          "**/*.overrides"
+        ],
+        "customSyntax": "postcss-less"
+      }
+    ],
     "rules": {
       "prettier/prettier": true,
       "rule-empty-line-before": [
@@ -99,6 +116,6 @@
     "@plone/volto": ">=12.14.0"
   },
   "dependencies": {
-    "@plone/scripts": "1.0.3"
+    "@plone/scripts": "1.4.0"
   }
 }

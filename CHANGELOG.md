@@ -8,6 +8,8 @@
 
 ### Bugfix
 
+- Fix tests for Volto 14 @sneridagh
+
 ### Internal
 
 ## 2.4.1 (2021-11-29)
