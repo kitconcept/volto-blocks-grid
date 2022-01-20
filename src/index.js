@@ -26,6 +26,7 @@ const customBlocks = {
       addPermission: [],
       view: [],
     },
+    maxNumberOfColumns: 4,
     gridAllowedBlocks: ['teaser', 'image', 'listing', 'slate', 'text'],
   },
   teaserGrid: {
