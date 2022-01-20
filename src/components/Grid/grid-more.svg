@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="96" height="96" version="1.1" viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
+ <g fill-rule="evenodd">
+  <rect width="96" height="96" rx="3" fill="#9FD1E5"/>
+  <g transform="matrix(.80193 0 0 1 24.044 22)" fill="#fff" opacity=".9">
+   <rect x="60.506" width="18" height="53"/>
+   <rect x="26.042" y="23.227" width="7.9112" height="6.5322" rx="3.9556" ry="3.2661" stroke-width=".23274"/>
+   <rect x="-18.53" width="18" height="53"/>
+   <rect x="9.3287" y="23.216" width="7.9112" height="6.5322" rx="3.9556" ry="3.2661" stroke-width=".23274"/>
+   <rect x="42.752" y="23.216" width="7.9112" height="6.5322" rx="3.9556" ry="3.2661" stroke-width=".23274"/>
+  </g>
+ </g>
+</svg>
