@@ -11,7 +11,6 @@ jobs:
         GIT_NAME: volto-blocks-grid
         NAMESPACE: "@kitconcept"
         GIT_USER: 'kitconcept'
-        GIT_BRANCH: ${GITHUB_REF##*/}
     steps:
       - name: Main checkout
         uses: actions/checkout@v2
@@ -41,8 +40,13 @@ jobs:
       - name: Install yo and @plone/generator-volto
         run: npm i -g yo @plone/generator-volto
 
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+
       - name: Setup addon testing environment
-        run: npx -p @plone/scripts addon clone https://github.com/${{env.GIT_USER}}/${{env.GIT_NAME}}.git --branch ${{env.GIT_BRANCH}}
+        run: npx -p @plone/scripts addon clone https://github.com/${{env.GIT_USER}}/${{env.GIT_NAME}}.git --branch ${{ steps.extract_branch.outputs.branch }}
 
       # Unit tests
       - name: Unit tests

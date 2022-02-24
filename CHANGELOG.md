@@ -12,6 +12,8 @@
 
 ### Internal
 
+- Better detector of the current branch in GHActions @sneridagh
+
 ## 2.4.1 (2021-11-29)
 
 ### Bugfix
