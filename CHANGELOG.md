@@ -6,6 +6,7 @@
 
 ### Feature
 
+- Add stylewrapper support @sneridagh
 - Teaser block can be used separately also @robgietema
 - Teaser block layout is dependent if inside grid or not @robgietema
 
