@@ -19,6 +19,7 @@ exports[`renders a TemplateChooser component 1`] = `
         >
           <img
             alt=""
+            className="ui image"
             src="template.svg"
           />
           <div
