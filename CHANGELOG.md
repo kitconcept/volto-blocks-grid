@@ -6,6 +6,8 @@
 
 ### Feature
 
+- Add stylewrapper support @sneridagh
+
 ### Bugfix
 
 ### Internal
