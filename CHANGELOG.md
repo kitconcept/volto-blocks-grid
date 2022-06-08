@@ -7,6 +7,8 @@
 ### Feature
 
 - Add stylewrapper support @sneridagh
+- Teaser block can be used separately also @robgietema
+- Teaser block layout is dependent if inside grid or not @robgietema
 
 ### Bugfix
 
@@ -24,7 +26,7 @@
 
 ### Internal
 
-- Use @plone/scripts * @sneridagh
+- Use `@plone/scripts *` @sneridagh
 
 ## 2.4.1 (2021-11-29)
 

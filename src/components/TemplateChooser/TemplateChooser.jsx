@@ -10,6 +10,7 @@ const TemplateChooser = ({ templates, onSelectTemplate }) => {
   var selectableTemplates = templates(intl).filter(
     (template) => template.columns.length < maxNumberOfColumns + 1,
   );
+
   return (
     <div className="template-chooser">
       <Message>

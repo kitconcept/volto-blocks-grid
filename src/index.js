@@ -68,7 +68,7 @@ const customBlocks = {
     group: 'common',
     view: TeaserViewBlock,
     edit: TeaserEditBlock,
-    restricted: true,
+    restricted: false,
     mostUsed: true,
     sidebarTab: 1,
     security: {
