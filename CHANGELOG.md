@@ -1,6 +1,6 @@
 # Change Log
 
-## 2.4.2 (unreleased)
+## 2.5.1 (unreleased)
 
 ### Breaking
 
@@ -11,9 +11,21 @@
 
 ### Bugfix
 
+### Internal
+
+## 2.5.0 (2022-05-04)
+
+### Feature
+
+- Configurable max number of columns from config @ionlizarazu
+
+### Bugfix
+
 - Fix tests for Volto 14 @sneridagh
 
 ### Internal
+
+- Use @plone/scripts * @sneridagh
 
 ## 2.4.1 (2021-11-29)
 

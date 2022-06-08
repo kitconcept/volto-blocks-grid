@@ -151,6 +151,10 @@ class EditGrid extends Component {
 
   addNewColumn = (e) => {
     e.stopPropagation();
+    var maxNumberOfColumns =
+      config.blocks.blocksConfig.__grid.maxNumberOfColumns > 16
+        ? 16
+        : config.blocks.blocksConfig.__grid.maxNumberOfColumns;
     const type =
       getAllowedBlocks(this.props.data['@type'])?.length === 1
         ? getAllowedBlocks(this.props.data['@type'])[0]
@@ -162,7 +166,7 @@ class EditGrid extends Component {
         ...(type && { '@type': type }),
       },
     ];
-    if (this.props.data.columns.length < 4) {
+    if (this.props.data.columns.length < maxNumberOfColumns) {
       this.props.onChangeBlock(this.props.block, {
         ...this.props.data,
         columns: newColumnsState,
