@@ -4,15 +4,13 @@
 
 ### Breaking
 
+- The `Teaser` block has changed markup. Now the `a` link tag sorrounds the main `div`: [Related PR changes](https://github.com/kitconcept/volto-blocks-grid/pull/40/files#diff-301af2b0b7af3b7bba424497d919944f01395cb75be6914f2e17ea3bf2e12c89L36). Adjust your customizations and themes accordingly. @robgietema
+
 ### Feature
 
 - Add stylewrapper support @sneridagh
 - Teaser block can be used separately also @robgietema
 - Teaser block layout is dependent if inside grid or not @robgietema
-
-### Bugfix
-
-### Internal
 
 ## 2.5.0 (2022-05-04)
 
