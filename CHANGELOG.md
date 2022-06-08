@@ -25,7 +25,7 @@
 
 ### Internal
 
-- Use @plone/scripts * @sneridagh
+- Use `@plone/scripts *` @sneridagh
 
 ## 2.4.1 (2021-11-29)
 
