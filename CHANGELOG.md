@@ -8,6 +8,8 @@
 
 ### Bugfix
 
+- Fix CSS in teaserGrid and in standalone Teaser view @sneridagh
+
 ### Internal
 
 ## 3.0.0 (2022-06-08)
