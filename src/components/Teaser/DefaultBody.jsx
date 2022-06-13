@@ -44,7 +44,7 @@ const TeaserDefaultTemplate = (props) => {
               <div className="grid-image-wrapper">
                 <img
                   src={flattenToAppURL(getTeaserImageURL(href, image))}
-                  alt="a"
+                  alt=""
                   loading="lazy"
                 />
               </div>
