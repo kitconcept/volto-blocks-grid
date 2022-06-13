@@ -8,6 +8,9 @@
 
 ### Bugfix
 
+- Small CSS improvements, for teaser stand alone @sneridagh
+- Use CSS `aspect-ratio` since it's already supported by all major browser vendors @sneridagh
+
 ### Internal
 
 ## 3.0.1 (2022-06-09)

@@ -1,6 +1,8 @@
 @blueArctic: #e2f1fd;
 @greySnow: #f3f5f7;
 @greySmoke: #e4e8ec;
+@grid-images-aspect-ratio: var(--grid-images-aspect-ratio, 16/9);
+@grid-images-object-position: var(--grid-images-object-position, top left);
 
 .block-editor-__grid {
   position: relative;
@@ -170,33 +172,6 @@
     align-items: flex-start;
   }
 
-  .grid-image-wrapper::before {
-    padding-top: 60%;
-    content: '';
-    float: left;
-  }
-
-  .grid-image-wrapper::after {
-    display: block;
-    clear: both;
-    content: '';
-  }
-
-  .grid-image-wrapper {
-    position: relative;
-
-    img {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  }
-
   .ui.message {
     margin: 0;
     border-radius: 6px;
@@ -274,5 +249,20 @@
 
   .renderer-wrapper {
     min-height: 50px;
+  }
+}
+
+// Aspect ratio on all images
+.grid-image-wrapper img {
+  width: 100%;
+  aspect-ratio: @grid-images-aspect-ratio;
+  object-fit: cover;
+  object-position: @grid-images-object-position;
+}
+
+// Full width to the text content area (teaser stand alone)
+.grid-teaser-item.default {
+  .content {
+    width: 100%;
   }
 }
