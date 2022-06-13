@@ -2,17 +2,11 @@
 
 ## 3.0.2 (unreleased)
 
-### Breaking
-
-### Feature
-
 ### Bugfix
 
 - Small CSS improvements, for teaser stand alone @sneridagh
 - Use CSS `aspect-ratio` since it's already supported by all major browser vendors @sneridagh
 - Remove typo in alt text for teasers @sneridagh
-
-### Internal
 
 ## 3.0.1 (2022-06-09)
 
