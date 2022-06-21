@@ -49,31 +49,31 @@ block config `gridAllowedBlocks` key:
 You can even further customize the blocks config available for the inner blocks by passing `blocksConfig` key as a block config. You can add different variations, schemaEnhancers, etc or remove them as well:
 
 ```js
-  config.blocks.blocksConfig.__grid = {
-    ...config.blocks.blocksConfig.__grid,
-    icon: gridSVG,
-    gridAllowedBlocks: ['teaser', 'image', 'slate'],
-    // One could customize the blocks inside the grid like this:
-    blocksConfig: {
-      ...config.blocks.blocksConfig,
-      teaser: {
-        ...config.blocks.blocksConfig.teaser,
-        variations: [
-          {
-            id: 'default',
-            isDefault: true,
-            title: 'Default',
-            view: DefaultBody,
-          },
-          {
-            id: 'variation2',
-            title: 'variation #2',
-            view: DefaultBody2,
-          },
-        ],
-      },
+config.blocks.blocksConfig.__grid = {
+  ...config.blocks.blocksConfig.__grid,
+  icon: gridSVG,
+  gridAllowedBlocks: ['teaser', 'image', 'slate'],
+  // One could customize the blocks inside the grid like this:
+  blocksConfig: {
+    ...config.blocks.blocksConfig,
+    teaser: {
+      ...config.blocks.blocksConfig.teaser,
+      variations: [
+        {
+          id: 'default',
+          isDefault: true,
+          title: 'Default',
+          view: DefaultBody,
+        },
+        {
+          id: 'variation2',
+          title: 'variation #2',
+          view: DefaultBody2,
+        },
+      ],
     },
-  };
+  },
+};
 ```
 
 ### Teaser Grid block
