@@ -6,6 +6,8 @@
 
 ### Feature
 
+- Support for inner blocks local configuration using `blocksConfig` key. This allows fine tuning configuration of the inner blocks, like add/remove variations, schemaEnhancers, etc @sneridagh
+
 ### Bugfix
 
 ### Internal

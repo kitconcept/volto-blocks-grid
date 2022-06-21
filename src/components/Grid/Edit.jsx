@@ -231,6 +231,9 @@ class EditGrid extends Component {
   render() {
     const { data } = this.props;
 
+    const blocksConfig =
+      config.blocks.blocksConfig.__grid.blocksConfig || this.props.blocksConfig;
+
     return (
       <>
         {this.props.selected && (
@@ -402,6 +405,7 @@ class EditGrid extends Component {
                                           this.onChangeGridItem(index, data);
                                         }}
                                         data={this.props.data.columns[index]}
+                                        blocksConfig={blocksConfig}
                                       />
                                     ) : (
                                       <div className="uber-grid-default-item">

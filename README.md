@@ -35,7 +35,7 @@ web, where we can often find these unified one rowed sections, specially in land
 ### Grid block
 
 This block can contain any registered block in the application. By default, it's
-restricted to `Image`, `Text`, `Teaser` and `Listing`. More can be customized via the
+restricted to `Image`, `Text`, `slate`, `Teaser` and `Listing`. More can be customized via the
 block config `gridAllowedBlocks` key:
 
 ```js
@@ -44,6 +44,36 @@ block config `gridAllowedBlocks` key:
 ...
     gridAllowedBlocks: ['teaser', 'image', 'listing', 'text'],
   },
+```
+
+You can even further customize the blocks config available for the inner blocks by passing `blocksConfig` key as a block config. You can add different variations, schemaEnhancers, etc or remove them as well:
+
+```js
+  config.blocks.blocksConfig.__grid = {
+    ...config.blocks.blocksConfig.__grid,
+    icon: gridSVG,
+    gridAllowedBlocks: ['teaser', 'image', 'slate'],
+    // One could customize the blocks inside the grid like this:
+    blocksConfig: {
+      ...config.blocks.blocksConfig,
+      teaser: {
+        ...config.blocks.blocksConfig.teaser,
+        variations: [
+          {
+            id: 'default',
+            isDefault: true,
+            title: 'Default',
+            view: DefaultBody,
+          },
+          {
+            id: 'variation2',
+            title: 'variation #2',
+            view: DefaultBody2,
+          },
+        ],
+      },
+    },
+  };
 ```
 
 ### Teaser Grid block

@@ -4,7 +4,7 @@ import { BlockDataForm } from '@plone/volto/components';
 import { GridSchema } from './schema';
 
 const GridData = (props) => {
-  const { block, data, onChangeBlock } = props;
+  const { block, blocksConfig, data, onChangeBlock } = props;
   const intl = useIntl();
   const schema = GridSchema({ ...props, intl });
 
@@ -19,7 +19,8 @@ const GridData = (props) => {
         });
       }}
       formData={data}
-      fieldIndex={data.index}
+      block={block}
+      blocksConfig={blocksConfig}
     />
   );
 };
