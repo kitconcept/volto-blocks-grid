@@ -1,6 +1,6 @@
 # Change Log
 
-## 3.0.3 (unreleased)
+## 3.1.0 (2022-06-21)
 
 ### Feature
 
