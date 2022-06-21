@@ -7,7 +7,7 @@ import { TeaserSchema } from './schema';
 import { isEmpty } from 'lodash';
 
 const TeaserData = (props) => {
-  const { block, data, onChangeBlock } = props;
+  const { block, blocksConfig, data, onChangeBlock } = props;
   const intl = useIntl();
 
   const href = data.href?.[0];
@@ -51,6 +51,7 @@ const TeaserData = (props) => {
       }}
       formData={data}
       block={block}
+      blocksConfig={blocksConfig}
     />
   );
 };
