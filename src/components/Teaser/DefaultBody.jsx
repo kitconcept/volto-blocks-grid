@@ -17,13 +17,13 @@ const messages = defineMessages({
 });
 
 const TeaserDefaultTemplate = (props) => {
-  const { data, isEditMode } = props;
+  const { data, isEditMode, className } = props;
   const intl = useIntl();
   const href = data.href?.[0];
   const image = data.preview_image?.[0];
 
   return (
-    <div className="block teaser">
+    <div className={cx('block teaser', {className})}>
       {!href && isEditMode && (
         <Message>
           <div className="grid-teaser-item placeholder">
