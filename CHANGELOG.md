@@ -6,6 +6,8 @@
 
 ### Feature
 
+- Add more classnames to teaser block @steffenri
+
 ### Bugfix
 
 ### Internal

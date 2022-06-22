@@ -23,7 +23,7 @@ const TeaserDefaultTemplate = (props) => {
   const image = data.preview_image?.[0];
 
   return (
-    <>
+    <div className="block teaser">
       {!href && isEditMode && (
         <Message>
           <div className="grid-teaser-item placeholder">
@@ -58,7 +58,7 @@ const TeaserDefaultTemplate = (props) => {
           </div>
         </MaybeWrap>
       )}
-    </>
+    </div>
   );
 };
 
