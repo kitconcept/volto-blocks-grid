@@ -36,6 +36,7 @@ const ViewGrid = ({ data, render, path, className }) => {
               type={column['@type']}
               data={column}
               path={path}
+              insideGridBlock={true}
             />
           </Grid.Column>
         ))}

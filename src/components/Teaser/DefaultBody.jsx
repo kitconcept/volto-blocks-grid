@@ -18,13 +18,13 @@ const messages = defineMessages({
 });
 
 const TeaserDefaultTemplate = (props) => {
-  const { data, isEditMode, className } = props;
+  const { data, isEditMode, className, insideGridBlock = false } = props;
   const intl = useIntl();
   const href = data.href?.[0];
   const image = data.preview_image?.[0];
 
   return (
-    <div className={cx('block teaser', className)}>
+    <div className={cx('block teaser', className, { standalone: !insideGridBlock})}>
       {!href && isEditMode && (
         <Message>
           <div className="grid-teaser-item placeholder">
