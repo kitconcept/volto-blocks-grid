@@ -24,7 +24,11 @@ const TeaserDefaultTemplate = (props) => {
   const image = data.preview_image?.[0];
 
   return (
-    <div className={cx('block teaser', className, { standalone: !insideGridBlock})}>
+    <div
+      className={cx('block teaser', className, {
+        standalone: !insideGridBlock,
+      })}
+    >
       {!href && isEditMode && (
         <Message>
           <div className="grid-teaser-item placeholder">
