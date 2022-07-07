@@ -24,7 +24,11 @@ const TeaserDefaultTemplate = (props) => {
   const image = data.preview_image?.[0];
 
   return (
-    <div className={cx('block teaser', className, { standalone: !insideGridBlock})}>
+    <div
+      className={cx('block teaser', className, {
+        standalone: !insideGridBlock,
+      })}
+    >
       {!href && isEditMode && (
         <Message>
           <div className="grid-teaser-item placeholder">
@@ -34,13 +38,13 @@ const TeaserDefaultTemplate = (props) => {
         </Message>
       )}
       {href && (
-        <MaybeWrap
-          condition={!isEditMode}
-          as={UniversalLink}
-          href={href['@id']}
-          target={data.openLinkInNewTab ? '_blank' : null}
-        >
-          <div className="grid-teaser-item default">
+        <div className="grid-teaser-item default">
+          <MaybeWrap
+            condition={!isEditMode}
+            as={UniversalLink}
+            href={href['@id']}
+            target={data.openLinkInNewTab ? '_blank' : null}
+          >
             {(href.hasPreviewImage || href.image_field || image) && (
               <div className="grid-image-wrapper">
                 <img
@@ -56,8 +60,8 @@ const TeaserDefaultTemplate = (props) => {
               <h3>{data?.title}</h3>
               {!data.hide_description && <p>{data?.description}</p>}
             </div>
-          </div>
-        </MaybeWrap>
+          </MaybeWrap>
+        </div>
       )}
     </div>
   );
