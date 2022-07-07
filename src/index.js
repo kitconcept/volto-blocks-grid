@@ -3,7 +3,7 @@ import {
   GridEditBlock,
   TeaserViewBlock,
   TeaserEditBlock,
-} from './components';
+} from '@kitconcept/volto-blocks-grid/components';
 import gridSVG from './icons/grid.svg';
 import imagesSVG from '@plone/volto/icons/images.svg';
 

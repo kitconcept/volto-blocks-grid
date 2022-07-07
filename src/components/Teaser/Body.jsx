@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import DefaultBody from './DefaultBody';
+import { DefaultBody } from '@kitconcept/volto-blocks-grid/components';
 
 const TeaserBody = (props) => {
   const { variation } = props;

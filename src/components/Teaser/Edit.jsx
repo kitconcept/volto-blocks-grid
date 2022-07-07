@@ -1,7 +1,9 @@
 import React from 'react';
-import TeaserBody from './Body';
+import {
+  TeaserBody,
+  TeaserData,
+} from '@kitconcept/volto-blocks-grid/components';
 import { SidebarPortal } from '@plone/volto/components';
-import TeaserData from './Data';
 import { withBlockExtensions } from '@plone/volto/helpers';
 
 const TeaserEdit = (props) => {

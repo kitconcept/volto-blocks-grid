@@ -3,7 +3,7 @@ import { useIntl } from 'react-intl';
 import { useDispatch } from 'react-redux';
 import { getContent } from '@plone/volto/actions';
 import { BlockDataForm } from '@plone/volto/components';
-import { TeaserSchema } from './schema';
+import { TeaserSchema } from '@kitconcept/volto-blocks-grid/components';
 import { isEmpty } from 'lodash';
 
 const TeaserData = (props) => {
