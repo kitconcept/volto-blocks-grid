@@ -1,5 +1,5 @@
 import React from 'react';
-import TeaserBody from './Body';
+import { TeaserBody } from '@kitconcept/volto-blocks-grid/components';
 import { withBlockExtensions } from '@plone/volto/helpers';
 
 const TeaserView = (props) => {
