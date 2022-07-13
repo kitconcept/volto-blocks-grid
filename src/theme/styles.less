@@ -266,3 +266,11 @@
     width: 100%;
   }
 }
+
+// Disable hover blue border on inner blocks
+.block.__grid [class^='column grid-block-'],
+[class$='Grid'].block [class^='column grid-block-'] {
+  .block:not(.inner)::before {
+    content: unset;
+  }
+}

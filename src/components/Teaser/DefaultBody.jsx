@@ -7,6 +7,7 @@ import { flattenToAppURL } from '@plone/volto/helpers';
 import { getTeaserImageURL } from './utils';
 import { MaybeWrap } from '@plone/volto/components';
 import { UniversalLink } from '@plone/volto/components';
+import cx from 'classnames';
 
 const messages = defineMessages({
   PleaseChooseContent: {
@@ -17,48 +18,50 @@ const messages = defineMessages({
 });
 
 const TeaserDefaultTemplate = (props) => {
-  const { data, isEditMode } = props;
+  const { className, data, isEditMode } = props;
   const intl = useIntl();
   const href = data.href?.[0];
   const image = data.preview_image?.[0];
 
   return (
-    <>
-      {!href && isEditMode && (
-        <Message>
-          <div className="grid-teaser-item placeholder">
-            <img src={imageBlockSVG} alt="" />
-            <p>{intl.formatMessage(messages.PleaseChooseContent)}</p>
-          </div>
-        </Message>
-      )}
-      {href && (
-        <MaybeWrap
-          condition={!isEditMode}
-          as={UniversalLink}
-          href={href['@id']}
-          target={data.openLinkInNewTab ? '_blank' : null}
-        >
-          <div className="grid-teaser-item default">
-            {(href.hasPreviewImage || href.image_field || image) && (
-              <div className="grid-image-wrapper">
-                <img
-                  src={flattenToAppURL(getTeaserImageURL(href, image))}
-                  alt=""
-                  loading="lazy"
-                />
-              </div>
-            )}
-            <div className="content">
-              {data?.head_title && <h2>{data?.head_title}</h2>}
-
-              <h3>{data?.title}</h3>
-              {!data.hide_description && <p>{data?.description}</p>}
+    <div className={cx('block teaser', className)}>
+      <>
+        {!href && isEditMode && (
+          <Message>
+            <div className="grid-teaser-item placeholder">
+              <img src={imageBlockSVG} alt="" />
+              <p>{intl.formatMessage(messages.PleaseChooseContent)}</p>
             </div>
-          </div>
-        </MaybeWrap>
-      )}
-    </>
+          </Message>
+        )}
+        {href && (
+          <MaybeWrap
+            condition={!isEditMode}
+            as={UniversalLink}
+            href={href['@id']}
+            target={data.openLinkInNewTab ? '_blank' : null}
+          >
+            <div className="grid-teaser-item default">
+              {(href.hasPreviewImage || href.image_field || image) && (
+                <div className="grid-image-wrapper">
+                  <img
+                    src={flattenToAppURL(getTeaserImageURL(href, image))}
+                    alt=""
+                    loading="lazy"
+                  />
+                </div>
+              )}
+              <div className="content">
+                {data?.head_title && <h2>{data?.head_title}</h2>}
+
+                <h3>{data?.title}</h3>
+                {!data.hide_description && <p>{data?.description}</p>}
+              </div>
+            </div>
+          </MaybeWrap>
+        )}
+      </>
+    </div>
   );
 };
 
