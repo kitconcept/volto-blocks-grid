@@ -1,6 +1,6 @@
 # Change Log
 
-## 3.1.2 (unreleased)
+## 4.0.0 (2022-07-13)
 
 ### Breaking
 
