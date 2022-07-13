@@ -1,6 +1,6 @@
 # Change Log
 
-## 3.1.1 (unreleased)
+## 3.1.1 (2022-07-13)
 
 ### Internal
 
