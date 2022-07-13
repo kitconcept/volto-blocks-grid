@@ -2,12 +2,6 @@
 
 ## 3.1.1 (unreleased)
 
-### Breaking
-
-### Feature
-
-### Bugfix
-
 ### Internal
 
 - Add missing support in View components for `blocksConfig` @sneridagh
