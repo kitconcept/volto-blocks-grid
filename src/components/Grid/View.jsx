@@ -4,8 +4,13 @@ import { Grid } from 'semantic-ui-react';
 import cx from 'classnames';
 import { BlockRenderer } from '../../components';
 import { withBlockExtensions } from '@plone/volto/helpers';
+import config from '@plone/volto/registry';
 
-const ViewGrid = ({ data, render, path, className }) => {
+const ViewGrid = (props) => {
+  const { data, path, className } = props;
+  const blocksConfig =
+    config.blocks.blocksConfig.__grid.blocksConfig || props.blocksConfig;
+
   return (
     <div
       className={cx(
@@ -36,6 +41,7 @@ const ViewGrid = ({ data, render, path, className }) => {
               type={column['@type']}
               data={column}
               path={path}
+              blocksConfig={blocksConfig}
             />
           </Grid.Column>
         ))}
