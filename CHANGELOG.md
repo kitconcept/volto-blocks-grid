@@ -4,7 +4,11 @@
 
 ### Breaking
 
+- Unify inner markup for Teaser to make it work inside and outside a grid. Use the convention of a common main wrapper using: `<div class="block teaser">`. @sneridagh
+
 ### Feature
+
+- Enable Style wrapper in Teaser @sneridagh
 
 ### Bugfix
 
