@@ -3,6 +3,7 @@ import {
   GridEditBlock,
   TeaserViewBlock,
   TeaserEditBlock,
+  TeaserBlockDefaultBody,
 } from './components';
 import gridSVG from './icons/grid.svg';
 import imagesSVG from '@plone/volto/icons/images.svg';
@@ -71,10 +72,14 @@ const customBlocks = {
     restricted: false,
     mostUsed: true,
     sidebarTab: 1,
-    security: {
-      addPermission: [],
-      view: [],
-    },
+    variations: [
+      {
+        id: 'default',
+        isDefault: true,
+        title: 'Default',
+        template: TeaserBlockDefaultBody,
+      },
+    ],
   },
 };
 

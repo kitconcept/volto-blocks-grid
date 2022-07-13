@@ -10,6 +10,9 @@
 
 ### Internal
 
+- Add missing support in View components for `blocksConfig` @sneridagh
+- Add default variation for easier customization using variations @sneridagh
+
 ## 3.1.0 (2022-06-21)
 
 ### Feature
