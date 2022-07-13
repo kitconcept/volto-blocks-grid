@@ -10,10 +10,6 @@
 
 - Enable Style wrapper in Teaser @sneridagh
 
-### Bugfix
-
-### Internal
-
 ## 3.1.1 (2022-07-13)
 
 ### Internal
