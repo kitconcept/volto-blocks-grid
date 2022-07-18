@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { DefaultBody } from '@kitconcept/volto-blocks-grid/components';
+import { TeaserBlockDefaultBody as DefaultBody } from '@kitconcept/volto-blocks-grid/components';
 import config from '@plone/volto/registry';
 
 const TeaserBody = (props) => {
