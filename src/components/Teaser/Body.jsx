@@ -1,11 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import DefaultBody from './DefaultBody';
+import { DefaultBody } from '@kitconcept/volto-blocks-grid/components';
+import config from '@plone/volto/registry';
 
 const TeaserBody = (props) => {
-  const { variation } = props;
+  const { variation, data } = props;
 
-  const BodyComponent = variation?.template || DefaultBody;
+  const hasType = data.href?.[0]?.['@type'];
+  const variationComponent = hasType && `Teaser|${data.href?.[0]?.['@type']}`;
+
+  const BodyComponent =
+    config.resolve(variationComponent).component ||
+    variation?.template ||
+    DefaultBody;
 
   return <BodyComponent {...props} />;
 };
