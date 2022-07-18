@@ -6,6 +6,8 @@
 
 ### Feature
 
+- Adding support for automatically switch to the template based on content type in teaser @iFlameing
+
 ### Bugfix
 
 ### Internal
