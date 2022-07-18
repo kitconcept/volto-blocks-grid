@@ -2,15 +2,9 @@
 
 ## 4.0.1 (unreleased)
 
-### Breaking
-
 ### Feature
 
 - Adding support for automatically switch to the template based on content type in teaser @iFlameing
-
-### Bugfix
-
-### Internal
 
 ## 4.0.0 (2022-07-13)
 
