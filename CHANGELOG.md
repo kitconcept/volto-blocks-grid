@@ -8,6 +8,8 @@
 
 ### Bugfix
 
+- Revert https://github.com/kitconcept/volto-blocks-grid/pull/36 since it seems that it was covered in another part of the stack (maybe in SemanticUI itself). Now streched columns in SemanticUI grids have now the same height (and they are filling all the available space, in case that the inner color is different or have a border). @sneridagh
+
 ### Internal
 
 ## 4.1.0 (2022-07-18)
