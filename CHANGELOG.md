@@ -8,6 +8,8 @@
 
 ### Bugfix
 
+- Fix config to be compatible with the new full registry in pipeline of Volto 16.0.0-alpha.22 @sneridagh
+
 ### Internal
 
 ## 4.1.1 (2022-08-04)

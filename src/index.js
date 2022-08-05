@@ -84,16 +84,12 @@ const customBlocks = {
 };
 
 const applyConfig = (config) => {
-  return {
-    ...config,
-    blocks: {
-      ...config.blocks,
-      blocksConfig: {
-        ...config.blocks.blocksConfig,
-        ...customBlocks,
-      },
-    },
+  config.blocks.blocksConfig = {
+    ...config.blocks.blocksConfig,
+    ...customBlocks,
   };
+
+  return config;
 };
 
 export default applyConfig;
