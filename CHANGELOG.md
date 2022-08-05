@@ -1,5 +1,15 @@
 # Change Log
 
+## 4.2.1 (unreleased)
+
+### Breaking
+
+### Feature
+
+### Bugfix
+
+### Internal
+
 ## 4.2.0 (2022-08-05)
 
 ### Feature
