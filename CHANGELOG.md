@@ -6,6 +6,9 @@
 
 ### Feature
 
+- Compatible with the new component registry in Volto 16 @sneridagh
+- Keep compatibility with the experimental one @sneridagh
+
 ### Bugfix
 
 - Fix config to be compatible with the new full registry in pipeline of Volto 16.0.0-alpha.22 @sneridagh
