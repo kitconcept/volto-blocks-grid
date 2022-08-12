@@ -55,6 +55,7 @@ export const TeaserSchema = (props) => {
           'Description',
           'hasPreviewImage',
           'image_field',
+          'image_scales',
           '@type',
           'effective',
           'getObjSize',
