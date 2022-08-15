@@ -9,6 +9,7 @@
 ### Bugfix
 
 ### Internal
+- Make uppercase translation of spalte and spalten @iFlameing
 
 ## 4.2.0 (2022-08-05)
 

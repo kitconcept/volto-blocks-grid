@@ -59,12 +59,12 @@ msgstr "Titel"
 #: components/Grid/templates
 # defaultMessage: column
 msgid "column"
-msgstr "spalte"
+msgstr "Spalte"
 
 #: components/Grid/templates
 # defaultMessage: columns
 msgid "columns"
-msgstr "spalten"
+msgstr "Spalten"
 
 #: components/Teaser/schema
 # defaultMessage: head title
