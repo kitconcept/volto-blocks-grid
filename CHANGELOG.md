@@ -2,15 +2,12 @@
 
 ## 4.2.1 (unreleased)
 
-### Breaking
-
 ### Feature
 
 - Include image_scales when selecting an item for a teaser block
 
-### Bugfix
-
 ### Internal
+
 - Make uppercase translation of spalte and spalten @iFlameing
 
 ## 4.2.0 (2022-08-05)
