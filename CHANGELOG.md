@@ -6,6 +6,8 @@
 
 ### Feature
 
+- Include image_scales when selecting an item for a teaser block
+
 ### Bugfix
 
 ### Internal
