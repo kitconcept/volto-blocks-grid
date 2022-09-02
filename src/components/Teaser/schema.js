@@ -1,9 +1,9 @@
 import { defineMessages } from 'react-intl';
 
 const messages = defineMessages({
-  Source: {
-    id: 'Source',
-    defaultMessage: 'Source',
+  Target: {
+    id: 'Target',
+    defaultMessage: 'Target',
   },
   imageOverride: {
     id: 'Image override',
@@ -46,7 +46,7 @@ export const TeaserSchema = (props) => {
 
     properties: {
       href: {
-        title: intl.formatMessage(messages.Source),
+        title: intl.formatMessage(messages.Target),
         widget: 'object_browser',
         mode: 'link',
         selectedItemAttrs: [

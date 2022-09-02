@@ -4,6 +4,8 @@
 
 ### Breaking
 
+- Change Teaser block settings `href` field literal from `Source` to `Target` @sneridagh
+
 ### Feature
 
 ### Bugfix
