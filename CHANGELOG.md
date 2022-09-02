@@ -6,12 +6,6 @@
 
 - Change Teaser block settings `href` field literal from `Source` to `Target` @sneridagh
 
-### Feature
-
-### Bugfix
-
-### Internal
-
 ## 4.3.0 (2022-08-16)
 
 ### Feature
