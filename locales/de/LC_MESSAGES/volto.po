@@ -42,9 +42,9 @@ msgid "Please choose an existing content as source for this element"
 msgstr "Bitte wählen sie einen existierenden Inhalt als Quelle für dieses Element aus"
 
 #: components/Teaser/schema
-# defaultMessage: Source
-msgid "Source"
-msgstr "Quelle"
+# defaultMessage: Target
+msgid "Target"
+msgstr "Ziel"
 
 #: components/Teaser/schema
 # defaultMessage: Teaser

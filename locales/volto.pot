@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Plone\n"
-"POT-Creation-Date: 2021-07-16T09:24:20.729Z\n"
+"POT-Creation-Date: 2022-09-02T09:36:42.257Z\n"
 "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -39,8 +39,8 @@ msgid "Please choose an existing content as source for this element"
 msgstr ""
 
 #: components/Teaser/schema
-# defaultMessage: Source
-msgid "Source"
+# defaultMessage: Target
+msgid "Target"
 msgstr ""
 
 #: components/Teaser/schema
