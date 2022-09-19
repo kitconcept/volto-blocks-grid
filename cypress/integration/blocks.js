@@ -33,6 +33,9 @@ context('Blocks Acceptance Tests', () => {
     });
 
     it('As editor I can add a Grid', function () {
+      cy.intercept('PATCH', '/**/document').as('edit');
+      cy.intercept('GET', '/**/document').as('content');
+
       cy.get('.block.inner.text .public-DraftEditor-content').click();
       cy.get('.button .block-add-button').click({ force: true });
       cy.get('.blocks-chooser .mostUsed .button.__grid').click();
@@ -52,6 +55,8 @@ context('Blocks Acceptance Tests', () => {
       );
 
       cy.get('#toolbar-save').click();
+      cy.wait('@edit');
+      cy.wait('@content');
 
       cy.findByText('Colorless green ideas sleep furiously.');
 
@@ -71,6 +76,8 @@ context('Blocks Acceptance Tests', () => {
       ).click();
       cy.get('[aria-label="Select My Page"]').dblclick();
       cy.get('#toolbar-save').click();
+      cy.wait('@edit');
+      cy.wait('@content');
 
       cy.get('.block.__grid').findByText('My Page');
     });
