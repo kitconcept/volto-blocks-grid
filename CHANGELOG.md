@@ -2,15 +2,9 @@
 
 ## 5.0.1 (unreleased)
 
-### Breaking
-
-### Feature
-
 ### Bugfix
 
 - Fix image height when height property is added (#277) @reebalazs
-
-### Internal
 
 ## 5.0.0 (2022-09-02)
 
