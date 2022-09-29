@@ -9,8 +9,8 @@ import { v4 as uuid } from 'uuid';
 import cx from 'classnames';
 import { withRouter } from 'react-router-dom';
 import { Icon, SidebarPortal } from '@plone/volto/components';
-import { withBlockExtensions } from '@plone/volto/helpers';
-import { isEqual } from 'lodash';
+import { difference, withBlockExtensions } from '@plone/volto/helpers';
+import { isEmpty } from 'lodash';
 
 import addSVG from '@plone/volto/icons/add.svg';
 import clearSVG from '@plone/volto/icons/clear.svg';
@@ -249,14 +249,28 @@ class EditGrid extends Component {
   });
 
   isColumnResetable = (item) => {
-    const schema = config.blocks.blocksConfig.blockSchema;
-    const { type, ...rest } = item;
-    if (schema) {
-      console.log(!isEqual(this.getBlockInitialData(schema), rest));
-      return !isEqual(this.getBlockInitialData(schema), rest);
-    } else {
-      return Object.keys(rest).length > 3;
+    let schema = config.blocks.blocksConfig?.[item['@type']]?.blockSchema;
+    if (typeof schema === 'function') {
+      schema = schema(this.props);
     }
+
+    const itemKeys = Object.keys(item);
+    if (!schema && itemKeys.length > 3) {
+      return true;
+    }
+
+    if (schema && itemKeys.length > 3) {
+      const defaultValues = this.getBlockInitialData(schema);
+      const itemEssential = {
+        '@type': item['@type'],
+        id: item.id,
+        block: item.block,
+      };
+
+      return !isEmpty(difference(item, { ...itemEssential, ...defaultValues }));
+    }
+
+    return false;
   };
 
   node = React.createRef();
@@ -427,7 +441,6 @@ class EditGrid extends Component {
                                           name={clearSVG}
                                           className="circled"
                                           size="24px"
-                                          color="red"
                                         />
                                       </Button>
                                     ) : (
@@ -444,6 +457,7 @@ class EditGrid extends Component {
                                           name={clearSVG}
                                           className="circled"
                                           size="24px"
+                                          color="#e40166"
                                         />
                                       </Button>
                                     )}
