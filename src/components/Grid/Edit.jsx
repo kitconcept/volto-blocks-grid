@@ -10,6 +10,7 @@ import cx from 'classnames';
 import { withRouter } from 'react-router-dom';
 import { Icon, SidebarPortal } from '@plone/volto/components';
 import { withBlockExtensions } from '@plone/volto/helpers';
+import { isEqual } from 'lodash';
 
 import addSVG from '@plone/volto/icons/add.svg';
 import clearSVG from '@plone/volto/icons/clear.svg';
@@ -86,6 +87,18 @@ class EditGrid extends Component {
       ...this.props.data,
       columns: replaceItemOfArray(this.props.data.columns, index, {
         ...this.props.data.columns[index],
+        ...gridItemData,
+      }),
+    });
+  };
+
+  onResetGridItem = (index, gridItemData) => {
+    this.props.onChangeBlock(this.props.block, {
+      ...this.props.data,
+      columns: replaceItemOfArray(this.props.data.columns, index, {
+        '@type': this.props.data.columns[index]['@type'],
+        id: this.props.data.columns[index]['id'],
+        block: this.props.data.columns[index]['block'],
         ...gridItemData,
       }),
     });
@@ -220,6 +233,31 @@ class EditGrid extends Component {
 
   onChangeSelectedColumnItem = (index) =>
     this.setState({ selectedColumnIndex: index });
+
+  hasResetBlockFn = (type) =>
+    type && typeof config.blocks.blocksConfig[type].resetBlock === 'function';
+
+  getBlockInitialData = (schema) => ({
+    ...Object.keys(schema.properties).reduce((accumulator, currentField) => {
+      return schema.properties[currentField].default
+        ? {
+            ...accumulator,
+            [currentField]: schema.properties[currentField].default,
+          }
+        : accumulator;
+    }, {}),
+  });
+
+  isColumnResetable = (item) => {
+    const schema = config.blocks.blocksConfig.blockSchema;
+    const { type, ...rest } = item;
+    if (schema) {
+      console.log(!isEqual(this.getBlockInitialData(schema), rest));
+      return !isEqual(this.getBlockInitialData(schema), rest);
+    } else {
+      return Object.keys(rest).length > 3;
+    }
+  };
 
   node = React.createRef();
 
@@ -375,21 +413,41 @@ class EditGrid extends Component {
                                       this.onChangeSelectedColumnItem(index);
                                     }}
                                   >
-                                    <Button
-                                      aria-label={`Remove grid element ${index}`}
-                                      basic
-                                      icon
-                                      onClick={(e) =>
-                                        this.removeColumn(e, index)
-                                      }
-                                      className="remove-block-button"
-                                    >
-                                      <Icon
-                                        name={clearSVG}
-                                        className="circled"
-                                        size="24px"
-                                      />
-                                    </Button>
+                                    {this.isColumnResetable(item) ? (
+                                      <Button
+                                        aria-label={`Reset element ${index}`}
+                                        basic
+                                        icon
+                                        onClick={(e) =>
+                                          this.onResetGridItem(index, {})
+                                        }
+                                        className="remove-block-button"
+                                      >
+                                        <Icon
+                                          name={clearSVG}
+                                          className="circled"
+                                          size="24px"
+                                          color="red"
+                                        />
+                                      </Button>
+                                    ) : (
+                                      <Button
+                                        aria-label={`Remove grid element ${index}`}
+                                        basic
+                                        icon
+                                        onClick={(e) =>
+                                          this.removeColumn(e, index)
+                                        }
+                                        className="remove-block-button"
+                                      >
+                                        <Icon
+                                          name={clearSVG}
+                                          className="circled"
+                                          size="24px"
+                                        />
+                                      </Button>
+                                    )}
+
                                     {item['@type'] ? (
                                       <BlockRenderer
                                         {...this.props}
