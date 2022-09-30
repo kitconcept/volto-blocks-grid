@@ -1,6 +1,6 @@
 {
   "name": "@kitconcept/volto-blocks-grid",
-  "version": "5.0.1",
+  "version": "5.1.0",
   "description": "kitconcept's Volto Grids add-on - Unidimensional grids FTW",
   "main": "src/index.js",
   "scripts": {
