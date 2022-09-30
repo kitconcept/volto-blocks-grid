@@ -2,13 +2,9 @@
 
 ## 5.1.1 (unreleased)
 
-### Breaking
-
-### Feature
-
 ### Bugfix
 
-### Internal
+- Reverted #60. The feature is sub-optimal. @sneridagh
 
 ## 5.1.0 (2022-09-30)
 
