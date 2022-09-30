@@ -2,13 +2,9 @@
 
 ## 5.0.2 (unreleased)
 
-### Breaking
-
 ### Feature
 
 - The `teaser` block can be resetted from the Grid controls interface. One click on the `X` it resets in (nothing selected), another one removes the column @sneridagh
-
-### Bugfix
 
 ### Internal
 
