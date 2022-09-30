@@ -63,6 +63,7 @@ context('Blocks Acceptance Tests', () => {
       cy.navigate('/document/edit');
       cy.wait(500);
       cy.get('.block.inner.__grid').click();
+      cy.get('.block.inner.__grid [aria-label="Reset grid element 1"]').click();
       cy.get(
         '.block.inner.__grid [aria-label="Remove grid element 1"]',
       ).click();
