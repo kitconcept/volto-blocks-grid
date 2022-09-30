@@ -5,9 +5,6 @@ import {
   TeaserEditBlock,
   TeaserBlockDefaultBody,
 } from './components';
-
-import { TeaserSchema } from './components/Teaser/schema';
-
 import gridSVG from './icons/grid.svg';
 import imagesSVG from '@plone/volto/icons/images.svg';
 
@@ -75,7 +72,6 @@ const customBlocks = {
     restricted: false,
     mostUsed: true,
     sidebarTab: 1,
-    blockSchema: TeaserSchema,
     variations: [
       {
         id: 'default',
