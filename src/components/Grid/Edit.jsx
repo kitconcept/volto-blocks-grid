@@ -429,7 +429,7 @@ class EditGrid extends Component {
                                   >
                                     {this.isColumnResetable(item) ? (
                                       <Button
-                                        aria-label={`Reset element ${index}`}
+                                        aria-label={`Reset grid element ${index}`}
                                         basic
                                         icon
                                         onClick={(e) =>
