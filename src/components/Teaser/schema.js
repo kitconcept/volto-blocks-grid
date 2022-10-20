@@ -60,6 +60,7 @@ export const TeaserSchema = (props) => {
           'effective',
           'getObjSize',
           'mime_type',
+          'getRemoteUrl',
         ],
         allowExternals: true,
       },

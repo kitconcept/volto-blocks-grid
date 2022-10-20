@@ -6,6 +6,8 @@
 
 ### Feature
 
+- Getting remote url from link content type Teaser @iRohitSingh
+
 ### Bugfix
 
 ### Internal
