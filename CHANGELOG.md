@@ -6,7 +6,11 @@
 
 ### Feature
 
+- Compatibility with Volto 16.0.0-rc.2 @sneridagh
+
 ### Bugfix
+
+- Fix CSS for blocks chooser @sneridagh
 
 ### Internal
 
