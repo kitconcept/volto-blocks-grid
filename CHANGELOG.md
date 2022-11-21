@@ -1,6 +1,6 @@
 # Change Log
 
-## 5.1.2 (unreleased)
+## 5.2.0 (2022-11-21)
 
 ### Feature
 
