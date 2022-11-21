@@ -2,8 +2,6 @@
 
 ## 5.1.2 (unreleased)
 
-### Breaking
-
 ### Feature
 
 - Compatibility with Volto 16.0.0-rc.2 @sneridagh
@@ -11,8 +9,6 @@
 ### Bugfix
 
 - Fix CSS for blocks chooser @sneridagh
-
-### Internal
 
 ## 5.1.1 (2022-09-30)
 
