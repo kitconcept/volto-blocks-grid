@@ -30,6 +30,15 @@ position blocks in a 2D space.
 Also, unidimensional grids are also more in line of the current design trends in modern
 web, where we can often find these unified one rowed sections, specially in landing pages.
 
+## Compatibility
+
+Due to a change in CSS happening in Volto 16.0.0 RC2, this is the compatibility grid for this add-on:
+
+|Version   |Volto version |
+|----------|--------------|
+|>=5.2.0   |>=16.0.0-rc.2 |
+|<=5.1.1   |<=16.0.0-a50  |
+
 ## Block included in this package
 
 ### Grid block
