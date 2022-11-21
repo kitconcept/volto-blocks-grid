@@ -1479,13 +1479,14 @@
   dependencies:
     "@octokit/openapi-types" "^6.0.0"
 
-"@plone/scripts@^2.0.0":
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/@plone/scripts/-/scripts-2.1.1.tgz#ba27c42e7d7eda5e6ba5e19050142d2321715a2e"
-  integrity sha512-Y55H4qS9otguIBM7Iy58hPKzdQBkXuPtIv7snFMdd3zkACxddVQNORnpzoDVxr11bMH7Wjb76rqcFTD8oZnMGA==
+"@plone/scripts@^2.1.2":
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/@plone/scripts/-/scripts-2.1.2.tgz#e0b6b67eab72a133683af91ace98f7e5e93ea899"
+  integrity sha512-nSzcFcnaHLzeU1c7UYW1AJQGni11w/itUgewURo4OMufL7vKAXy+IDQvshAoNTzBFwScLijfR8OddHNkcjbEVQ==
   dependencies:
     babel-plugin-react-intl "5.1.17"
     babel-preset-razzle "4.2.17"
+    chalk "4"
     commander "8.2.0"
     fs-extra "10.1.0"
     git-url-parse "^11.6.0"
@@ -1940,6 +1941,14 @@ caniuse-lite@^1.0.30001400:
   version "1.0.30001412"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001412.tgz#30f67d55a865da43e0aeec003f073ea8764d5d7c"
   integrity sha512-+TeEIee1gS5bYOiuf+PS/kp2mrXic37Hl66VY6EAfxasIk5fELTktK2oOezYed12H8w7jt3s512PpulQidPjwA==
+
+chalk@4:
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/chalk/-/chalk-4.1.2.tgz#aac4e2b7734a740867aeb16bf02aad556a1e7a01"
+  integrity sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==
+  dependencies:
+    ansi-styles "^4.1.0"
+    supports-color "^7.1.0"
 
 chalk@4.1.0, chalk@^4.1.0:
   version "4.1.0"
