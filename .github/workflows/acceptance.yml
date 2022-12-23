@@ -14,48 +14,27 @@ jobs:
         GIT_BRANCH: ${GITHUB_REF##*/}
     steps:
       - name: Main checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       # node setup
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
 
-      # node cache
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-      - uses: actions/cache@v1
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-
-      # node install
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn
 
       - name: Install yo and @plone/generator-volto
         run: npm i -g yo @plone/generator-volto
 
       - name: Setup addon testing environment
-        run: npx -p @plone/scripts addon clone https://github.com/${{env.GIT_USER}}/${{env.GIT_NAME}}.git --branch ${{env.GIT_BRANCH}}
+        run: npx -p @plone/scripts addon clone .
 
       # Acceptance tests
       - name: Acceptance tests
-        run: cd addon-testing-project && yarn --force && yarn ci:cypress:run
-        # run: ./node_modules/.bin/start-test ci:test-acceptance-server http-get://localhost:55001/plone 'docker run -i --link plone -e NODE_ENV=test -e RAZZLE_API_PATH="http://plone:55001/plone" -e CYPRESS_BACKEND_HOST="plone" --name="cypress" -e NAMESPACE="${{env.NAMESPACE}}" -e DEPENDENCIES="" -e GIT_NAME=${{env.GIT_NAME}} -e GIT_USER=${{env.GIT_USER}} -e GIT_BRANCH=${{env.GIT_BRANCH}} plone/volto-addon-ci cypress'
-
-      # - name: Copy from docker screenshots on failure
-      #   run: docker cp cypress:/opt/frontend/my-volto-project/src/addons/${{env.GIT_NAME}}/cypress .
-      #   if: always()
-
-      # - name: Delete Cypress docker on failure
-      #   run: docker rm -v cypress
-      #   if: always()
+        run: cd addon-testing-project && yarn ci:cypress:run
 
       # Upload Cypress screenshots
       - uses: actions/upload-artifact@v1
@@ -63,11 +42,11 @@ jobs:
         if: failure()
         with:
           name: cypress-screenshots
-          path: addon-testing-project/src/addons/volto-blocks-grid/cypress/screenshots
+          path: addon-testing-project/src/addons/${{ GIT_NAME }}/cypress/screenshots
       # Upload Cypress videos
       - uses: actions/upload-artifact@v1
         name: Upload cypress result videos
         if: always()
         with:
           name: cypress-videos
-          path: addon-testing-project/src/addons/volto-blocks-grid/cypress/videos
+          path: addon-testing-project/src/addons/${{ GIT_NAME }}/cypress/videos
