@@ -19,7 +19,10 @@ import { BlockRenderer, TemplateChooser } from '../../components';
 import NewBlockAddButton from './NewBlockAddButton';
 import GridData from './Data';
 
-import { reorderArray, replaceItemOfArray } from '@plone/volto/helpers';
+import {
+  reorderArray,
+  replaceItemOfArray,
+} from '@plone/volto/helpers/Utils/Utils';
 
 import { getAllowedBlocks } from '../utils';
 import templates from './templates';
