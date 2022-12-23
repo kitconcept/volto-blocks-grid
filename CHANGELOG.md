@@ -6,6 +6,9 @@
 
 ### Feature
 
+
+- Use `Image` component from config registry @sneridagh
+
 ### Bugfix
 
 ### Internal
