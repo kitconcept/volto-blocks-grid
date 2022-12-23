@@ -52,9 +52,11 @@ const TeaserDefaultTemplate = (props) => {
                 </div>
               )}
               <div className="content">
-                {data?.head_title && <h2>{data?.head_title}</h2>}
+                {data?.head_title && (
+                  <div className="headline">{data.head_title}</div>
+                )}
 
-                <h3>{data?.title}</h3>
+                <h2>{data?.title}</h2>
                 {!data.hide_description && <p>{data?.description}</p>}
               </div>
             </div>

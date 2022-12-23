@@ -4,11 +4,15 @@
 
 ### Breaking
 
+- Fix a11y issue in teaser heading default body @sneridagh
+
 ### Feature
 
 ### Bugfix
 
 ### Internal
+
+- Add new `headline` CSS class in teaser `head_title` @sneridagh
 
 ## 5.2.0 (2022-11-21)
 
