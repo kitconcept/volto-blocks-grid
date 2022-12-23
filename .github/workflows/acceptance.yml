@@ -34,7 +34,7 @@ jobs:
 
       # Acceptance tests
       - name: Acceptance tests
-        run: cd addon-testing-project && yarn ci:cypress:run
+        run: cd addon-testing-project && yarn cypress:ci:full
 
       # Upload Cypress screenshots
       - uses: actions/upload-artifact@v1
