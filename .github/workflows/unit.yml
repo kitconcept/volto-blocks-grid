@@ -7,43 +7,27 @@ jobs:
       matrix:
         node-version: [16.x]
         python-version: [3.8]
-    env:
-        GIT_NAME: volto-blocks-grid
-        NAMESPACE: "@kitconcept"
-        GIT_USER: 'kitconcept'
-        GIT_BRANCH: ${GITHUB_REF##*/}
+
     steps:
       - name: Main checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       # node setup
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
 
-      # node cache
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-      - uses: actions/cache@v1
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-
-      # node install
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn
 
       - name: Install yo and @plone/generator-volto
         run: npm i -g yo @plone/generator-volto
 
       - name: Setup addon testing environment
-        run: npx -p @plone/scripts addon clone https://github.com/${{env.GIT_USER}}/${{env.GIT_NAME}}.git --branch ${{env.GIT_BRANCH}}
+        run: npx -p @plone/scripts addon clone .
 
       # Unit tests
       - name: Unit tests
-        run: cd addon-testing-project && yarn && CI=true yarn test
+        run: cd addon-testing-project && CI=true yarn test
