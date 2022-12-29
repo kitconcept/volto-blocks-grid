@@ -124,7 +124,7 @@ context('Blocks Acceptance Tests', () => {
       cy.wait(500);
 
       //then we are able to get the My Page in view Mode.
-      cy.get('.block.teaserGrid .two.column .column:first-child h3').should(
+      cy.get('.block.teaserGrid .two.column .column:first-child h2').should(
         'have.text',
         'My Page',
       );
