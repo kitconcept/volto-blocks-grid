@@ -3,7 +3,7 @@ module.exports = {
   viewportWidth: 1280,
   video: true,
   e2e: {
-    baseUrl: 'http://localhost:3000/',
+    baseUrl: 'http://localhost:3000',
     specPattern: 'cypress/tests/**/*.cy.{js,jsx,ts,tsx}',
   },
 };

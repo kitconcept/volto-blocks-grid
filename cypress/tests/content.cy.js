@@ -1,45 +1,38 @@
 context('Content Acceptance Tests', () => {
   beforeEach(() => {
     cy.autologin();
+    cy.visit('/');
+    cy.waitForResourceToLoad('@navigation');
+    cy.waitForResourceToLoad('@breadcrumbs');
+    cy.waitForResourceToLoad('@actions');
+    cy.waitForResourceToLoad('@types');
+    cy.waitForResourceToLoad('');
   });
 
-  it('As a site administrator I can add a page', function () {
-    // given
-    cy.visit('/');
-
-    // when
+  it('As editor I can add a page', function () {
+    // when I add a page
     cy.get('#toolbar-add').click();
     cy.get('#toolbar-add-document').click();
-    cy.get('.documentFirstHeading > .public-DraftStyleDefault-block')
-      .type('This is a page')
-      .get('.documentFirstHeading span[data-text]')
-      .contains('This is a page');
-    cy.get('#toolbar-save').click();
+    cy.getSlateTitle().focus().click().type('My Page').contains('My Page');
 
-    // then
-    cy.contains('This is a page');
-    cy.url().should('include', '/this-is-a-page');
+    // then I a new page has been created
+    cy.get('#toolbar-save').click();
+    cy.url().should('eq', Cypress.config().baseUrl + '/my-page');
+
+    cy.get('.navigation .item.active').should('have.text', 'My Page');
   });
 
-  it('As a site administrator I can add a page with text', function () {
-    // given
-    cy.visit('/');
-
-    // when
+  it('As editor I can add a page with a text block', function () {
+    // when I add a page with a text block
     cy.get('#toolbar-add').click();
     cy.get('#toolbar-add-document').click();
-    cy.get('.documentFirstHeading > .public-DraftStyleDefault-block')
-      .type('This is a page')
-      .get('.documentFirstHeading span[data-text]')
-      .contains('This is a page');
-    cy.get('.block.inner.text .public-DraftEditor-content')
-      .type('This is the text.')
-      .get('span[data-text]')
-      .contains('This is the text');
+    cy.getSlateTitle().focus().click().type('My Page').contains('My Page');
+    cy.getSlateEditorAndType('This is the text.').contains('This is the text');
     cy.get('#toolbar-save').click();
+    cy.url().should('eq', Cypress.config().baseUrl + '/my-page');
 
-    // then
-    cy.contains('This is a page');
-    cy.url().should('include', '/this-is-a-page');
+    // then a new page with a text block has been added
+
+    cy.get('.navigation .item.active').should('have.text', 'My Page');
   });
 });
