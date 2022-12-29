@@ -8,6 +8,8 @@
 
 ### Feature
 
+- Be able to reset the block from the Grid block UI @sneridagh
+
 ### Bugfix
 
 ### Internal

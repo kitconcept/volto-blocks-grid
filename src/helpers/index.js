@@ -8,19 +8,5 @@
 import useDimensions from './useDimensions/useDimensions';
 import useTraceUpdate from './useTraceUpdate/useTraceUpdate';
 import usePrevious from './usePrevious/usePrevious';
-import {
-  insertInArray,
-  replaceItemOfArray,
-  removeFromArray,
-  reorderArray,
-} from './Utils/Utils';
 
-export {
-  insertInArray,
-  replaceItemOfArray,
-  removeFromArray,
-  reorderArray,
-  useDimensions,
-  useTraceUpdate,
-  usePrevious,
-};
+export { useDimensions, useTraceUpdate, usePrevious };

@@ -19,7 +19,10 @@ import { BlockRenderer, TemplateChooser } from '../../components';
 import NewBlockAddButton from './NewBlockAddButton';
 import GridData from './Data';
 
-import { reorderArray, replaceItemOfArray } from '../../helpers';
+import {
+  reorderArray,
+  replaceItemOfArray,
+} from '@plone/volto/helpers/Utils/Utils';
 
 import { getAllowedBlocks } from '../utils';
 import templates from './templates';
@@ -223,6 +226,17 @@ class EditGrid extends Component {
 
   node = React.createRef();
 
+  onResetGridItem = (index, gridItemData) => {
+    this.props.onChangeBlock(this.props.block, {
+      ...this.props.data,
+      columns: replaceItemOfArray(this.props.data.columns, index, {
+        id: this.props.data.columns[index]['id'],
+        block: this.props.data.columns[index]['block'],
+        ...gridItemData,
+      }),
+    });
+  };
+
   /**
    * Render method.
    * @method render
@@ -375,21 +389,40 @@ class EditGrid extends Component {
                                       this.onChangeSelectedColumnItem(index);
                                     }}
                                   >
-                                    <Button
-                                      aria-label={`Remove grid element ${index}`}
-                                      basic
-                                      icon
-                                      onClick={(e) =>
-                                        this.removeColumn(e, index)
-                                      }
-                                      className="remove-block-button"
-                                    >
-                                      <Icon
-                                        name={clearSVG}
-                                        className="circled"
-                                        size="24px"
-                                      />
-                                    </Button>
+                                    {item['@type'] ? (
+                                      <Button
+                                        aria-label={`Reset grid element ${index}`}
+                                        basic
+                                        icon
+                                        onClick={(e) =>
+                                          this.onResetGridItem(index, {})
+                                        }
+                                        className="remove-block-button"
+                                      >
+                                        <Icon
+                                          name={clearSVG}
+                                          className="circled"
+                                          size="24px"
+                                        />
+                                      </Button>
+                                    ) : (
+                                      <Button
+                                        aria-label={`Remove grid element ${index}`}
+                                        basic
+                                        icon
+                                        onClick={(e) =>
+                                          this.removeColumn(e, index)
+                                        }
+                                        className="remove-block-button"
+                                      >
+                                        <Icon
+                                          name={clearSVG}
+                                          className="circled"
+                                          size="24px"
+                                          color="#e40166"
+                                        />
+                                      </Button>
+                                    )}
                                     {item['@type'] ? (
                                       <BlockRenderer
                                         {...this.props}
