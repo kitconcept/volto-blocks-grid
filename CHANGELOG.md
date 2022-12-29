@@ -8,6 +8,7 @@
 
 ### Feature
 
+- Use `Image` component from config registry @sneridagh
 - Be able to reset the block from the Grid block UI @sneridagh
 
 ### Bugfix
