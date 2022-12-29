@@ -133,7 +133,9 @@ context('Blocks Acceptance Tests', () => {
     it('As editor I can add an Image Grid', function () {
       cy.getSlate().click();
       cy.get('.button .block-add-button').click({ force: true });
-      cy.get('.blocks-chooser .mostUsed .button.imagesGrid').click();
+      cy.get('.blocks-chooser .mostUsed .button.imagesGrid').click({
+        force: true,
+      });
       cy.findByText('2 columns').click();
       cy.get(
         '.imagesGrid.two [data-rbd-draggable-context-id]:first-child .toolbar-inner .buttons:first-child button',
