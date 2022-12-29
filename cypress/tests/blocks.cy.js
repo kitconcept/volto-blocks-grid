@@ -1,3 +1,5 @@
+import { getSlateEditorAndType } from '../support/slate';
+
 context('Blocks Acceptance Tests', () => {
   describe('Text Block Tests', () => {
     beforeEach(() => {
@@ -29,16 +31,16 @@ context('Blocks Acceptance Tests', () => {
       cy.waitForResourceToLoad('@types');
       cy.waitForResourceToLoad('document');
       cy.navigate('/document/edit');
-      cy.get(`.block.title [data-contents]`);
     });
 
     it('As editor I can add a Grid', function () {
       cy.intercept('PATCH', '/**/document').as('edit');
       cy.intercept('GET', '/**/document').as('content');
+      cy.intercept('GET', '/**/Document').as('schema');
 
-      cy.get('.block.inner.text .public-DraftEditor-content').click();
+      cy.getSlate().click();
       cy.get('.button .block-add-button').click({ force: true });
-      cy.get('.blocks-chooser .mostUsed .button.__grid').click();
+      cy.get('.blocks-chooser .mostUsed .button.__grid').click({ force: true });
       cy.findByText('2 columns').click();
 
       cy.get('button[aria-label="Add grid block in position 0"]').click();
@@ -61,8 +63,9 @@ context('Blocks Acceptance Tests', () => {
       cy.findByText('Colorless green ideas sleep furiously.');
 
       cy.navigate('/document/edit');
-      cy.wait(500);
+      cy.wait('@schema');
       cy.get('.block.inner.__grid').click();
+      cy.get('.block.inner.__grid [aria-label="Reset grid element 1"]').click();
       cy.get(
         '.block.inner.__grid [aria-label="Remove grid element 1"]',
       ).click();
@@ -83,10 +86,11 @@ context('Blocks Acceptance Tests', () => {
     });
 
     it('As editor I can add a Teaser Grid', function () {
-      // creating Teaser Grid block in edit mode
-      cy.get('.block.inner.text .public-DraftEditor-content').click();
+      cy.getSlate().click();
       cy.get('.button .block-add-button').click({ force: true });
-      cy.get('.blocks-chooser .mostUsed .button.teaserGrid').click();
+      cy.get('.blocks-chooser .mostUsed .button.teaserGrid').click({
+        force: true,
+      });
       cy.findByText('2 columns').click();
       cy.get(
         '.teaserGrid.two [data-rbd-draggable-context-id]:first-child',
@@ -127,10 +131,11 @@ context('Blocks Acceptance Tests', () => {
     });
 
     it('As editor I can add an Image Grid', function () {
-      // creating Image Grid in edit mode
-      cy.get('.block.inner.text .public-DraftEditor-content').click();
+      cy.getSlate().click();
       cy.get('.button .block-add-button').click({ force: true });
-      cy.get('.blocks-chooser .mostUsed .button.imagesGrid').click();
+      cy.get('.blocks-chooser .mostUsed .button.imagesGrid').click({
+        force: true,
+      });
       cy.findByText('2 columns').click();
       cy.get(
         '.imagesGrid.two [data-rbd-draggable-context-id]:first-child .toolbar-inner .buttons:first-child button',
@@ -156,50 +161,39 @@ context('Blocks Acceptance Tests', () => {
       cy.findAllByAltText('My Image').should('have.length', 2);
     });
 
-    // Basic, Volto ones
-    it('As editor I can add a text block', () => {
-      // when I add a text block
-      cy.get('.block.inner.text .public-DraftEditor-content')
-        .click()
-        .type('My text')
-        .get('span[data-text]')
-        .contains('My text');
-      cy.get('#toolbar-save').click();
-      cy.url().should('eq', Cypress.config().baseUrl + 'document');
-      cy.waitForResourceToLoad('@navigation');
-      cy.waitForResourceToLoad('@breadcrumbs');
-      cy.waitForResourceToLoad('@actions');
-      cy.waitForResourceToLoad('@types');
-      cy.waitForResourceToLoad('document');
+    it('As editor I can add a Grid with slate block on it', function () {
+      cy.get('.block .slate-editor [contenteditable=true]').click();
 
-      // then the page view should contain the text block
-      cy.get('#page-document p').contains('My text');
-    });
+      cy.get('.button .block-add-button').click({ force: true });
+      cy.get('.blocks-chooser .mostUsed .button.__grid').click({ force: true });
+      cy.findByText('2 columns').click();
 
-    it('As editor I can add a link to a text block', function () {
-      cy.get('.documentFirstHeading > .public-DraftStyleDefault-block');
+      cy.get('button[aria-label="Add grid block in position 1"]').click();
+      cy.get('.blocks-chooser [aria-label="Unfold Text blocks"]').click();
+      cy.get('.blocks-chooser .text .button.slate').click();
+      // cy.get('.block.__grid.selected .slate-editor [contenteditable=true]')
+      //   .wait(10000)
+      //   .type('Colorless green ideas sleep furiously.');
+      cy.scrollTo('top');
 
-      // when I create a link
-      cy.get('.block.inner.text .public-DraftEditor-content')
-        .type('Colorless green ideas sleep furiously.')
-        .setSelection('furiously');
+      getSlateEditorAndType(
+        '.block.__grid.selected .slate-editor [contenteditable=true]',
+        'Colorless green ideas sleep furiously.',
+      ).setSelection('furiously');
+      cy.scrollTo('top');
+      cy.wait(1000);
+      cy.scrollTo('top');
       cy.get(
-        '#page-edit .draftJsToolbar__buttonWrapper__1Dmqh:nth-of-type(3)',
+        '.slate-inline-toolbar .ui.buttons .button-wrapper a[title="Add link"]',
       ).click();
       cy.get('.link-form-container input').type('https://google.com{enter}');
-      cy.get('#toolbar-save').click();
-      cy.url().should('eq', Cypress.config().baseUrl + 'document');
-      cy.waitForResourceToLoad('@navigation');
-      cy.waitForResourceToLoad('@breadcrumbs');
-      cy.waitForResourceToLoad('@actions');
-      cy.waitForResourceToLoad('@types');
-      cy.waitForResourceToLoad('document');
 
-      // then the page view should contain a link
-      cy.get('.ui.container p').contains(
+      cy.get('#toolbar-save').click();
+
+      cy.get('.block.__grid.centered.two p').contains(
         'Colorless green ideas sleep furiously.',
       );
-      cy.get('.ui.container p a')
+      cy.get('.block.__grid.centered.two p a')
         .should('have.attr', 'href')
         .and('include', 'https://google.com');
     });

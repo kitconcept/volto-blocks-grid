@@ -4,3 +4,4 @@ Makefile
 jest-addon.config.js
 cypress.json
 __snapshots__
+.yarnrc.yml
