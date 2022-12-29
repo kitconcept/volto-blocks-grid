@@ -3,3 +3,12 @@ cypress/videos/
 results
 build
 *~
+
+# yarn 3
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
