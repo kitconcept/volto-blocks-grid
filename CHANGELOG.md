@@ -5,11 +5,13 @@
 ### Breaking
 
 - Fix a11y issue in teaser heading default body @sneridagh
+- Teaser Data component enhancements, using the teaserAdapter pattern instead of using `useEffect` @sneridagh
 
 ### Feature
 
 - Use `Image` component from config registry @sneridagh
 - Be able to reset the block from the Grid block UI @sneridagh
+- Add reset feature to Teaser block @sneridagh
 
 ### Bugfix
 
