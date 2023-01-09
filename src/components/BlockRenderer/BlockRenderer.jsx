@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import config from '@plone/volto/registry';
 import withObjectBrowser from '@plone/volto/components/manage/Sidebar/ObjectBrowser';
 
 /**
@@ -9,15 +8,15 @@ import withObjectBrowser from '@plone/volto/components/manage/Sidebar/ObjectBrow
  * @extends Component
  */
 function BlockRenderer(props) {
-  const { edit, type } = props;
+  const { edit, type, blocksConfig } = props;
 
   if (!type) {
     // We could have an empty block, although should be handled somewhere else
     return null;
   }
 
-  const EditBlock = config.blocks.blocksConfig[type].edit;
-  const ViewBlock = config.blocks.blocksConfig[type].view;
+  const EditBlock = blocksConfig[type].edit;
+  const ViewBlock = blocksConfig[type].view;
 
   if (!edit) {
     return <ViewBlock {...props} detached onChangeBlock={() => {}} />;
