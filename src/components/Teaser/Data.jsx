@@ -1,57 +1,73 @@
 import React from 'react';
-import { useIntl } from 'react-intl';
-import { useDispatch } from 'react-redux';
-import { getContent } from '@plone/volto/actions';
-import { BlockDataForm } from '@plone/volto/components';
-import { TeaserSchema } from './schema';
+import { defineMessages, useIntl } from 'react-intl';
+import { Button } from 'semantic-ui-react';
+import { BlockDataForm, Icon } from '@plone/volto/components';
 import { isEmpty } from 'lodash';
+import config from '@plone/volto/registry';
+
+import trashSVG from '@plone/volto/icons/delete.svg';
+
+const messages = defineMessages({
+  resetTeaser: {
+    id: 'Reset the block',
+    defaultMessage: 'Reset the block',
+  },
+});
 
 const TeaserData = (props) => {
   const { block, blocksConfig, data, onChangeBlock } = props;
   const intl = useIntl();
+  const dataAdapter = config.getComponent({
+    name: 'dataAdapter',
+    dependencies: ['Teaser', 'BlockData'],
+  }).component;
 
-  const href = data.href?.[0];
-  const dispatch = useDispatch();
+  const reset = () => {
+    onChangeBlock(block, {
+      ...data,
+      href: '',
+      title: '',
+      description: '',
+      head_title: '',
+    });
+  };
 
-  React.useEffect(() => {
-    if (!isEmpty(href) && !data.title && !data.description) {
-      dispatch(getContent(href['@id'], null, block)).then((resp) => {
-        onChangeBlock(block, {
-          ...data,
-          ...(!data.title && { title: resp.title }),
-          ...(!data.description && { description: resp.description }),
-          ...(!data.head_title && { head_title: resp.head_title }),
-        });
-      });
-    }
-    // This condition is required in order to not reset the fields on mount (block creation),
-    // when the href is undefined yet. It makes the block defaults play well with this block.
-    if (href === undefined && data.href !== undefined) {
-      onChangeBlock(block, {
-        ...data,
-        title: '',
-        description: '',
-        head_title: '',
-      });
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [href]);
+  const isReseteable =
+    isEmpty(data.href) && !data.title && !data.description && !data.head_title;
 
-  const schema = TeaserSchema({ ...props, intl });
+  const HeaderActions = (
+    <Button.Group>
+      <Button
+        aria-label={intl.formatMessage(messages.resetTeaser)}
+        basic
+        disabled={isReseteable}
+        onClick={() => reset()}
+      >
+        <Icon name={trashSVG} size="24px" color="red" />
+      </Button>
+    </Button.Group>
+  );
+
+  const schema = blocksConfig[data['@type']].blockSchema({ intl });
 
   return (
     <BlockDataForm
       schema={schema}
       title={schema.title}
       onChangeField={(id, value) => {
-        onChangeBlock(block, {
-          ...data,
-          [id]: value,
+        dataAdapter({
+          block,
+          data,
+          id,
+          onChangeBlock,
+          value,
         });
       }}
+      onChangeBlock={onChangeBlock}
       formData={data}
       block={block}
       blocksConfig={blocksConfig}
+      headerActions={HeaderActions}
     />
   );
 };
