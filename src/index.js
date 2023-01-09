@@ -6,6 +6,7 @@ import {
   TeaserBlockDefaultBody,
 } from './components';
 import { TeaserSchema } from './components/Teaser/schema';
+import { TeaserBlockDataAdapter } from './components/Teaser/adapter';
 
 import gridSVG from './icons/grid.svg';
 import imagesSVG from '@plone/volto/icons/images.svg';
@@ -91,6 +92,12 @@ const applyConfig = (config) => {
     ...config.blocks.blocksConfig,
     ...customBlocks,
   };
+
+  config.registerComponent({
+    name: 'dataAdapter',
+    dependencies: ['Teaser', 'BlockData'],
+    component: TeaserBlockDataAdapter,
+  });
 
   return config;
 };
