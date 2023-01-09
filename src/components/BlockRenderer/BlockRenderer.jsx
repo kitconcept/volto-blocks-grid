@@ -36,7 +36,7 @@ BlockRenderer.propTypes = {
   block: PropTypes.string.isRequired,
   onChangeBlock: PropTypes.func,
   data: PropTypes.objectOf(PropTypes.any).isRequired,
-  blocksConfig: PropTypes.objectOf(PropTypes.any).isRequired,
+  blocksConfig: PropTypes.objectOf(PropTypes.any),
 };
 
 BlockRenderer.defaultProps = {
