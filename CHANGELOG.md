@@ -1,5 +1,15 @@
 # Change Log
 
+## 6.0.1 (unreleased)
+
+### Breaking
+
+### Feature
+
+### Bugfix
+
+### Internal
+
 ## 6.0.0 (2023-01-10)
 
 ### Breaking
