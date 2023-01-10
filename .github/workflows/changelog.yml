@@ -13,6 +13,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          # Fetch all history
+          fetch-depth: '0'
+
       - name: Install pipx
         run: pip install towncrier
 
