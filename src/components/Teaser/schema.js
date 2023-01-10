@@ -1,4 +1,5 @@
 import { defineMessages } from 'react-intl';
+import { addStyling } from '@plone/volto/helpers/Extensions/withBlockSchemaEnhancer';
 
 const messages = defineMessages({
   Target: {
@@ -29,12 +30,14 @@ const messages = defineMessages({
     id: 'Teaser',
     defaultMessage: 'Teaser',
   },
+  align: {
+    id: 'Alignment',
+    defaultMessage: 'Alignment',
+  },
 });
 
-export const TeaserSchema = (props) => {
-  const { intl } = props;
-
-  return {
+export const TeaserSchema = ({ intl }) => {
+  const schema = {
     title: intl.formatMessage(messages.teaser),
     fieldsets: [
       {
@@ -57,9 +60,6 @@ export const TeaserSchema = (props) => {
           'image_field',
           'image_scales',
           '@type',
-          'effective',
-          'getObjSize',
-          'mime_type',
         ],
         allowExternals: true,
       },
@@ -87,4 +87,22 @@ export const TeaserSchema = (props) => {
     },
     required: [],
   };
+
+  addStyling({ schema, intl });
+
+  schema.properties.styles.schema.properties.align = {
+    widget: 'align',
+    title: intl.formatMessage(messages.align),
+    actions: ['left', 'right', 'center'],
+    default: 'left',
+  };
+
+  schema.properties.styles.schema.fieldsets[0].fields = ['align'];
+
+  return schema;
+};
+
+export const gridTeaserDisableStylingSchema = ({ schema, formData, intl }) => {
+  schema.fieldsets = schema.fieldsets.filter((item) => item.id !== 'styling');
+  return schema;
 };
