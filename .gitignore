@@ -3,6 +3,8 @@ cypress/videos/
 results
 build
 *~
+project
+addon-testing-project
 
 # yarn 3
 .pnp.*
