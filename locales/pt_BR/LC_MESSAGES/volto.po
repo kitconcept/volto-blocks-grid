@@ -12,6 +12,11 @@ msgstr ""
 "Plural-Forms: \n"
 
 #: components/Teaser/schema
+# defaultMessage: Alignment
+msgid "Alignment"
+msgstr ""
+
+#: components/Teaser/schema
 # defaultMessage: Description
 msgid "Description"
 msgstr "Descrição"
@@ -35,6 +40,11 @@ msgstr "Abrir em nova aba"
 # defaultMessage: Please choose an existing content as source for this element
 msgid "Please choose an existing content as source for this element"
 msgstr "Por favor escolha um conteúdo como fonte deste elemento."
+
+#: components/Teaser/Data
+# defaultMessage: Reset the block
+msgid "Reset the block"
+msgstr ""
 
 #: components/Teaser/schema
 # defaultMessage: Target

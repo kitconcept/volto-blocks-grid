@@ -1,6 +1,6 @@
 # Change Log
 
-## 5.2.1 (unreleased)
+## 6.0.0 (2023-01-10)
 
 ### Breaking
 

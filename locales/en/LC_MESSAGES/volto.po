@@ -12,6 +12,11 @@ msgstr ""
 "Plural-Forms: \n"
 
 #: components/Teaser/schema
+# defaultMessage: Alignment
+msgid "Alignment"
+msgstr ""
+
+#: components/Teaser/schema
 # defaultMessage: Description
 msgid "Description"
 msgstr ""
@@ -34,6 +39,11 @@ msgstr ""
 #: components/Teaser/DefaultBody
 # defaultMessage: Please choose an existing content as source for this element
 msgid "Please choose an existing content as source for this element"
+msgstr ""
+
+#: components/Teaser/Data
+# defaultMessage: Reset the block
+msgid "Reset the block"
 msgstr ""
 
 #: components/Teaser/schema

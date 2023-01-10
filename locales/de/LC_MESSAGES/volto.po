@@ -17,6 +17,11 @@ msgstr ""
 "X-Is-Fallback-For: de-at de-li de-lu de-ch de-de\n"
 
 #: components/Teaser/schema
+# defaultMessage: Alignment
+msgid "Alignment"
+msgstr ""
+
+#: components/Teaser/schema
 # defaultMessage: Description
 msgid "Description"
 msgstr "Beschreibung"
@@ -40,6 +45,11 @@ msgstr "In neuem Tab öffnen"
 # defaultMessage: Please choose an existing content as source for this element
 msgid "Please choose an existing content as source for this element"
 msgstr "Bitte wählen sie einen existierenden Inhalt als Quelle für dieses Element aus"
+
+#: components/Teaser/Data
+# defaultMessage: Reset the block
+msgid "Reset the block"
+msgstr ""
 
 #: components/Teaser/schema
 # defaultMessage: Target
