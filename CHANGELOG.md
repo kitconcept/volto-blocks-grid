@@ -15,6 +15,8 @@
 
 ### Bugfix
 
+- Update `BlockRenderer` component to point `EditBlock`/`ViewBlock` at `blocksConfig.edit`/`blocksConfig.view` when available @danalvrz
+
 ### Internal
 
 - Add new `headline` CSS class in teaser `head_title` @sneridagh
