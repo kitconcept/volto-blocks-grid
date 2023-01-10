@@ -18,14 +18,14 @@ const messages = defineMessages({
   },
 });
 
+const DefaultImage = (props) => <img {...props} alt={props.alt || ''} />;
+
 const TeaserDefaultTemplate = (props) => {
   const { className, data, isEditMode } = props;
   const intl = useIntl();
   const href = data.href?.[0];
   const image = data.preview_image?.[0];
   const align = data?.styles?.align;
-
-  const DefaultImage = (props) => <img {...props} alt={props.alt || ''} />;
 
   const Image = config.getComponent('Image').component || DefaultImage;
 
