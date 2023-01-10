@@ -32,7 +32,7 @@ jobs:
           # Fetch the pull request' base branch so towncrier will be able to
           # compare the current branch with the base branch.
           # Source: https://github.com/actions/checkout/#fetch-all-branches.
-          # git fetch --no-tags origin +refs/heads/${BASE_BRANCH}:refs/remotes/origin/${BASE_BRANCH}
+          git fetch --no-tags origin main
           towncrier check --compare-with origin/main
         env:
           BASE_BRANCH: ${{ github.base_ref }}
