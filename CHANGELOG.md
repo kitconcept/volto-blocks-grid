@@ -10,6 +10,8 @@
 ### Feature
 
 - Use `Image` component from config registry @sneridagh
+- Use `image_scales` from Plone 6 catalog, if present. @sneridagh
+- Add image alignment styling feature for teasers @sneridagh
 - Be able to reset the block from the Grid block UI @sneridagh
 - Add reset feature to Teaser block @sneridagh
 

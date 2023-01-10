@@ -145,11 +145,29 @@ any registered block types are allowed.
 
 ## Teaser block
 
-For convenience, this package includes a "teaser" block that allows you to pull content from a source content object and brings in to a block (`title`, `head_line`, `description`, and `preview_image` fields). It tries to get these fields from the original source content first, and allows you to override them afterwards.
+This package includes a Teaser block that allows you to pull content from a source content object and brings in to a block (`title`, `head_line`, `description`, and `preview_image` fields). It tries to get these fields from the original source content first, and allows you to override them afterwards.
 
-You'll find the `preview_image` field in `plone.volto` (and previous to that, in `kitconcept.volto`) add-on. If no `preview_image` field is present in the source content, it will fallback to the `image` (eg. `Lead image` behavior), if any. If no image fields are present, it won't show any image unless you override it (using the local `preview_image` field) in the block's config.
+The Teaser block can be used in Grids and as standalone block as well. In the standalone version, it includes an alignment styling option to position the target teased image.
 
-It includes a configuration option `imageScale` (see above example) that allows you to use an specific scale for the `preview_image`.
+You'll find the `preview_image` field in `plone.volto` (and previous to that, in `kitconcept.volto`) add-on. You should add it to the content types that you plan to use as teased elements. If no `preview_image` field is present in the source content, it will fallback to the `image` (eg. `Lead image` behavior), if any. If no image fields are present, it won't show any image unless you override it (using the local `preview_image` field) in the block's config.
+
+It includes a configuration option `imageScale` (see above example) that allows you to use an specific scale for the `preview_image`. It defaults to `teaser` scale.
+
+### Data adapter
+
+When a target is selected in a teaser block, an adapter is executed in case that you want to manipulate the data that it's being saved into the block. In case that you want to override the data adapter you have to provide your own adapter and register it with this signature:
+
+```js
+import { myTeaserBlockDataAdapter } from './foo';
+
+  config.registerComponent({
+    name: 'dataAdapter',
+    dependencies: ['Teaser', 'BlockData'],
+    component: myTeaserBlockDataAdapter,
+  });
+```
+
+The default adapter only saves locally (for caching purposes) the fields `title`, `head_line`, `description`, and `preview_image`. You can add your own there if you need more data from the target in your block.
 
 ## Compatibility
 
