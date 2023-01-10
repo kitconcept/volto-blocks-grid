@@ -78,6 +78,7 @@ export const TeaserSchema = (props) => {
         widget: 'object_browser',
         mode: 'image',
         allowExternals: true,
+        selectedItemAttrs: ['image_field', 'image_scales'],
       },
       openLinkInNewTab: {
         title: intl.formatMessage(messages.openLinkInNewTab),

@@ -23,6 +23,7 @@ const TeaserDefaultTemplate = (props) => {
   const intl = useIntl();
   const href = data.href?.[0];
   const image = data.preview_image?.[0];
+  const align = data?.styles?.align;
 
   const DefaultImage = (props) => <img {...props} alt={props.alt || ''} />;
 
@@ -50,7 +51,9 @@ const TeaserDefaultTemplate = (props) => {
               {(href.hasPreviewImage || href.image_field || image) && (
                 <div className="grid-image-wrapper">
                   <Image
-                    src={flattenToAppURL(getTeaserImageURL(href, image))}
+                    src={flattenToAppURL(
+                      getTeaserImageURL({ href, image, align }),
+                    )}
                     alt=""
                     loading="lazy"
                   />
