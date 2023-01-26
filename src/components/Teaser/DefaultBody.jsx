@@ -29,9 +29,8 @@ const TeaserDefaultTemplate = (props) => {
 
   const hasImageComponent = config.getComponent('Image').component;
   const Image = config.getComponent('Image').component || DefaultImage;
-  const defaultImageSrc = flattenToAppURL(
-    getTeaserImageURL({ href, image, align }),
-  );
+  const defaultImageSrc =
+    href && flattenToAppURL(getTeaserImageURL({ href, image, align }));
 
   return (
     <div className={cx('block teaser', className)}>
