@@ -8,6 +8,21 @@
 
 <!-- towncrier release notes start -->
 
+## 6.1.0 (2023-01-26)
+
+### Feature
+
+- Move changelog to Towncrier @sneridagh [#70](https://github.com/kitconcept/volto-export/pull/70)
+
+### Bugfix
+
+- Adjust props passed down in the custom image use case @sneridagh [#73](https://github.com/kitconcept/volto-export/pull/73)
+
+### Internal
+
+- Add check for towncrier news items @sneridagh [#71](https://github.com/kitconcept/volto-export/pull/71)
+
+
 ## 6.0.0 (2023-01-10)
 
 ### Breaking
