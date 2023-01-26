@@ -27,7 +27,10 @@ const TeaserDefaultTemplate = (props) => {
   const image = data.preview_image?.[0];
   const align = data?.styles?.align;
 
+  const hasImageComponent = config.getComponent('Image').component;
   const Image = config.getComponent('Image').component || DefaultImage;
+  const defaultImageSrc =
+    href && flattenToAppURL(getTeaserImageURL({ href, image, align }));
 
   return (
     <div className={cx('block teaser', className)}>
@@ -51,9 +54,7 @@ const TeaserDefaultTemplate = (props) => {
               {(href.hasPreviewImage || href.image_field || image) && (
                 <div className="grid-image-wrapper">
                   <Image
-                    src={flattenToAppURL(
-                      getTeaserImageURL({ href, image, align }),
-                    )}
+                    src={hasImageComponent ? href : defaultImageSrc}
                     alt=""
                     loading="lazy"
                   />
