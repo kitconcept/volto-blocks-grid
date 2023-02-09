@@ -1,0 +1,1 @@
+Make use of external link in new tab config setting. @robgietema
