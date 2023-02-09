@@ -1,5 +1,6 @@
 context('Blocks Acceptance Tests', () => {
   beforeEach(() => {
+    cy.autologin();
     cy.visit('/');
     cy.viewport('macbook-16');
     cy.createContent({
@@ -7,7 +8,6 @@ context('Blocks Acceptance Tests', () => {
       contentId: 'document',
       contentTitle: 'Document',
     });
-    cy.autologin();
   });
 
   it('As editor I can add a (standalone) Teaser block', () => {
@@ -18,7 +18,7 @@ context('Blocks Acceptance Tests', () => {
       contentTitle: 'Blue Orchidees',
       contentDescription: 'are growing on the mountain tops',
       image: true,
-      path: '/document',
+      path: 'document',
     });
     cy.visit('/document/edit');
     // WHEN I create a Teaser block

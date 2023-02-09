@@ -21,6 +21,7 @@ const GridData = (props) => {
       formData={data}
       block={block}
       blocksConfig={blocksConfig}
+      onChangeBlock={onChangeBlock}
     />
   );
 };

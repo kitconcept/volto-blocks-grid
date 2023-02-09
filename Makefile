@@ -1,6 +1,18 @@
-SHELL := /bin/bash
+# Yeoman Volto App development
+
+### Defensive settings for make:
+#     https://tech.davis-hansson.com/p/make/
+SHELL:=bash
+.ONESHELL:
+.SHELLFLAGS:=-xeu -o pipefail -O inherit_errexit -c
+.SILENT:
+.DELETE_ON_ERROR:
+MAKEFLAGS+=--warn-undefined-variables
+MAKEFLAGS+=--no-builtin-rules
+
 CURRENT_DIR:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 
+# Recipe snippets for reuse
 
 # We like colors
 # From: https://coderwall.com/p/izxssa/colored-makefile-for-golang-projects
@@ -9,44 +21,101 @@ GREEN=`tput setaf 2`
 RESET=`tput sgr0`
 YELLOW=`tput setaf 3`
 
-GIT_NAME = volto-blocks-grid
-NAMESPACE = @kitconcept
-RAZZLE_JEST_CONFIG = jest-addon.config.js
+PLONE_VERSION=6
+VOLTO_VERSION=16.10.0
 
-.PHONY: all
-all: build
+ADDON_NAME='@kitconcept/volto-blocks-grid'
+ADDON_PATH='volto-blocks-grid'
+DEV_COMPOSE=dockerfiles/docker-compose.yml
+ACCEPTANCE_COMPOSE=acceptance/docker-compose.yml
+CMD=CURRENT_DIR=${CURRENT_DIR} ADDON_NAME=${ADDON_NAME} ADDON_PATH=${ADDON_PATH} VOLTO_VERSION=${VOLTO_VERSION} PLONE_VERSION=${PLONE_VERSION} docker compose
+DOCKER_COMPOSE=${CMD} -p ${ADDON_PATH} -f ${DEV_COMPOSE}
+ACCEPTANCE=${CMD} -p ${ADDON_PATH}-acceptance -f ${ACCEPTANCE_COMPOSE}
 
-# Add the following 'help' target to your Makefile
-# And add help text after each target name starting with '\#\#'
+.PHONY: build-backend
+build-backend: ## Build
+	@echo "$(GREEN)==> Build Backend Container $(RESET)"
+	${DOCKER_COMPOSE} build backend
+
+.PHONY: start-backend
+start-backend: ## Starts Docker backend
+	@echo "$(GREEN)==> Start Docker-based Plone Backend $(RESET)"
+	${DOCKER_COMPOSE} up backend -d
+
+.PHONY: stop-backend
+stop-backend: ## Stop Docker backend
+	@echo "$(GREEN)==> Stop Docker-based Plone Backend $(RESET)"
+	${DOCKER_COMPOSE} stop backend
+
+.PHONY: build-addon
+build-addon: ## Build Addon dev
+	@echo "$(GREEN)==> Build Addon development container $(RESET)"
+	${DOCKER_COMPOSE} build addon-dev
+
+.PHONY: start-dev
+start-dev: ## Starts Dev container
+	@echo "$(GREEN)==> Start Addon Development container $(RESET)"
+	${DOCKER_COMPOSE} up addon-dev
+
+.PHONY: dev
+dev: ## Develop the addon
+	@echo "$(GREEN)==> Start Development Environment $(RESET)"
+	make build-backend
+	make start-backend
+	make build-addon
+	make start-dev
+
 .PHONY: help
-help: ## This help message
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
+help:		## Show this help.
+	@echo -e "$$(grep -hE '^\S+:.*##' $(MAKEFILE_LIST) | sed -e 's/:.*##\s*/:/' -e 's/^\(.\+\):\(.*\)/\\x1b[36m\1\\x1b[m:\2/' | column -c2 -t -s :)"
 
-.PHONY: test
-test: ## Run unit test suite for the addon
-	@echo "$(GREEN)==> Run unit test suite for the addon$(RESET)"
-	docker run -it --rm -e NAMESPACE="$(NAMESPACE)" -e DEPENDENCIES="$(DEPENDENCIES)" -e GIT_NAME="$(GIT_NAME)" -v $(shell pwd):/opt/frontend/my-volto-project/src/addons/$(GIT_NAME) plone/volto-addon-ci bash -c "RAZZLE_JEST_CONFIG=$(RAZZLE_JEST_CONFIG) yarn test src/addons/$(GIT_NAME) --watchAll"
+# Dev Helpers
+.PHONY: i18n
+i18n: ## Sync i18n
+	${DOCKER_COMPOSE} run addon-dev i18n
 
-.PHONY: cypress
-cypress: ## Run unit test suite for the addon
-	@echo "$(GREEN)==> Run cypress for the addon$(RESET)"
-	docker run -i --rm --link plone -e NODE_ENV=production -e RAZZLE_API_PATH="http://plone:55001/plone" -e CYPRESS_BACKEND_HOST="plone" -e NAMESPACE="$(NAMESPACE)" -e DEPENDENCIES="$(DEPENDENCIES)" -e GIT_NAME="$(GIT_NAME)" -v $(shell pwd):/opt/frontend/my-volto-project/src/addons/$(GIT_NAME) plone/volto-addon-ci cypress
-
-.PHONY: prettier
-prettier: ## Run unit test suite for the addon
-	@echo "$(GREEN)==> Run prettier for the addon$(RESET)"
-	docker run -it --rm -e NAMESPACE="$(NAMESPACE)" -e DEPENDENCIES="$(DEPENDENCIES)" -e GIT_NAME="$(GIT_NAME)" -v $(shell pwd):/opt/frontend/my-volto-project/src/addons/$(GIT_NAME) plone/volto-addon-ci prettier
+.PHONY: format
+format: ## Format codebase
+	${DOCKER_COMPOSE} run addon-dev lint:fix
+	${DOCKER_COMPOSE} run addon-dev prettier:fix
+	${DOCKER_COMPOSE} run addon-dev stylelint:fix
 
 .PHONY: lint
-lint: ## Run unit test suite for the addon
-	@echo "$(GREEN)==> Run ESlint for the addon$(RESET)"
-	docker run -it --rm -e NAMESPACE="$(NAMESPACE)" -e DEPENDENCIES="$(DEPENDENCIES)" -e GIT_NAME="$(GIT_NAME)" -v $(shell pwd):/opt/frontend/my-volto-project/src/addons/$(GIT_NAME) plone/volto-addon-ci eslint
+lint: ## Lint Codebase
+	${DOCKER_COMPOSE} run addon-dev lint
+	${DOCKER_COMPOSE} run addon-dev prettier
+	${DOCKER_COMPOSE} run addon-dev stylelint
 
-.PHONY: stylelint
-stylelint: ## Run unit test suite for the addon
-	@echo "$(GREEN)==> Run stylelint for the addon$(RESET)"
-	docker run -it --rm -e NAMESPACE="$(NAMESPACE)" -e DEPENDENCIES="$(DEPENDENCIES)" -e GIT_NAME="$(GIT_NAME)" -v $(shell pwd):/opt/frontend/my-volto-project/src/addons/$(GIT_NAME) plone/volto-addon-ci stylelint
+.PHONY: test
+test: ## Run unit tests
+	${DOCKER_COMPOSE} run addon-dev test --watchAll
 
-.PHONY: test-acceptance-server
-test-acceptance-server: ## Run test acceptance server
-	docker run -i --rm --name=plone -e ZSERVER_HOST=0.0.0.0 -e ZSERVER_PORT=55001 -p 55001:55001 -e SITE=plone -e APPLY_PROFILES=plone.app.contenttypes:plone-content,plone.restapi:default,kitconcept.volto:default-homepage -e CONFIGURE_PACKAGES=plone.app.contenttypes,plone.restapi,kitconcept.volto,kitconcept.volto.cors -e ADDONS='plone.app.robotframework plone.app.contenttypes plone.restapi kitconcept.volto' plone ./bin/robot-server plone.app.robotframework.testing.PLONE_ROBOT_TESTING
+## Acceptance
+.PHONY: install-acceptance
+install-acceptance: ## Install Cypress, build containers
+	(cd acceptance && yarn)
+	${ACCEPTANCE} --profile dev --profile prod build
+
+.PHONY: start-test-acceptance-server
+start-test-acceptance-server: ## Start acceptance server
+	${ACCEPTANCE} --profile dev up -d
+
+.PHONY: start-test-acceptance-server-prod
+start-test-acceptance-server-prod: ## Start acceptance server
+	${ACCEPTANCE} --profile prod up -d
+
+.PHONY: test-acceptance
+test-acceptance: ## Start Cypress
+	(cd acceptance && ./node_modules/.bin/cypress open)
+
+.PHONY: test-acceptance-headless
+test-acceptance-headless: ## Run cypress tests in CI
+	(cd acceptance && ./node_modules/.bin/cypress run)
+
+.PHONY: stop-test-acceptance-server
+stop-test-acceptance-server: ## Stop acceptance server
+	${ACCEPTANCE} down
+
+.PHONY: status-test-acceptance-server
+status-test-acceptance-server: ## Status of Acceptance Server
+	${ACCEPTANCE} ps
