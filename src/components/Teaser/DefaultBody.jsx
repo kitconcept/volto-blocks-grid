@@ -49,7 +49,12 @@ const TeaserDefaultTemplate = (props) => {
             condition={!isEditMode}
             as={UniversalLink}
             href={href['@id']}
-            target={data.openLinkInNewTab || (openExternalLinkInNewTab && !isInternalURL(href['@id']))? '_blank' : null}
+            target={
+              data.openLinkInNewTab ||
+              (openExternalLinkInNewTab && !isInternalURL(href['@id']))
+                ? '_blank'
+                : null
+            }
           >
             <div className="grid-teaser-item default">
               {(href.hasPreviewImage || href.image_field || image) && (
