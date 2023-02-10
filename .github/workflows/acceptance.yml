@@ -1,6 +1,11 @@
 name: Acceptance tests
 on: [push]
 
+env:
+  ADDON_NAME: "@kitconcept/volto-blocks-grid"
+  ADDON_PATH: "volto-blocks-grid"
+  VOLTO_VERSION: "16"
+
 jobs:
 
   acceptance:
@@ -28,7 +33,6 @@ jobs:
           spec: acceptance/cypress/tests/*.js
           install: false
           start: |
-            echo "$BASE_TAG"
             docker compose -f acceptance/docker-compose.yml --profile prod up
           wait-on: 'npx wait-on --httpTimeout 20000 http-get://localhost:55001/plone http://localhost:3000'
 
