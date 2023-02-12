@@ -75,6 +75,7 @@
     }
   },
   "devDependencies": {
+    "@plone/scripts": "^2.3.0",
     "release-it": "^15.6.0"
   },
   "peerDependencies": {
