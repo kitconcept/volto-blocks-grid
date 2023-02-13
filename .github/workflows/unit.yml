@@ -1,7 +1,7 @@
-name: Unit tests
+name: Unit Tests
 on: [push]
 jobs:
-  build:
+  unit:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -19,15 +19,5 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
 
-      - name: Install dependencies
-        run: yarn
-
-      - name: Install yo and @plone/generator-volto
-        run: npm i -g yo @plone/generator-volto
-
-      - name: Setup addon testing environment
-        run: npx -p @plone/scripts addon clone .
-
-      # Unit tests
-      - name: Unit tests
-        run: cd addon-testing-project && CI=true yarn test
+      - name: Linting
+        run: make test-ci
