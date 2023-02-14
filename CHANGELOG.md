@@ -8,6 +8,15 @@
 
 <!-- towncrier release notes start -->
 
+## 6.2.0 (2023-02-14)
+
+### Feature
+
+- Move to the recent add-on docker drive development approach @sneridagh [#74](https://github.com/kitconcept/volto-export/pull/74)
+- Make use of external link in new tab config setting. @robgietema [#75](https://github.com/kitconcept/volto-export/pull/75)
+- CI with docker approach for code analysis and unit tests @sneridagh [#76](https://github.com/kitconcept/volto-export/pull/76)
+
+
 ## 6.1.0 (2023-01-26)
 
 ### Feature
