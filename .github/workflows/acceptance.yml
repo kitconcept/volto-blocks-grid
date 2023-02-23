@@ -23,7 +23,7 @@ jobs:
           yarn
 
       - name: "Cypress: Acceptance tests"
-        uses: cypress-io/github-action@v4
+        uses: cypress-io/github-action@v5
         env:
           BABEL_ENV: production
           CYPRESS_RETRIES: 2
