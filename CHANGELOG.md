@@ -8,6 +8,13 @@
 
 <!-- towncrier release notes start -->
 
+## 7.0.0 (2023-02-23)
+
+### Breaking
+
+- Move dataAdapter to the block config so it can also be overriden in nested blocks via blocksConfig @sneridagh [#77](https://github.com/kitconcept/volto-export/pull/77)
+
+
 ## 6.2.0 (2023-02-14)
 
 ### Feature
