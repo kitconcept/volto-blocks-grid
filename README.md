@@ -58,29 +58,25 @@ block config `gridAllowedBlocks` key:
 You can even further customize the blocks config available for the inner blocks by passing `blocksConfig` key as a block config. You can add different variations, schemaEnhancers, etc or remove them as well:
 
 ```js
-config.blocks.blocksConfig.__grid = {
-  ...config.blocks.blocksConfig.__grid,
-  icon: gridSVG,
-  gridAllowedBlocks: ['teaser', 'image', 'slate'],
+config.blocks.blocksConfig.__grid.gridAllowedBlocks: ['teaser', 'image', 'slate'];
+config.blocks.blocksConfig.__grid.blocksConfig: {
   // One could customize the blocks inside the grid like this:
-  blocksConfig: {
-    ...config.blocks.blocksConfig,
-    teaser: {
-      ...config.blocks.blocksConfig.teaser,
-      variations: [
-        {
-          id: 'default',
-          isDefault: true,
-          title: 'Default',
-          template: DefaultBody,
-        },
-        {
-          id: 'variation2',
-          title: 'variation #2',
-          template: DefaultBody2,
-        },
-      ],
-    },
+  ...config.blocks.blocksConfig,
+  teaser: {
+    ...config.blocks.blocksConfig.teaser,
+    variations: [
+      {
+        id: 'default',
+        isDefault: true,
+        title: 'Default',
+        template: DefaultBody,
+      },
+      {
+        id: 'variation2',
+        title: 'variation #2',
+        template: DefaultBody2,
+      },
+    ],
   },
 };
 ```
@@ -117,10 +113,6 @@ import {
     restricted: false,
     mostUsed: true,
     sidebarTab: 1,
-    security: {
-      addPermission: [],
-      view: [],
-    },
     gridAllowedBlocks: ['teaser'],
   },
     teaser: {
@@ -133,10 +125,8 @@ import {
     restricted: true,
     mostUsed: true,
     sidebarTab: 1,
-    security: {
-      addPermission: [],
-      view: [],
-    },
+    blockSchema: TeaserSchema,
+    dataAdapter: TeaserBlockDataAdapter,
     imageScale: 'teaser'
   },
 ```
@@ -155,16 +145,17 @@ It includes a configuration option `imageScale` (see above example) that allows 
 
 ### Data adapter
 
-When a target is selected in a teaser block, an adapter is executed in case that you want to manipulate the data that it's being saved into the block. In case that you want to override the data adapter you have to provide your own adapter and register it with this signature:
+When a target is selected in a teaser block, an adapter is executed in case that you want to manipulate the data that it's being saved into the block. In case that you want to override the data adapter you have to provide your own adapter in the Teaser block settings `dataAdapter`.
 
 ```js
-import { myTeaserBlockDataAdapter } from './foo';
-
-  config.registerComponent({
-    name: 'dataAdapter',
-    dependencies: ['Teaser', 'BlockData'],
-    component: myTeaserBlockDataAdapter,
-  });
+import { TeaserBlockDataAdapter } from './components/Teaser/adapter';
+import { TeaserSchema } from './components/Teaser/schema';
+...
+  teaser: {
+    ...
+    blockSchema: TeaserSchema,
+    dataAdapter: TeaserBlockDataAdapter,
+  },
 ```
 
 The default adapter only saves locally (for caching purposes) the fields `title`, `head_line`, `description`, and `preview_image`. You can add your own there if you need more data from the target in your block.

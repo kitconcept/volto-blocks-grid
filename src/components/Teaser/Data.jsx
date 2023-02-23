@@ -3,7 +3,6 @@ import { defineMessages, useIntl } from 'react-intl';
 import { Button } from 'semantic-ui-react';
 import { BlockDataForm, Icon } from '@plone/volto/components';
 import { isEmpty } from 'lodash';
-import config from '@plone/volto/registry';
 
 import trashSVG from '@plone/volto/icons/delete.svg';
 
@@ -17,10 +16,6 @@ const messages = defineMessages({
 const TeaserData = (props) => {
   const { block, blocksConfig, data, onChangeBlock } = props;
   const intl = useIntl();
-  const dataAdapter = config.getComponent({
-    name: 'dataAdapter',
-    dependencies: ['Teaser', 'BlockData'],
-  }).component;
 
   const reset = () => {
     onChangeBlock(block, {
@@ -49,6 +44,7 @@ const TeaserData = (props) => {
   );
 
   const schema = blocksConfig[data['@type']].blockSchema({ intl });
+  const dataAdapter = blocksConfig[data['@type']].dataAdapter;
 
   return (
     <BlockDataForm

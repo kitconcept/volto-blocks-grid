@@ -1,0 +1,1 @@
+ Move dataAdapter to the block config so it can also be overriden in nested blocks via blocksConfig @sneridagh
