@@ -26,6 +26,7 @@ const applyConfig = (config) => {
     mostUsed: true,
     sidebarTab: 1,
     blockSchema: TeaserSchema,
+    dataAdapter: TeaserBlockDataAdapter,
     variations: [
       {
         id: 'default',
@@ -102,12 +103,6 @@ const applyConfig = (config) => {
     ...config.blocks.blocksConfig,
     ...customBlocks,
   };
-
-  config.registerComponent({
-    name: 'dataAdapter',
-    dependencies: ['Teaser', 'BlockData'],
-    component: TeaserBlockDataAdapter,
-  });
 
   return config;
 };

@@ -17,10 +17,6 @@ const messages = defineMessages({
 const TeaserData = (props) => {
   const { block, blocksConfig, data, onChangeBlock } = props;
   const intl = useIntl();
-  const dataAdapter = config.getComponent({
-    name: 'dataAdapter',
-    dependencies: ['Teaser', 'BlockData'],
-  }).component;
 
   const reset = () => {
     onChangeBlock(block, {
@@ -49,6 +45,7 @@ const TeaserData = (props) => {
   );
 
   const schema = blocksConfig[data['@type']].blockSchema({ intl });
+  const dataAdapter = blocksConfig[data['@type']].dataAdapter;
 
   return (
     <BlockDataForm
