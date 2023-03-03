@@ -162,8 +162,17 @@ The default adapter only saves locally (for caching purposes) the fields `title`
 
 ## Compatibility
 
-2.0.0 -> Volto 12.14.0 or above
+5.0.0 -> Volto 16.0.0 or above
+2.0.0 -> Volto 12.14.0 and < Volto 16.0.0
 1.0.0 -> Anything lower
+
+## Teaser included in Volto core
+
+From Volto 16.14.0 the Teaser block as it's in `volto-blocks-grid` version 7.0.0 is now included in Volto core.
+
+Because of the add-on config priority, if you have `volto-blocks-grid` installed in your project, the Teaser block from the add-on (and your project amendments to the config, if any) there will be applied and used.
+
+In case you want to use the core one, you need to re-apply the core configuration for the Teaser block in your project or add-ons.
 
 ## Similar products
 
