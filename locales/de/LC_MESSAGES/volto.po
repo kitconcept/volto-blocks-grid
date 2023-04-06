@@ -19,7 +19,7 @@ msgstr ""
 #: components/Teaser/schema
 # defaultMessage: Alignment
 msgid "Alignment"
-msgstr ""
+msgstr "Ausrichtung"
 
 #: components/Teaser/schema
 # defaultMessage: Description
