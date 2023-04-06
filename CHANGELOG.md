@@ -8,6 +8,13 @@
 
 <!-- towncrier release notes start -->
 
+## 6.2.1 (2023-04-06)
+
+### Bugfix
+
+- Add missing German translation @danalvrz [#78](https://github.com/kitconcept/volto-export/pull/78)
+
+
 ## 6.2.0 (2023-02-14)
 
 ### Feature
