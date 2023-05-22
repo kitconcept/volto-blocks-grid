@@ -8,6 +8,14 @@
 
 <!-- towncrier release notes start -->
 
+## 7.0.1 (2023-05-22)
+
+### Bugfix
+
+- Add missing German translation @danalvrz [#79](https://github.com/kitconcept/volto-export/pull/79)
+- Fix listing in view mode for 17a builds @sneridagh [#80](https://github.com/kitconcept/volto-export/pull/80)
+
+
 ## 7.0.0 (2023-02-23)
 
 ### Breaking
