@@ -38,6 +38,7 @@ const ViewGrid = (props) => {
           >
             <BlockRenderer
               block={column.id}
+              id={column.id}
               type={column['@type']}
               data={column}
               path={path}
