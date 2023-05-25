@@ -8,6 +8,13 @@
 
 <!-- towncrier release notes start -->
 
+## 7.0.2 (2023-05-25)
+
+### Bugfix
+
+- Fix edit mode in listings, adapting to the new listing block API @sneridagh [#81](https://github.com/kitconcept/volto-export/pull/81)
+
+
 ## 7.0.1 (2023-05-22)
 
 ### Bugfix
