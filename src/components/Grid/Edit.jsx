@@ -426,6 +426,7 @@ class EditGrid extends Component {
                                     {item['@type'] ? (
                                       <BlockRenderer
                                         {...this.props}
+                                        id={item.id}
                                         block={item.id}
                                         edit
                                         type={item['@type']}
