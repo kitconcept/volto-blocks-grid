@@ -365,7 +365,11 @@ class EditGrid extends Component {
                             return (
                               <Ref innerRef={provided.innerRef}>
                                 <Grid.Column
-                                  className={`grid-block-${item['@type']} ${item?.variation ? `variation-${item.variation}` : ''}`}
+                                  className={`grid-block-${item['@type']} ${
+                                    item?.variation
+                                      ? `variation-${item.variation}`
+                                      : ''
+                                  }`}
                                   key={item.id}
                                   {...provided.draggableProps}
                                   {...provided.dragHandleProps}
