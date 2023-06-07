@@ -368,7 +368,7 @@ class EditGrid extends Component {
                                   className={cx(
                                     `grid-block-${item['@type']}`,
                                     item?.variation &&
-                                    `variation-${item.variation}`
+                                      `variation-${item.variation}`,
                                   )}
                                   key={item.id}
                                   {...provided.draggableProps}
@@ -380,7 +380,7 @@ class EditGrid extends Component {
                                       selected:
                                         this.props.selected &&
                                         this.state.selectedColumnIndex ===
-                                        index,
+                                          index,
                                     })}
                                     role="presentation"
                                     // This prevents propagation of ENTER
@@ -437,7 +437,7 @@ class EditGrid extends Component {
                                         selected={
                                           this.props.selected &&
                                           this.state.selectedColumnIndex ===
-                                          index
+                                            index
                                         }
                                         onChangeBlock={(block, data) => {
                                           this.onChangeGridItem(index, data);
