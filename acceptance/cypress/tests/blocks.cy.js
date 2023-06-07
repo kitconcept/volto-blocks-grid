@@ -44,7 +44,9 @@ context('Blocks Acceptance Tests', () => {
       cy.findByText('2 columns').click();
 
       cy.get('button[aria-label="Add grid block in position 0"]').click();
-      cy.get('.blocks-chooser .mostUsed .button.image').click();
+      cy.get('.blocks-chooser .mostUsed .button.image').click({
+        force: true,
+      });
       cy.get('.block.image .toolbar-inner .buttons:first-child').click();
       cy.get('[aria-label="Select My Image"]').dblclick();
       cy.findByText('my-image');
@@ -73,7 +75,9 @@ context('Blocks Acceptance Tests', () => {
         '.block.inner.__grid .toolbar [aria-label="Add grid element"]',
       ).click();
       cy.get('button[aria-label="Add grid block in position 1"]').click();
-      cy.get('.blocks-chooser .mostUsed .button.teaser').click();
+      cy.get('.blocks-chooser .mostUsed .button.teaser').click({
+        force: true,
+      });
       cy.get(
         '.objectbrowser-field[aria-labelledby="fieldset-default-field-label-href"] button[aria-label="Open object browser"]',
       ).click();

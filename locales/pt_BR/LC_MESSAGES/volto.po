@@ -14,7 +14,7 @@ msgstr ""
 #: components/Teaser/schema
 # defaultMessage: Alignment
 msgid "Alignment"
-msgstr ""
+msgstr "Alinhamento"
 
 #: components/Teaser/schema
 # defaultMessage: Description
@@ -44,7 +44,7 @@ msgstr "Por favor escolha um conteúdo como fonte deste elemento."
 #: components/Teaser/Data
 # defaultMessage: Reset the block
 msgid "Reset the block"
-msgstr ""
+msgstr "Resetar o bloco"
 
 #: components/Teaser/schema
 # defaultMessage: Target
