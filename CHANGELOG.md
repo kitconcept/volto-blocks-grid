@@ -8,6 +8,14 @@
 
 <!-- towncrier release notes start -->
 
+## 7.2.0 (2023-06-07)
+
+### Feature
+
+- Pass the blocks variation id as a classname to the edit in case it's present @steffenri [#82](https://github.com/kitconcept/volto-export/pull/82)
+- Enable popperjs based blockschooser @sneridagh [#86](https://github.com/kitconcept/volto-export/pull/86)
+
+
 ## 7.1.0 (2023-06-06)
 
 ### Feature

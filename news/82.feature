@@ -1,1 +1,0 @@
-Pass the blocks variation id as a classname to the edit in case it's present @steffenri
