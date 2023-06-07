@@ -445,7 +445,7 @@ class EditGrid extends Component {
                                       <div className="uber-grid-default-item">
                                         <p>Add a new block</p>
                                         <NewBlockAddButton
-                                          block={this.props.blocks}
+                                          block={this.props.block}
                                           index={index}
                                           onChangeGridItem={
                                             this.onChangeGridItem
