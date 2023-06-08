@@ -96,9 +96,7 @@ context('Blocks Acceptance Tests', () => {
         force: true,
       });
       cy.findByText('2 columns').click();
-      cy.get(
-        '.teaserGrid.two [data-rbd-draggable-context-id]:first-child',
-      ).click();
+      cy.get('.teaserGrid.two column:first-child').click();
       cy.get(
         '#sidebar-properties .inline.field.text:first-of-type() .objectbrowser-field:first-of-type() .ui.button.action svg',
       ).click();
@@ -109,9 +107,7 @@ context('Blocks Acceptance Tests', () => {
         '#sidebar-properties .inline.field.text:nth-of-type(5) .objectbrowser-field:first-of-type() .ui.button.action svg',
       ).click();
       cy.findByText('My Image', { selector: 'span' }).click();
-      cy.get(
-        '.teaserGrid.two [data-rbd-draggable-context-id]:nth-child(2)',
-      ).click();
+      cy.get('.teaserGrid.two column:nth-child(2)').click();
       cy.get(
         '#sidebar-properties .inline.field.text:first-of-type() .objectbrowser-field:first-of-type() .ui.button.action svg',
       ).click();
@@ -142,21 +138,17 @@ context('Blocks Acceptance Tests', () => {
       });
       cy.findByText('2 columns').click();
       cy.get(
-        '.imagesGrid.two [data-rbd-draggable-context-id]:first-child .toolbar-inner .buttons:first-child button',
+        '.imagesGrid.two column:first-child .toolbar-inner .buttons:first-child button',
       ).click();
       cy.findByLabelText('Select My Image').dblclick();
-      cy.get(
-        '.imagesGrid.two [data-rbd-draggable-context-id]:first-child',
-      ).click();
+      cy.get('.imagesGrid.two column:first-child').click();
       cy.get('#field-alt').click().type('My Image');
 
       cy.get(
-        '.imagesGrid.two [data-rbd-draggable-context-id]:last-child .toolbar-inner .buttons:first-child button',
+        '.imagesGrid.two column:last-child .toolbar-inner .buttons:first-child button',
       ).click();
       cy.findByLabelText('Select My Image').dblclick();
-      cy.get(
-        '.imagesGrid.two [data-rbd-draggable-context-id]:last-child',
-      ).click();
+      cy.get('.imagesGrid.two column:last-child').click();
       cy.get('#field-alt').click().type('My Image');
 
       cy.get('#toolbar-save').click();
