@@ -16,10 +16,7 @@ import configSVG from '@plone/volto/icons/configuration.svg';
 import { TemplateChooser } from '../../components';
 import GridData from './Data';
 
-import {
-  reorderArray,
-  replaceItemOfArray,
-} from '@plone/volto/helpers/Utils/Utils';
+import { replaceItemOfArray } from '@plone/volto/helpers/Utils/Utils';
 
 import { getAllowedBlocks } from '../utils';
 import templates from './templates';
@@ -59,7 +56,6 @@ class EditGrid extends Component {
 
   state = {
     selectedColumnIndex: 0,
-    droppableId: uuid(),
   };
 
   /**
@@ -104,28 +100,6 @@ class EditGrid extends Component {
       align,
     });
   }
-
-  onDragEnd = (event) => {
-    const { active, over } = event;
-
-    const indexActive = active.data.current.sortable.index;
-    const indexOver = over.data.current.sortable.index;
-
-    if (active.id !== over.id) {
-      const columns = reorderArray(
-        this.props.data.columns,
-        indexActive,
-        indexOver,
-      );
-
-      this.props.onChangeBlock(this.props.block, {
-        ...this.props.data,
-        columns,
-      });
-
-      this.onChangeSelectedColumnItem(indexOver);
-    }
-  };
 
   /**
    * Change inner blocks handler
@@ -283,7 +257,6 @@ class EditGrid extends Component {
           onClick={(e) => {
             this.setState({ selectedColumnIndex: null });
             this.node.current.focus();
-            console.log('hello');
           }}
           // Custom own focus management
           onKeyDown={(e) => {
@@ -331,8 +304,6 @@ class EditGrid extends Component {
           )}
           <Cells
             {...this.props}
-            onDragEnd={this.onDragEnd}
-            droppableId={this.state.droppableId}
             selectedColumnIndex={this.state.selectedColumnIndex}
             onChangeSelectedColumnItem={this.onChangeSelectedColumnItem}
             onResetGridItem={this.onResetGridItem}

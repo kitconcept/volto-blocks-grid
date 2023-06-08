@@ -13,22 +13,11 @@ import {
   horizontalListSortingStrategy,
 } from '@dnd-kit/sortable';
 import { SortableItem } from './SortableItem';
+import { reorderArray } from '@plone/volto/helpers/Utils/Utils';
 
 const Cells = (props) => {
-  const {
-    onDragEnd,
-    block,
-    droppableId,
-    selected,
-    selectedColumnIndex,
-    onSelectBlock,
-    onChangeSelectedColumnItem,
-    onResetGridItem,
-    onChangeGridItem,
-    removeColumn,
-    blocksConfig,
-    data,
-  } = props;
+  const { block, onChangeBlock, onChangeSelectedColumnItem, data } = props;
+
   const columns = data.columns;
 
   const sensors = useSensors(
@@ -43,6 +32,22 @@ const Cells = (props) => {
     }),
   );
 
+  const onDragEnd = (event) => {
+    const { active, over } = event;
+
+    const indexActive = active.data.current.sortable.index;
+    const indexOver = over.data.current.sortable.index;
+
+    if (active.id !== over.id) {
+      onChangeBlock(block, {
+        ...data,
+        columns: reorderArray(columns, indexActive, indexOver),
+      });
+
+      onChangeSelectedColumnItem(indexOver);
+    }
+  };
+
   return (
     <DndContext
       sensors={sensors}
@@ -50,7 +55,7 @@ const Cells = (props) => {
       onDragEnd={onDragEnd}
     >
       <SortableContext
-        items={columns.map((item) => item.id)}
+        items={columns?.map((item) => item.id) || []}
         strategy={horizontalListSortingStrategy}
       >
         <Grid stackable stretched columns={columns ? columns.length : 0}>
