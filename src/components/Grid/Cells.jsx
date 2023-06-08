@@ -15,13 +15,54 @@ import {
 import { SortableItem } from './SortableItem';
 import { reorderArray } from '@plone/volto/helpers/Utils/Utils';
 
+// Fix internal pointer sensors by adding a custom one that bails off given a exclusion list
+// https://github.com/clauderic/dnd-kit/issues/477
+class GridCellPointerSensor extends PointerSensor {
+  static activators = [
+    {
+      eventName: 'onPointerDown',
+      handler: ({ nativeEvent: event }) => {
+        if (
+          !event.isPrimary ||
+          event.button !== 0 ||
+          isInteractiveElement(event.target)
+        ) {
+          return false;
+        }
+        // if (!isInteractiveElement(event.target)) {
+        //   console.log(event.target);
+        // }
+        return true;
+      },
+    },
+  ];
+}
+
+function isInteractiveElement(element) {
+  const interactiveElements = [
+    'button',
+    'input',
+    'textarea',
+    'select',
+    'option',
+    'svg',
+    'path',
+  ];
+
+  if (interactiveElements.includes(element.tagName.toLowerCase())) {
+    return true;
+  }
+
+  return false;
+}
+
 const Cells = (props) => {
   const { block, onChangeBlock, onChangeSelectedColumnItem, data } = props;
 
   const columns = data.columns;
 
   const sensors = useSensors(
-    useSensor(PointerSensor, {
+    useSensor(GridCellPointerSensor, {
       // Require the mouse to move by 1 pixels before activating
       activationConstraint: {
         distance: 1,
