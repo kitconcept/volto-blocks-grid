@@ -105,32 +105,26 @@ class EditGrid extends Component {
     });
   }
 
-  onDragEnd = (result) => {
-    const { source, destination } = result;
-    // dropped outside the list
-    if (!destination) {
-      return;
+  onDragEnd = (event) => {
+    const { active, over } = event;
+
+    const indexActive = active.data.current.sortable.index;
+    const indexOver = over.data.current.sortable.index;
+
+    if (active.id !== over.id) {
+      const columns = reorderArray(
+        this.props.data.columns,
+        indexActive,
+        indexOver,
+      );
+
+      this.props.onChangeBlock(this.props.block, {
+        ...this.props.data,
+        columns,
+      });
+
+      this.onChangeSelectedColumnItem(indexOver);
     }
-
-    if (
-      destination.droppableId === source.droppableId &&
-      destination.index === source.index
-    ) {
-      return;
-    }
-
-    const columns = reorderArray(
-      this.props.data.columns,
-      source.index,
-      destination.index,
-    );
-
-    this.props.onChangeBlock(this.props.block, {
-      ...this.props.data,
-      columns,
-    });
-
-    this.onChangeSelectedColumnItem(destination.index);
   };
 
   /**
@@ -289,6 +283,7 @@ class EditGrid extends Component {
           onClick={(e) => {
             this.setState({ selectedColumnIndex: null });
             this.node.current.focus();
+            console.log('hello');
           }}
           // Custom own focus management
           onKeyDown={(e) => {
