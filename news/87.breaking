@@ -1,0 +1,10 @@
+Refactor to use `@dnd-kit` library for the internal drag and drop @sneridagh
+
+## Breaking notes:
+
+The Grid block edit component has been heavily refactored from using `react-beautiful-dnd` to use `@dnd-kit`.
+You should expect HTML structure and classes changes inside this component.
+Please make sure that you haven't customized anything relying in them.
+Also, we splitted a bit the internal components below the edit component of the Grid block.
+If you've customized it for some reason, your component should still work, but without the refactoring, still using `react-beautiful-dnd`.
+If you want to update your customization, you'll need to update them appropiately.
