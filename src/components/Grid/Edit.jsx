@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { Button, Grid, Ref } from 'semantic-ui-react';
+import { Button } from 'semantic-ui-react';
 import { injectIntl } from 'react-intl';
-import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import { v4 as uuid } from 'uuid';
 import cx from 'classnames';
 import { withRouter } from 'react-router-dom';
@@ -12,22 +11,18 @@ import { Icon, SidebarPortal } from '@plone/volto/components';
 import { withBlockExtensions } from '@plone/volto/helpers';
 
 import addSVG from '@plone/volto/icons/add.svg';
-import clearSVG from '@plone/volto/icons/clear.svg';
 import configSVG from '@plone/volto/icons/configuration.svg';
 
-import { BlockRenderer, TemplateChooser } from '../../components';
-import NewBlockAddButton from './NewBlockAddButton';
+import { TemplateChooser } from '../../components';
 import GridData from './Data';
 
-import {
-  reorderArray,
-  replaceItemOfArray,
-} from '@plone/volto/helpers/Utils/Utils';
+import { replaceItemOfArray } from '@plone/volto/helpers/Utils/Utils';
 
 import { getAllowedBlocks } from '../utils';
 import templates from './templates';
 
 import config from '@plone/volto/registry';
+import Cells from './Cells';
 
 /**
  * Edit image block class.
@@ -61,7 +56,6 @@ class EditGrid extends Component {
 
   state = {
     selectedColumnIndex: 0,
-    droppableId: uuid(),
   };
 
   /**
@@ -106,34 +100,6 @@ class EditGrid extends Component {
       align,
     });
   }
-
-  onDragEnd = (result) => {
-    const { source, destination } = result;
-    // dropped outside the list
-    if (!destination) {
-      return;
-    }
-
-    if (
-      destination.droppableId === source.droppableId &&
-      destination.index === source.index
-    ) {
-      return;
-    }
-
-    const columns = reorderArray(
-      this.props.data.columns,
-      source.index,
-      destination.index,
-    );
-
-    this.props.onChangeBlock(this.props.block, {
-      ...this.props.data,
-      columns,
-    });
-
-    this.onChangeSelectedColumnItem(destination.index);
-  };
 
   /**
    * Change inner blocks handler
@@ -336,143 +302,15 @@ class EditGrid extends Component {
               onSelectTemplate={this.onSelectTemplate}
             />
           )}
-          <DragDropContext onDragEnd={this.onDragEnd}>
-            <Droppable
-              droppableId={this.state.droppableId}
-              direction="horizontal"
-            >
-              {(provided) => (
-                <Ref innerRef={provided.innerRef}>
-                  <Grid
-                    stackable
-                    stretched
-                    {...provided.droppableProps}
-                    columns={
-                      this.props.data.columns
-                        ? this.props.data.columns.length
-                        : 0
-                    }
-                  >
-                    {this.props.data.columns &&
-                      this.props.data.columns.map((item, index) => (
-                        <Draggable
-                          draggableId={item.id}
-                          index={index}
-                          key={item.id}
-                        >
-                          {(provided) => {
-                            item = { ...item, block: item.id };
-                            return (
-                              <Ref innerRef={provided.innerRef}>
-                                <Grid.Column
-                                  className={cx(
-                                    `grid-block-${item['@type']}`,
-                                    item?.variation &&
-                                      `variation-${item.variation}`,
-                                  )}
-                                  key={item.id}
-                                  {...provided.draggableProps}
-                                  {...provided.dragHandleProps}
-                                >
-                                  <div
-                                    className={cx('renderer-wrapper', {
-                                      empty: !item['@type'],
-                                      selected:
-                                        this.props.selected &&
-                                        this.state.selectedColumnIndex ===
-                                          index,
-                                    })}
-                                    role="presentation"
-                                    // This prevents propagation of ENTER
-                                    onKeyDown={(e) => e.stopPropagation()}
-                                    onClick={(e) => {
-                                      e.stopPropagation();
-                                      this.props.onSelectBlock(
-                                        this.props.block,
-                                      );
-                                      this.onChangeSelectedColumnItem(index);
-                                    }}
-                                  >
-                                    {item['@type'] ? (
-                                      <Button
-                                        aria-label={`Reset grid element ${index}`}
-                                        basic
-                                        icon
-                                        onClick={(e) =>
-                                          this.onResetGridItem(index, {})
-                                        }
-                                        className="remove-block-button"
-                                      >
-                                        <Icon
-                                          name={clearSVG}
-                                          className="circled"
-                                          size="24px"
-                                        />
-                                      </Button>
-                                    ) : (
-                                      <Button
-                                        aria-label={`Remove grid element ${index}`}
-                                        basic
-                                        icon
-                                        onClick={(e) =>
-                                          this.removeColumn(e, index)
-                                        }
-                                        className="remove-block-button"
-                                      >
-                                        <Icon
-                                          name={clearSVG}
-                                          className="circled"
-                                          size="24px"
-                                          color="#e40166"
-                                        />
-                                      </Button>
-                                    )}
-                                    {item['@type'] ? (
-                                      <BlockRenderer
-                                        {...this.props}
-                                        id={item.id}
-                                        block={item.id}
-                                        edit
-                                        type={item['@type']}
-                                        selected={
-                                          this.props.selected &&
-                                          this.state.selectedColumnIndex ===
-                                            index
-                                        }
-                                        onChangeBlock={(block, data) => {
-                                          this.onChangeGridItem(index, data);
-                                        }}
-                                        data={this.props.data.columns[index]}
-                                        blocksConfig={blocksConfig}
-                                      />
-                                    ) : (
-                                      <div className="uber-grid-default-item">
-                                        <p>Add a new block</p>
-                                        <NewBlockAddButton
-                                          block={this.props.block}
-                                          index={index}
-                                          onChangeGridItem={
-                                            this.onChangeGridItem
-                                          }
-                                          allowedBlocks={getAllowedBlocks(
-                                            this.props.data['@type'],
-                                          )}
-                                        />
-                                      </div>
-                                    )}
-                                  </div>
-                                </Grid.Column>
-                              </Ref>
-                            );
-                          }}
-                        </Draggable>
-                      ))}
-                    {provided.placeholder}
-                  </Grid>
-                </Ref>
-              )}
-            </Droppable>
-          </DragDropContext>
+          <Cells
+            {...this.props}
+            selectedColumnIndex={this.state.selectedColumnIndex}
+            onChangeSelectedColumnItem={this.onChangeSelectedColumnItem}
+            onResetGridItem={this.onResetGridItem}
+            removeColumn={this.removeColumn}
+            onChangeGridItem={this.onChangeGridItem}
+            blocksConfig={blocksConfig}
+          />
           <SidebarPortal
             selected={
               this.props.selected &&
