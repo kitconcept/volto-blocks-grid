@@ -59,11 +59,7 @@ const TeaserDefaultTemplate = (props) => {
             <div className="grid-teaser-item default">
               {(href.hasPreviewImage || href.image_field || image) && (
                 <div className="grid-image-wrapper">
-                  <Image
-                    src={hasImageComponent ? href : defaultImageSrc}
-                    alt=""
-                    loading="lazy"
-                  />
+                  <Image src={defaultImageSrc} alt="" loading="lazy" />
                 </div>
               )}
               <div className="content">
