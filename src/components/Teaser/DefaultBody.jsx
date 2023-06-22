@@ -27,7 +27,7 @@ const TeaserDefaultTemplate = (props) => {
   const { openExternalLinkInNewTab } = config.settings;
 
   let renderedImage = null;
-  if (imageOverride || href.hasPreviewImage || href.image_field) {
+  if (href && (imageOverride || href.hasPreviewImage || href.image_field)) {
     let Image = config.getComponent('Image').component;
     if (Image) {
       // custom image component expects item summary as src
