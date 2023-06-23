@@ -22,7 +22,13 @@ function BlockRenderer(props) {
     blocksConfig?.[type]?.view || config.blocks.blocksConfig[type].view;
 
   if (!edit) {
-    return <ViewBlock {...props} detached onChangeBlock={() => {}} />;
+    return type === 'slate' ? (
+      <div className="block slate">
+        <ViewBlock {...props} detached onChangeBlock={() => {}} />
+      </div>
+    ) : (
+      <ViewBlock {...props} detached onChangeBlock={() => {}} />
+    );
   }
   if (edit) {
     return <EditBlock {...props} detached index={0} />;
