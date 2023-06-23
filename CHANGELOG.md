@@ -8,6 +8,13 @@
 
 <!-- towncrier release notes start -->
 
+## 8.0.1 (2023-06-23)
+
+### Bugfix
+
+- Fix teaser Image Override when there is a custom Image component. @davisagli [#91](https://github.com/kitconcept/volto-export/pull/91)
+
+
 ## 8.0.0 (2023-06-09)
 
 ### Breaking
