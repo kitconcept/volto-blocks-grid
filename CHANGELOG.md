@@ -8,6 +8,13 @@
 
 <!-- towncrier release notes start -->
 
+## 8.0.2 (2023-06-28)
+
+### Bugfix
+
+- Small CSS fix for compatibility when used along Volto 17a16 (Grid in core) @sneridagh [#93](https://github.com/kitconcept/volto-export/pull/93)
+
+
 ## 8.0.1 (2023-06-23)
 
 ### Bugfix
