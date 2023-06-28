@@ -32,6 +32,8 @@ web, where we can often find these unified one rowed sections, specially in land
 
 ## Compatibility
 
+From Volto 17 alpha 16, the Grid block included in this add-on is now in core.
+
 Due to a change in CSS happening in Volto 16.0.0 RC2, this is the compatibility grid for this add-on:
 
 |Version   |Volto version |
@@ -173,6 +175,17 @@ From Volto 16.14.0 the Teaser block as it's in `volto-blocks-grid` version 7.0.0
 Because of the add-on config priority, if you have `volto-blocks-grid` installed in your project, the Teaser block from the add-on (and your project amendments to the config, if any) there will be applied and used.
 
 In case you want to use the core one, you need to re-apply the core configuration for the Teaser block in your project or add-ons.
+
+## Grid included in Volto core
+
+From Volto 17 alpha 16 the Grid block as it's in `volto-blocks-grid` version 7.x.x is now included in Volto core.
+
+The Volto core grid uses the Volto internals default blocks-in-block architecture.
+This differs from the grid block data structure in the add-on `@kitconcept/volto-blocks-grid`.
+Because of this difference, they are not compatible, and a data migration is necessary from the add-on to the Volto grid block.
+
+However, the Volto core grid block uses a different internal name, `gridBlock`, so both blocks can coexist at the same time.
+Nonetheless, it is recommended to enable only one grid block type for your users, and eventually use a single version to avoid unexpected behaviors and bugs.
 
 ## Similar products
 
