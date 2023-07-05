@@ -8,6 +8,13 @@
 
 <!-- towncrier release notes start -->
 
+## 8.0.3 (2023-07-05)
+
+### Bugfix
+
+- Fix schemaextender styling field @sneridagh [#94](https://github.com/kitconcept/volto-export/pull/94)
+
+
 ## 8.0.2 (2023-06-28)
 
 ### Bugfix
