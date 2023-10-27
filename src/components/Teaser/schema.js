@@ -97,7 +97,10 @@ export const TeaserSchema = ({ intl }) => {
     default: 'left',
   };
 
-  schema.properties.styles.schema.fieldsets[0].fields = ['align'];
+  schema.properties.styles.schema.fieldsets[0].fields = [
+    ...schema.properties.styles.schema.fieldsets[0].fields,
+    'align',
+  ];
 
   return schema;
 };
