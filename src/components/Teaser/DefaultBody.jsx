@@ -37,7 +37,7 @@ const TeaserDefaultTemplate = (props) => {
     } else {
       // default img expects string src
       const src = flattenToAppURL(
-        getTeaserImageURL({ href, imageOverride, align }),
+        getTeaserImageURL({ href, image: imageOverride, align }),
       );
       renderedImage = <img src={src} alt="" loading="lazy" />;
     }
