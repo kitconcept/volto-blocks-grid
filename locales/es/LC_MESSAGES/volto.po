@@ -1,0 +1,86 @@
+# Translation of volto.pot to Spanish
+# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2023.
+msgid ""
+msgstr ""
+"Project-Id-Version: Plone\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-10T15:01:33.822Z\n"
+"PO-Revision-Date: 2023-08-21 20:46-0400\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
+"Language: es\n"
+"Language-Team: ES <LL@li.org>\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Preferred-Encodings: utf-8\n"
+"MIME-Version: 1.0\n"
+"Language-Code: es\n"
+"Language-Name: Español\n"
+"Domain: volto\n"
+"X-Is-Fallback-For: es-ar es-bo es-cl es-co es-cr es-do es-ec es-es es-sv es-gt es-hn es-mx es-ni es-pa es-py es-pe es-pr es-us es-uy es-ve\n"
+"X-Generator: Poedit 3.3.2\n"
+
+#: components/Teaser/schema
+# defaultMessage: Alignment
+msgid "Alignment"
+msgstr "Alineación"
+
+#: components/Teaser/schema
+# defaultMessage: Description
+msgid "Description"
+msgstr "Descripción"
+
+#: components/Grid/schema
+# defaultMessage: Headline
+msgid "Headline"
+msgstr "Encabezado"
+
+#: components/Teaser/schema
+# defaultMessage: Image override
+msgid "Image override"
+msgstr "Sobre-escritura de imagen"
+
+#: components/Teaser/schema
+# defaultMessage: Open in a new tab
+msgid "Open in a new tab"
+msgstr "Abrir en una nueva pestaña"
+
+#: components/Teaser/DefaultBody
+# defaultMessage: Please choose an existing content as source for this element
+msgid "Please choose an existing content as source for this element"
+msgstr "Elija un contenido existente como fuente para este elemento"
+
+#: components/Teaser/Data
+# defaultMessage: Reset the block
+msgid "Reset the block"
+msgstr "Restablecer el bloque"
+
+#: components/Teaser/schema
+# defaultMessage: Target
+msgid "Target"
+msgstr "Destino"
+
+#: components/Teaser/schema
+# defaultMessage: Teaser
+msgid "Teaser"
+msgstr "Énfasis"
+
+#: components/Teaser/schema
+# defaultMessage: Title
+msgid "Title"
+msgstr "Título"
+
+#: components/Grid/templates
+# defaultMessage: column
+msgid "column"
+msgstr "columna"
+
+#: components/Grid/templates
+# defaultMessage: columns
+msgid "columns"
+msgstr "columnas"
+
+#: components/Teaser/schema
+# defaultMessage: head title
+msgid "head_title"
+msgstr "Título principal"
